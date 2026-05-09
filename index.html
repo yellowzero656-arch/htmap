@@ -320,7 +320,7 @@
     }
 
     /* Each digit gets a fixed slot — prevents layout shift when digit changes */
-    .cd-num > span {
+    .cd-num>span {
       display: inline-block;
       width: 0.68em;
       text-align: center;
@@ -1448,7 +1448,6 @@
         <li><a href="#news-section">News</a></li>
         <li><a href="#timeline-section">Timeline</a></li>
         <li><a href="#faq-section">FAQ</a></li>
-        <li><a href="#" class="nav-tg">Telegram ↗</a></li>
       </ul>
       <!-- Mobile hamburger -->
       <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
@@ -1461,7 +1460,6 @@
       <a href="#news-section" onclick="closeNav()">News</a>
       <a href="#timeline-section" onclick="closeNav()">Timeline</a>
       <a href="#faq-section" onclick="closeNav()">FAQ</a>
-      <a href="#" class="nav-tg" onclick="closeNav()">Telegram ↗</a>
     </div>
   </nav>
 
@@ -1609,7 +1607,8 @@
           <div class="tl-card">
             <div class="tl-date">2026-05-08</div>
             <div class="tl-title">WHO update: 5 confirmed Andes hantavirus and 8 suspected</div>
-            <div class="tl-desc">WHO updated 13 cluster cases (5 confirmed, 8 suspected). Public risk remains low. UKHSA reported a third British
+            <div class="tl-desc">WHO updated 13 cluster cases (5 confirmed, 8 suspected). Public risk remains low. UKHSA
+              reported a third British
               national with suspected infection. CDC raised travel response to level 3.</div>
             <span class="tl-source">WHO · UKHSA · CDC</span>
           </div>
@@ -1817,7 +1816,9 @@
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
-          <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 5 confirmed cases (60%), above historical averages, likely reflecting the severity of the Andes strain. Early detection and aggressive ICU-level care significantly improve survival outcomes.</div>
+          <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 5
+            confirmed cases (60%), above historical averages, likely reflecting the severity of the Andes strain. Early
+            detection and aggressive ICU-level care significantly improve survival outcomes.</div>
         </div>
         <div class="faq-item" id="fq5">
           <button class="faq-btn" onclick="toggleFaq('fq5')">
