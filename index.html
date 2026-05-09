@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <title>Hantavirus Map - Live 2026 Outbreak Tracker - Cases, Deaths &amp; Global Updates</title>
-  <meta name="description" content="Hantavirus Map is a live 2026 outbreak tracker showing global hantavirus cases, deaths, and affected countries. Track the MV Hondius cruise ship outbreak with real-time data from WHO and CDC." />
+  <meta name="description"
+    content="Hantavirus Map is a live 2026 outbreak tracker showing global hantavirus cases, deaths, and affected countries. Track the MV Hondius cruise ship outbreak with real-time data from WHO and CDC." />
   <link rel="canonical" href="https://hantavirusmap.net/" />
   <meta property="og:title" content="Hantavirus Map 2026 – Live Outbreak Tracker" />
-  <meta property="og:description" content="Track the 2026 hantavirus outbreak with a live global map. Real-time cases, deaths, and country data from WHO and CDC." />
+  <meta property="og:description"
+    content="Track the 2026 hantavirus outbreak with a live global map. Real-time cases, deaths, and country data from WHO and CDC." />
   <meta property="og:url" content="https://hantavirusmap.net/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Hantavirus Map" />
@@ -19,36 +22,48 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
+
     gtag('config', 'G-HK3TV3VV2D');
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ════════════════════════════════════════
        DESIGN TOKENS
     ════════════════════════════════════════ */
     :root {
-      --bg-app:        #09090b;
-      --bg-card:       #18181b;
-      --bg-hover:      #27272a;
-      --fg-primary:    #f4f4f5;
-      --fg-muted:      #a1a1aa;
-      --border:        #27272a;
-      --accent:        #ef4444;
-      --accent-bg:     rgba(239,68,68,0.1);
-      --accent-border: rgba(239,68,68,0.2);
-      --orange:        #f97316;
-      --blue:          #60a5fa;
+      --bg-app: #09090b;
+      --bg-card: #18181b;
+      --bg-hover: #27272a;
+      --fg-primary: #f4f4f5;
+      --fg-muted: #a1a1aa;
+      --border: #27272a;
+      --accent: #ef4444;
+      --accent-bg: rgba(239, 68, 68, 0.1);
+      --accent-border: rgba(239, 68, 68, 0.2);
+      --orange: #f97316;
+      --blue: #60a5fa;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -61,8 +76,14 @@
       overflow-x: hidden;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* MOBILE-FIRST container: 1rem padding on mobile */
     .container {
@@ -72,7 +93,10 @@
       padding: 0 1rem;
     }
 
-    .divider { border: none; border-top: 1px solid var(--border); }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
 
     /* ════════════════════════════════════════
        NAV — mobile-first
@@ -81,7 +105,7 @@
       position: sticky;
       top: 0;
       z-index: 2000;
-      background: rgba(9,9,11,0.96);
+      background: rgba(9, 9, 11, 0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
@@ -109,7 +133,8 @@
     }
 
     .nav-live-dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 8px var(--accent);
@@ -117,7 +142,17 @@
       flex-shrink: 0;
     }
 
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.2
+      }
+    }
 
     /* Desktop nav links — hidden on mobile */
     .nav-links {
@@ -130,7 +165,8 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 8px;          /* bigger tap target */
+      padding: 8px;
+      /* bigger tap target */
       margin-right: -8px;
       min-width: 44px;
       min-height: 44px;
@@ -140,7 +176,8 @@
 
     .hamburger span {
       display: block;
-      width: 20px; height: 1.5px;
+      width: 20px;
+      height: 1.5px;
       background: var(--fg-muted);
       border-radius: 2px;
       transition: background 0.15s;
@@ -150,13 +187,15 @@
     .nav-drawer {
       display: none;
       flex-direction: column;
-      background: rgba(9,9,11,0.98);
+      background: rgba(9, 9, 11, 0.98);
       border-bottom: 1px solid var(--border);
       padding: 0.5rem 1rem 1rem;
       gap: 0.25rem;
     }
 
-    .nav-drawer.open { display: flex; }
+    .nav-drawer.open {
+      display: flex;
+    }
 
     .nav-drawer a {
       display: flex;
@@ -170,8 +209,14 @@
       transition: color 0.15s;
     }
 
-    .nav-drawer a:last-child { border-bottom: none; }
-    .nav-drawer a:hover { color: var(--fg-primary); text-decoration: none; }
+    .nav-drawer a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-drawer a:hover {
+      color: var(--fg-primary);
+      text-decoration: none;
+    }
 
     .nav-drawer .nav-tg {
       color: var(--accent);
@@ -203,7 +248,8 @@
 
     .hero-eyebrow::before {
       content: '';
-      width: 5px; height: 5px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 5px var(--accent);
@@ -213,7 +259,8 @@
 
     .hero-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.9rem;       /* mobile */
+      font-size: 1.9rem;
+      /* mobile */
       font-weight: 900;
       color: var(--fg-primary);
       line-height: 1.08;
@@ -221,7 +268,9 @@
       margin-bottom: 1.5rem;
     }
 
-    .hero-title .accent { color: var(--orange); }
+    .hero-title .accent {
+      color: var(--orange);
+    }
 
     /* ── LED COUNTDOWN (mobile) ── */
     .countdown-block {
@@ -268,7 +317,7 @@
       color: var(--accent);
       line-height: 1;
       letter-spacing: -0.03em;
-      filter: drop-shadow(0 0 8px rgba(239,68,68,0.6)) drop-shadow(0 0 20px rgba(239,68,68,0.25));
+      filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.25));
     }
 
     .cd-sub {
@@ -297,7 +346,8 @@
     /* ── STAT CARDS: 2×2 grid on mobile ── */
     .stats-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;  /* 2 cols on mobile */
+      grid-template-columns: 1fr 1fr;
+      /* 2 cols on mobile */
       gap: 0.75rem;
     }
 
@@ -316,7 +366,9 @@
     .stat-card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: var(--accent);
       box-shadow: 0 0 6px var(--accent);
@@ -324,17 +376,18 @@
 
     .stat-num {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;           /* mobile */
+      font-size: 2rem;
+      /* mobile */
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       margin-bottom: 0.3rem;
-      filter: drop-shadow(0 0 5px rgba(239,68,68,0.4));
+      filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.4));
     }
 
     .stat-num.orange {
       color: var(--orange);
-      filter: drop-shadow(0 0 5px rgba(249,115,22,0.4));
+      filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.4));
     }
 
     .stat-label {
@@ -348,9 +401,14 @@
     /* ════════════════════════════════════════
        SECTION SHARED — mobile-first
     ════════════════════════════════════════ */
-    .section { padding: 2rem 0; }
+    .section {
+      padding: 2rem 0;
+    }
 
-    .section-header { text-align: center; margin-bottom: 1.5rem; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
 
     .section-tag {
       display: inline-flex;
@@ -369,7 +427,8 @@
 
     .section-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.3rem;         /* mobile */
+      font-size: 1.3rem;
+      /* mobile */
       font-weight: 900;
       color: var(--fg-primary);
       letter-spacing: -0.02em;
@@ -446,7 +505,9 @@
       min-height: 80px;
     }
 
-    .panel-placeholder svg { opacity: 0.25; }
+    .panel-placeholder svg {
+      opacity: 0.25;
+    }
 
     .panel-country {
       font-family: 'Orbitron', sans-serif;
@@ -468,11 +529,29 @@
       margin-bottom: 0.75rem;
     }
 
-    .panel-severity.high   { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
-    .panel-severity.medium { background: rgba(249,115,22,0.1); color: var(--orange); border: 1px solid rgba(249,115,22,0.25); }
-    .panel-severity.low    { background: rgba(161,161,170,0.1); color: var(--fg-muted); border: 1px solid rgba(161,161,170,0.2); }
+    .panel-severity.high {
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
 
-    .panel-stats-row { display: flex; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .panel-severity.medium {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--orange);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+    }
+
+    .panel-severity.low {
+      background: rgba(161, 161, 170, 0.1);
+      color: var(--fg-muted);
+      border: 1px solid rgba(161, 161, 170, 0.2);
+    }
+
+    .panel-stats-row {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
 
     .panel-stat {
       flex: 1;
@@ -483,12 +562,50 @@
       text-align: center;
     }
 
-    .panel-stat-num { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.15rem; }
-    .panel-stat-lbl { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+    .panel-stat-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.15rem;
+    }
 
-    .panel-desc { font-size: 0.75rem; color: var(--fg-muted); line-height: 1.55; margin-bottom: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.6rem; }
-    .panel-update { font-size: 0.7rem; color: var(--fg-muted); background: var(--bg-app); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.65rem; margin-bottom: 0.4rem; line-height: 1.5; }
-    .panel-source { font-size: 0.62rem; color: var(--fg-muted); margin-top: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.5rem; }
+    .panel-stat-lbl {
+      font-size: 0.52rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .panel-desc {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+      line-height: 1.55;
+      margin-bottom: 0.6rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.6rem;
+    }
+
+    .panel-update {
+      font-size: 0.7rem;
+      color: var(--fg-muted);
+      background: var(--bg-app);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.65rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .panel-source {
+      font-size: 0.62rem;
+      color: var(--fg-muted);
+      margin-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+    }
 
     /* Legend: below unified card */
     .map-legend {
@@ -499,8 +616,20 @@
       padding: 0 0.25rem;
     }
 
-    .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--fg-muted); }
-    .legend-dot  { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--fg-muted);
+    }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
     /* ════════════════════════════════════════
        NEWS — mobile-first (1 col)
@@ -522,9 +651,16 @@
     }
 
     /* Use active: instead of hover: for iOS */
-    .news-card:active { background: var(--bg-hover); }
+    .news-card:active {
+      background: var(--bg-hover);
+    }
 
-    .news-card-top { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
+    .news-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
 
     .badge {
       font-size: 0.58rem;
@@ -535,15 +671,49 @@
       border-radius: 20px;
     }
 
-    .badge-official { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
-    .badge-update   { background: rgba(249,115,22,0.1); color: var(--orange); border: 1px solid rgba(249,115,22,0.25); }
-    .badge-guidance { background: rgba(96,165,250,0.1); color: var(--blue); border: 1px solid rgba(96,165,250,0.2); }
+    .badge-official {
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
 
-    .news-date     { font-size: 0.68rem; color: var(--fg-muted); font-family: 'JetBrains Mono', monospace; }
-    .news-headline { font-size: 0.88rem; font-weight: 600; color: var(--fg-primary); line-height: 1.4; }
-    .news-source   { font-size: 0.7rem; color: var(--fg-muted); margin-top: 0.2rem; padding-top: 0.4rem; border-top: 1px solid var(--border); }
+    .badge-update {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--orange);
+      border: 1px solid rgba(249, 115, 22, 0.25);
+    }
 
-    .load-more-wrap { text-align: center; margin-top: 1rem; }
+    .badge-guidance {
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--blue);
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+
+    .news-date {
+      font-size: 0.68rem;
+      color: var(--fg-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .news-headline {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--fg-primary);
+      line-height: 1.4;
+    }
+
+    .news-source {
+      font-size: 0.7rem;
+      color: var(--fg-muted);
+      margin-top: 0.2rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .load-more-wrap {
+      text-align: center;
+      margin-top: 1rem;
+    }
 
     .load-more-btn {
       background: var(--bg-card);
@@ -561,7 +731,10 @@
       width: 100%;
     }
 
-    .load-more-btn:active { background: var(--bg-hover); color: var(--fg-primary); }
+    .load-more-btn:active {
+      background: var(--bg-hover);
+      color: var(--fg-primary);
+    }
 
     /* ════════════════════════════════════════
        TIMELINE — mobile-first
@@ -575,19 +748,25 @@
     .timeline-list::before {
       content: '';
       position: absolute;
-      left: 0; top: 10px; bottom: 10px;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
       width: 2px;
       background: var(--border);
     }
 
-    .tl-item { position: relative; margin-bottom: 1rem; }
+    .tl-item {
+      position: relative;
+      margin-bottom: 1rem;
+    }
 
     /* Dot on the track */
     .tl-dot {
       position: absolute;
       left: -1.25rem;
       top: 1rem;
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--border);
       transform: translateX(calc(-50% + 1px));
@@ -595,7 +774,7 @@
 
     .tl-dot.active {
       background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
     }
 
     .tl-dot.active::after {
@@ -609,8 +788,15 @@
     }
 
     @keyframes ring-pulse {
-      0%   { transform: scale(0.5); opacity: 0.9; }
-      100% { transform: scale(1.8); opacity: 0; }
+      0% {
+        transform: scale(0.5);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
     }
 
     .tl-card {
@@ -620,9 +806,29 @@
       padding: 0.85rem 1rem;
     }
 
-    .tl-date  { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-    .tl-title { font-size: 0.85rem; font-weight: 700; color: var(--fg-primary); margin-bottom: 0.25rem; line-height: 1.35; }
-    .tl-desc  { font-size: 0.78rem; color: var(--fg-muted); line-height: 1.55; margin-bottom: 0.45rem; }
+    .tl-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .tl-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      margin-bottom: 0.25rem;
+      line-height: 1.35;
+    }
+
+    .tl-desc {
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      line-height: 1.55;
+      margin-bottom: 0.45rem;
+    }
 
     .tl-source {
       display: inline-block;
@@ -653,11 +859,27 @@
       padding: 1rem;
     }
 
-    .fact-card:active { background: var(--bg-hover); }
+    .fact-card:active {
+      background: var(--bg-hover);
+    }
 
-    .fact-icon  { font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .fact-title { font-size: 0.82rem; font-weight: 700; color: var(--fg-primary); margin-bottom: 0.3rem; }
-    .fact-text  { font-size: 0.78rem; color: var(--fg-muted); line-height: 1.6; }
+    .fact-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fact-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .fact-text {
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
 
     /* ════════════════════════════════════════
        FAQ — touch-first accordion
@@ -668,8 +890,13 @@
       overflow: hidden;
     }
 
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
 
     .faq-btn {
       width: 100%;
@@ -691,16 +918,21 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .faq-btn:active { background: var(--bg-hover); }
+    .faq-btn:active {
+      background: var(--bg-hover);
+    }
 
     .faq-chevron {
-      width: 18px; height: 18px;
+      width: 18px;
+      height: 18px;
       flex-shrink: 0;
       color: var(--fg-muted);
       transition: transform 0.2s ease;
     }
 
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
 
     .faq-body {
       display: none;
@@ -711,7 +943,9 @@
       background: var(--bg-card);
     }
 
-    .faq-item.open .faq-body { display: block; }
+    .faq-item.open .faq-body {
+      display: block;
+    }
 
     /* ════════════════════════════════════════
        ABOUT SEO BLOCK
@@ -723,9 +957,23 @@
       padding: 1.25rem 1rem;
     }
 
-    .about-h3 { font-size: 0.9rem; font-weight: 700; color: var(--fg-primary); margin-bottom: 0.4rem; margin-top: 1.25rem; }
-    .about-h3:first-child { margin-top: 0; }
-    .about-p  { font-size: 0.82rem; color: var(--fg-muted); line-height: 1.7; }
+    .about-h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--fg-primary);
+      margin-bottom: 0.4rem;
+      margin-top: 1.25rem;
+    }
+
+    .about-h3:first-child {
+      margin-top: 0;
+    }
+
+    .about-p {
+      font-size: 0.82rem;
+      color: var(--fg-muted);
+      line-height: 1.7;
+    }
 
     /* ════════════════════════════════════════
        OFFICIAL SOURCES (pills)
@@ -749,7 +997,10 @@
       white-space: nowrap;
     }
 
-    .source-pill:active { background: var(--bg-hover); color: var(--fg-primary); }
+    .source-pill:active {
+      background: var(--bg-hover);
+      color: var(--fg-primary);
+    }
 
     /* ════════════════════════════════════════
        AD SLOT
@@ -794,9 +1045,22 @@
       flex-wrap: wrap;
     }
 
-    .footer-links a { font-size: 0.75rem; color: var(--fg-muted); }
-    .footer-links a:active { color: var(--fg-primary); }
-    .footer-disclaimer { font-size: 0.7rem; color: var(--fg-muted); max-width: 680px; margin: 0 auto; line-height: 1.65; }
+    .footer-links a {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+    }
+
+    .footer-links a:active {
+      color: var(--fg-primary);
+    }
+
+    .footer-disclaimer {
+      font-size: 0.7rem;
+      color: var(--fg-muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
 
     /* ════════════════════════════════════════
        LEAFLET CUSTOM
@@ -806,47 +1070,137 @@
       border: 1px solid #27272a !important;
       color: #f4f4f5 !important;
       border-radius: 10px !important;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.7) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7) !important;
     }
-    .leaflet-popup-tip { background: #18181b !important; }
-    .leaflet-popup-close-button { color: #a1a1aa !important; top: 8px !important; right: 10px !important; font-size: 1rem !important; }
-    .lf-popup-name   { font-weight: 700; font-size: 0.9rem; color: #f4f4f5; margin-bottom: 0.2rem; }
-    .lf-popup-status { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #ef4444; margin-bottom: 0.3rem; }
-    .lf-popup-status.orange { color: #f97316; }
-    .lf-popup-status.gray   { color: #a1a1aa; }
-    .lf-popup-detail { font-size: 0.78rem; color: #a1a1aa; line-height: 1.45; }
+
+    .leaflet-popup-tip {
+      background: #18181b !important;
+    }
+
+    .leaflet-popup-close-button {
+      color: #a1a1aa !important;
+      top: 8px !important;
+      right: 10px !important;
+      font-size: 1rem !important;
+    }
+
+    .lf-popup-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f4f4f5;
+      margin-bottom: 0.2rem;
+    }
+
+    .lf-popup-status {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #ef4444;
+      margin-bottom: 0.3rem;
+    }
+
+    .lf-popup-status.orange {
+      color: #f97316;
+    }
+
+    .lf-popup-status.gray {
+      color: #a1a1aa;
+    }
+
+    .lf-popup-detail {
+      font-size: 0.78rem;
+      color: #a1a1aa;
+      line-height: 1.45;
+    }
 
     /* Pulse marker */
-    .pm-wrap  { position: relative; }
-    .pm-inner { border-radius: 50%; position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
-    .pm-ring  { border-radius: 50%; position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); opacity:0; animation: ring-anim 2.5s ease-out infinite; }
+    .pm-wrap {
+      position: relative;
+    }
+
+    .pm-inner {
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .pm-ring {
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: ring-anim 2.5s ease-out infinite;
+    }
+
     @keyframes ring-anim {
-      0%   { transform:translate(-50%,-50%) scale(0.5); opacity:0.85; }
-      100% { transform:translate(-50%,-50%) scale(2.4); opacity:0; }
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.85;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(2.4);
+        opacity: 0;
+      }
     }
 
     /* Leaflet zoom controls — keep above iOS bottom bar */
-    .leaflet-control-zoom { margin-bottom: 12px !important; }
+    .leaflet-control-zoom {
+      margin-bottom: 12px !important;
+    }
 
     /* ════════════════════════════════════════
        TABLET 640px+
     ════════════════════════════════════════ */
     @media (min-width: 640px) {
-      .container { padding: 0 1.25rem; }
-      .hero-title { font-size: 2.5rem; }
-      .section-title { font-size: 1.6rem; }
-      .stats-row { grid-template-columns: repeat(4, 1fr); }
-      .stat-num { font-size: 2.2rem; }
-      .facts-grid { grid-template-columns: 1fr 1fr; }
-      .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-      .load-more-btn { width: auto; min-width: 200px; }
+      .container {
+        padding: 0 1.25rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .stat-num {
+        font-size: 2.2rem;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .load-more-btn {
+        width: auto;
+        min-width: 200px;
+      }
     }
 
     /* ════════════════════════════════════════
        DESKTOP 1024px+
     ════════════════════════════════════════ */
     @media (min-width: 1024px) {
-      .container { padding: 0 1.5rem; }
+      .container {
+        padding: 0 1.5rem;
+      }
 
       /* Nav: show links, hide hamburger + drawer */
       .nav-links {
@@ -865,7 +1219,11 @@
         transition: color 0.15s, background 0.15s;
       }
 
-      .nav-links a:hover { color: var(--fg-primary); background: var(--bg-hover); text-decoration: none; }
+      .nav-links a:hover {
+        color: var(--fg-primary);
+        background: var(--bg-hover);
+        text-decoration: none;
+      }
 
       .nav-links .nav-tg {
         color: var(--fg-primary);
@@ -876,23 +1234,61 @@
         font-size: 0.75rem;
       }
 
-      .hamburger { display: none; }
-      .nav-drawer { display: none !important; }
+      .hamburger {
+        display: none;
+      }
+
+      .nav-drawer {
+        display: none !important;
+      }
 
       /* Hero */
-      .hero { padding: 4rem 0 2rem; }
-      .hero-title { font-size: 3.8rem; }
-      .countdown-block { width: auto; display: inline-flex; padding: 1.2rem 1.5rem; }
-      .cd-num { font-size: 4.5rem; }
-      .cd-sep { font-size: 4rem; }
-      .stats-row { gap: 1rem; }
-      .stat-num { font-size: 2.5rem; }
-      .stat-label { font-size: 0.65rem; }
+      .hero {
+        padding: 4rem 0 2rem;
+      }
+
+      .hero-title {
+        font-size: 3.8rem;
+      }
+
+      .countdown-block {
+        width: auto;
+        display: inline-flex;
+        padding: 1.2rem 1.5rem;
+      }
+
+      .cd-num {
+        font-size: 4.5rem;
+      }
+
+      .cd-sep {
+        font-size: 4rem;
+      }
+
+      .stats-row {
+        gap: 1rem;
+      }
+
+      .stat-num {
+        font-size: 2.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.65rem;
+      }
 
       /* Sections */
-      .section { padding: 4rem 0; }
-      .section-header { margin-bottom: 2.5rem; }
-      .section-title { font-size: 2rem; }
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
 
       /* Map: side-by-side layout */
       .map-unified {
@@ -920,660 +1316,836 @@
         max-height: 520px;
       }
 
-      .map-panel-header { padding: 1rem 1.2rem; }
-      .map-panel-body   { padding: 1.2rem; }
+      .map-panel-header {
+        padding: 1rem 1.2rem;
+      }
+
+      .map-panel-body {
+        padding: 1.2rem;
+      }
 
       /* News: 3-column */
-      .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-      .news-card { padding: 1.2rem; }
-      .news-card:hover { background: var(--bg-hover); border-color: #3f3f46; }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      .news-card {
+        padding: 1.2rem;
+      }
+
+      .news-card:hover {
+        background: var(--bg-hover);
+        border-color: #3f3f46;
+      }
 
       /* Facts: 4-column */
-      .facts-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-      .fact-card { padding: 1.2rem; }
-      .fact-card:hover { background: var(--bg-hover); }
+      .facts-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+
+      .fact-card {
+        padding: 1.2rem;
+      }
+
+      .fact-card:hover {
+        background: var(--bg-hover);
+      }
 
       /* FAQ */
-      .faq-btn { padding: 1rem 1.2rem; font-size: 0.9rem; }
-      .faq-btn:hover { background: var(--bg-hover); }
-      .faq-body { padding: 0 1.2rem 1rem; font-size: 0.85rem; }
+      .faq-btn {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .faq-btn:hover {
+        background: var(--bg-hover);
+      }
+
+      .faq-body {
+        padding: 0 1.2rem 1rem;
+        font-size: 0.85rem;
+      }
 
       /* Timeline */
-      .timeline-list { padding-left: 1.5rem; }
-      .tl-dot { left: -1.5rem; }
-      .tl-card { padding: 1rem 1.2rem; }
-      .tl-date  { font-size: 0.75rem; }
-      .tl-title { font-size: 0.9rem; }
-      .tl-desc  { font-size: 0.82rem; }
+      .timeline-list {
+        padding-left: 1.5rem;
+      }
+
+      .tl-dot {
+        left: -1.5rem;
+      }
+
+      .tl-card {
+        padding: 1rem 1.2rem;
+      }
+
+      .tl-date {
+        font-size: 0.75rem;
+      }
+
+      .tl-title {
+        font-size: 0.9rem;
+      }
+
+      .tl-desc {
+        font-size: 0.82rem;
+      }
 
       /* About */
-      .about-card { padding: 1.5rem 2rem; }
-      .about-h3   { font-size: 1rem; }
-      .about-p    { font-size: 0.875rem; }
+      .about-card {
+        padding: 1.5rem 2rem;
+      }
+
+      .about-h3 {
+        font-size: 1rem;
+      }
+
+      .about-p {
+        font-size: 0.875rem;
+      }
 
       /* Load more */
-      .load-more-btn { width: auto; min-width: 180px; }
-      .load-more-btn:hover { background: var(--bg-hover); color: var(--fg-primary); }
+      .load-more-btn {
+        width: auto;
+        min-width: 180px;
+      }
+
+      .load-more-btn:hover {
+        background: var(--bg-hover);
+        color: var(--fg-primary);
+      }
 
       /* Ad */
-      .ad-slot { min-height: 90px; }
+      .ad-slot {
+        min-height: 90px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ════════════════ NAV ════════════════ -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <div class="nav-live-dot"></div>
-      HANTAVIRUS MAP
+  <!-- ════════════════ NAV ════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </div>
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li><a href="#map-section">Map</a></li>
+        <li><a href="#news-section">News</a></li>
+        <li><a href="#timeline-section">Timeline</a></li>
+        <li><a href="#faq-section">FAQ</a></li>
+        <li><a href="#" class="nav-tg">Telegram ↗</a></li>
+      </ul>
+      <!-- Mobile hamburger -->
+      <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <!-- Desktop links -->
-    <ul class="nav-links">
-      <li><a href="#map-section">Map</a></li>
-      <li><a href="#news-section">News</a></li>
-      <li><a href="#timeline-section">Timeline</a></li>
-      <li><a href="#faq-section">FAQ</a></li>
-      <li><a href="#" class="nav-tg">Telegram ↗</a></li>
-    </ul>
-    <!-- Mobile hamburger -->
-    <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <!-- Mobile drawer -->
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#map-section" onclick="closeNav()">Map</a>
+      <a href="#news-section" onclick="closeNav()">News</a>
+      <a href="#timeline-section" onclick="closeNav()">Timeline</a>
+      <a href="#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="#" class="nav-tg" onclick="closeNav()">Telegram ↗</a>
     </div>
-  </div>
-  <!-- Mobile drawer -->
-  <div class="nav-drawer" id="navDrawer">
-    <a href="#map-section"      onclick="closeNav()">Map</a>
-    <a href="#news-section"     onclick="closeNav()">News</a>
-    <a href="#timeline-section" onclick="closeNav()">Timeline</a>
-    <a href="#faq-section"      onclick="closeNav()">FAQ</a>
-    <a href="#" class="nav-tg"  onclick="closeNav()">Telegram ↗</a>
-  </div>
-</nav>
+  </nav>
 
-<!-- ════════════════ HERO ════════════════ -->
-<div class="hero" id="top">
+  <!-- ════════════════ HERO ════════════════ -->
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow">Live Outbreak Tracker · WHO Risk: LOW</div>
+
+      <h1 class="hero-title">2026 Hantavirus<br><span class="accent">Outbreak</span></h1>
+
+      <!-- LED COUNTDOWN -->
+      <div class="countdown-block">
+        <div class="countdown-label">Since First Symptom Onset — Apr 28, 2026</div>
+        <div class="countdown-display">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d">00</span>
+            <span class="cd-sub">Days</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h">00</span>
+            <span class="cd-sub">Hrs</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m">00</span>
+            <span class="cd-sub">Min</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s">00</span>
+            <span class="cd-sub">Sec</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAT CARDS: 2×2 on mobile, 4×1 on desktop -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Total Cases</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Deaths</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange">13</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange">3</div>
+          <div class="stat-label">Suspected</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD TOP -->
   <div class="container">
-    <div class="hero-eyebrow">Live Outbreak Tracker · WHO Risk: LOW</div>
-
-    <h1 class="hero-title">2026 Hantavirus<br><span class="accent">Outbreak</span></h1>
-
-    <!-- LED COUNTDOWN -->
-    <div class="countdown-block">
-      <div class="countdown-label">Since First Symptom Onset — Apr 28, 2026</div>
-      <div class="countdown-display">
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-d">00</span>
-          <span class="cd-sub">Days</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-h">00</span>
-          <span class="cd-sub">Hrs</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-m">00</span>
-          <span class="cd-sub">Min</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-s">00</span>
-          <span class="cd-sub">Sec</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STAT CARDS: 2×2 on mobile, 4×1 on desktop -->
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-num">8</div>
-        <div class="stat-label">Total Cases</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Deaths</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num orange">13</div>
-        <div class="stat-label">Countries</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num orange">3</div>
-        <div class="stat-label">Suspected</div>
-      </div>
-    </div>
+    <div class="ad-slot" id="ad-top">Advertisement</div>
   </div>
-</div>
 
-<!-- AD TOP -->
-<div class="container"><div class="ad-slot" id="ad-top">Advertisement</div></div>
+  <!-- ════════════════ MAP ════════════════ -->
+  <section class="section" id="map-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Map</div>
+        <h2 class="section-title">2026 Case Map</h2>
+        <p class="section-sub">One map highlighting countries and territories with confirmed or suspected cases. Tap a
+          marker to view country details.</p>
+      </div>
 
-<!-- ════════════════ MAP ════════════════ -->
-<section class="section" id="map-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Interactive Map</div>
-      <h2 class="section-title">2026 Case Map</h2>
-      <p class="section-sub">One map highlighting countries and territories with confirmed or suspected cases. Tap a marker to view country details.</p>
+      <!-- Unified card on mobile / grid on desktop -->
+      <div class="map-unified">
+        <div id="map"></div>
+        <div class="map-panel">
+          <div class="map-panel-header">Country Details</div>
+          <div class="map-panel-body" id="mapPanel">
+            <div class="panel-placeholder">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Tap a marker to open the Case File</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend below the unified card -->
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> High Severity
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Medium Severity
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#71717a;"></div> Monitoring
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#3f3f46;"></div> No 2026 Case
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Unified card on mobile / grid on desktop -->
-    <div class="map-unified">
-      <div id="map"></div>
-      <div class="map-panel">
-        <div class="map-panel-header">Country Details</div>
-        <div class="map-panel-body" id="mapPanel">
-          <div class="panel-placeholder">
-            <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span>Tap a marker to open the Case File</span>
+  <hr class="divider" />
+
+  <!-- ════════════════ NEWS ════════════════ -->
+  <section class="section" id="news-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Newest First</div>
+        <h2 class="section-title">Latest Outbreak News</h2>
+        <p class="section-sub">Breaking coverage from WHO, CDC, UKHSA and international news organizations.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid">
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 8,
+              2026</span></div>
+          <div class="news-headline">17 Americans Among Passengers to Quarantine in Nebraska for Hantavirus</div>
+          <div class="news-source">NBC News</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 7,
+              2026</span></div>
+          <div class="news-headline">Hantavirus Cluster Linked to Cruise Ship Travel, Multi-country — WHO</div>
+          <div class="news-source">World Health Organization</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 7,
+              2026</span></div>
+          <div class="news-headline">CDC Provides Update on Hantavirus Outbreak Linked to M/V Hondius Cruise Ship</div>
+          <div class="news-source">CDC</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 6,
+              2026</span></div>
+          <div class="news-headline">U.S. Sends Plane with CDC Staff to Retrieve Passengers from Cruise Ship</div>
+          <div class="news-source">CBS News</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 7,
+              2026</span></div>
+          <div class="news-headline">Spain Readies for Evacuations as Hantavirus-Hit Cruise Ship Heads for Canary
+            Islands</div>
+          <div class="news-source">AP News</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-guidance">Guidance</span><span class="news-date">May 6,
+              2026</span></div>
+          <div class="news-headline">What to Know About the Hantavirus Outbreak on an Atlantic Cruise Ship</div>
+          <div class="news-source">New York Times</div>
+        </div>
+      </div>
+
+      <div class="news-grid" id="newsGridExtra" style="display:none;margin-top:0.75rem;">
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 9,
+              2026</span></div>
+          <div class="news-headline">Hantavirus Cruise Ship Expected to Arrive in Canary Islands, Sparking Local
+            Protests</div>
+          <div class="news-source">CBS News</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-guidance">Guidance</span><span class="news-date">May 8,
+              2026</span></div>
+          <div class="news-headline">Hantavirus Outbreak Toolkit — Centers for Disease Control and Prevention</div>
+          <div class="news-source">CDC</div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 8,
+              2026</span></div>
+          <div class="news-headline">Hantavirus: Current Situation — Centers for Disease Control and Prevention</div>
+          <div class="news-source">CDC</div>
+        </div>
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Load more news</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ TIMELINE ════════════════ -->
+  <section class="section" id="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cruise-linked · Newest First</div>
+        <h2 class="section-title">2026 Timeline</h2>
+        <p class="section-sub">Chronological record sourced from WHO Disease Outbreak News and official health agencies.
+        </p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-08</div>
+            <div class="tl-title">WHO update: 5 confirmed Andes hantavirus and 3 suspected</div>
+            <div class="tl-desc">WHO updated 8 cluster cases. Public risk remains low. UKHSA reported a third British
+              national with suspected infection. CDC raised travel response to level 3.</div>
+            <span class="tl-source">WHO · UKHSA · CDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-07</div>
+            <div class="tl-title">Three patients evacuated and ship sails for Spain</div>
+            <div class="tl-desc">Three sick passengers were evacuated for treatment. Ship continued north toward the
+              Canary Islands while contact tracing expanded across 13 countries.</div>
+            <span class="tl-source">AP News · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-06</div>
+            <div class="tl-title">International evacuation and monitoring reports</div>
+            <div class="tl-desc">Wire services reported continuing evacuations and additional returned passenger symptom
+              monitoring in Europe. US sent CDC staff by plane to assist.</div>
+            <span class="tl-source">Reuters · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-04</div>
+            <div class="tl-title">WHO public outbreak update — risk assessed LOW</div>
+            <div class="tl-desc">WHO reported 7 cases: 2 confirmed, 5 suspected, 3 deaths, 1 critical patient, and 3
+              mild cases while ship was moored off Cabo Verde.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-02</div>
+            <div class="tl-title">WHO receives notification from UK focal point</div>
+            <div class="tl-desc">The United Kingdom focal point notified WHO of a severe acute respiratory illness
+              cluster aboard the cruise ship.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-30</div>
+            <div class="tl-title">ICU patient evacuated to South Africa</div>
+            <div class="tl-desc">Case 3 was medically evacuated from Ascension to South Africa and later confirmed
+              PCR-positive for hantavirus while in ICU.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-28</div>
+            <div class="tl-title">Confirmed fatal case reaches South Africa</div>
+            <div class="tl-desc">Case 2 deteriorated in transit to Johannesburg and died on arrival. WHO later confirmed
+              PCR-positive hantavirus result.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-24</div>
+            <div class="tl-title">Shore excursion at St. Helena — suspected exposure</div>
+            <div class="tl-desc">Passengers disembarked for a bird-watching excursion. Contact with rodent-infested
+              environments is identified as the probable hantavirus exposure event for the entire cluster.</div>
+            <span class="tl-source">WHO DON#99 · Reuters</span>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Legend below the unified card -->
-    <div class="map-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> High Severity</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Medium Severity</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#71717a;"></div> Monitoring</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#3f3f46;"></div> No 2026 Case</div>
+  <hr class="divider" />
+
+  <!-- ════════════════ PUBLIC HEALTH FACTS ════════════════ -->
+  <section class="section" id="facts-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Medical Reference</div>
+        <h2 class="section-title">Public Health Facts</h2>
+        <p class="section-sub">Evidence-based information about hantavirus — transmission, symptoms, and prevention.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">🦠</div>
+          <div class="fact-title">What Hantaviruses Are</div>
+          <div class="fact-text">Hantaviruses are rodent-borne zoonotic viruses. Only some species cause human disease.
+            The Andes virus — found in South America — is the strain suspected in the 2026 MV Hondius outbreak.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌬️</div>
+          <div class="fact-title">Main Route of Infection</div>
+          <div class="fact-text">People are primarily infected by inhaling aerosols from infected rodent droppings,
+            urine, or saliva. Touching contaminated surfaces then touching eyes, nose, or mouth can also transmit the
+            virus.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">👥</div>
+          <div class="fact-title">Human-to-Human Transmission</div>
+          <div class="fact-text">WHO and CDC state documented human-to-human transmission is limited to the Andes virus
+            strain in the Americas. This is the primary reason WHO assessed global risk as LOW.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🫁</div>
+          <div class="fact-title">Clinical Syndromes</div>
+          <div class="fact-text">In the Americas: Hantavirus Cardiopulmonary Syndrome (HCPS). In Europe and Asia:
+            Hemorrhagic Fever with Renal Syndrome (HFRS). Both can be life-threatening without ICU care.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">⏱️</div>
+          <div class="fact-title">Incubation Window</div>
+          <div class="fact-text">Symptoms begin one to eight weeks after exposure. HPS symptoms appear two to four weeks
+            after exposure. The wide window makes early identification difficult in outbreak clusters.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">💊</div>
+          <div class="fact-title">Treatment</div>
+          <div class="fact-text">No licensed antiviral for hantavirus exists. Early supportive care and ICU-level
+            management significantly improve survival. Seek immediate care if symptomatic after potential exposure.
+          </div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🏠</div>
+          <div class="fact-title">Prevention</div>
+          <div class="fact-text">Seal buildings against rodents. Always use wet cleaning — never dry sweep. Ventilate
+            for 30 min before entering rodent areas. Wear gloves and N95 respirator when cleaning droppings.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌍</div>
+          <div class="fact-title">Global Burden</div>
+          <div class="fact-text">WHO estimates 10,000–100,000+ hantavirus infections annually. Greatest burden in Asia
+            and Europe (HFRS). The Americas report HPS cases yearly. South America has the highest mortality rate.</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr class="divider" />
-
-<!-- ════════════════ NEWS ════════════════ -->
-<section class="section" id="news-section">
+  <!-- AD MIDDLE -->
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Newest First</div>
-      <h2 class="section-title">Latest Outbreak News</h2>
-      <p class="section-sub">Breaking coverage from WHO, CDC, UKHSA and international news organizations.</p>
-    </div>
-
-    <div class="news-grid" id="newsGrid">
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 8, 2026</span></div>
-        <div class="news-headline">17 Americans Among Passengers to Quarantine in Nebraska for Hantavirus</div>
-        <div class="news-source">NBC News</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 7, 2026</span></div>
-        <div class="news-headline">Hantavirus Cluster Linked to Cruise Ship Travel, Multi-country — WHO</div>
-        <div class="news-source">World Health Organization</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 7, 2026</span></div>
-        <div class="news-headline">CDC Provides Update on Hantavirus Outbreak Linked to M/V Hondius Cruise Ship</div>
-        <div class="news-source">CDC</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 6, 2026</span></div>
-        <div class="news-headline">U.S. Sends Plane with CDC Staff to Retrieve Passengers from Cruise Ship</div>
-        <div class="news-source">CBS News</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 7, 2026</span></div>
-        <div class="news-headline">Spain Readies for Evacuations as Hantavirus-Hit Cruise Ship Heads for Canary Islands</div>
-        <div class="news-source">AP News</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-guidance">Guidance</span><span class="news-date">May 6, 2026</span></div>
-        <div class="news-headline">What to Know About the Hantavirus Outbreak on an Atlantic Cruise Ship</div>
-        <div class="news-source">New York Times</div>
-      </div>
-    </div>
-
-    <div class="news-grid" id="newsGridExtra" style="display:none;margin-top:0.75rem;">
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-update">Update</span><span class="news-date">May 9, 2026</span></div>
-        <div class="news-headline">Hantavirus Cruise Ship Expected to Arrive in Canary Islands, Sparking Local Protests</div>
-        <div class="news-source">CBS News</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-guidance">Guidance</span><span class="news-date">May 8, 2026</span></div>
-        <div class="news-headline">Hantavirus Outbreak Toolkit — Centers for Disease Control and Prevention</div>
-        <div class="news-source">CDC</div>
-      </div>
-      <div class="news-card">
-        <div class="news-card-top"><span class="badge badge-official">Official</span><span class="news-date">May 8, 2026</span></div>
-        <div class="news-headline">Hantavirus: Current Situation — Centers for Disease Control and Prevention</div>
-        <div class="news-source">CDC</div>
-      </div>
-    </div>
-
-    <div class="load-more-wrap">
-      <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Load more news</button>
-    </div>
+    <div class="ad-slot" id="ad-middle">Advertisement</div>
   </div>
-</section>
 
-<hr class="divider" />
+  <!-- ════════════════ FAQ ════════════════ -->
+  <section class="section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Common questions about hantavirus transmission, symptoms, and the 2026 MV Hondius
+          outbreak.</p>
+      </div>
 
-<!-- ════════════════ TIMELINE ════════════════ -->
-<section class="section" id="timeline-section">
+      <div class="faq-list">
+        <div class="faq-item" id="fq1">
+          <button class="faq-btn" onclick="toggleFaq('fq1')">
+            <span>Is hantavirus airborne between people?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Most hantavirus strains do not spread between people. The Andes virus — suspected in the
+            2026 outbreak — is the only known hantavirus with documented limited human-to-human transmission. WHO has
+            assessed global public health risk as LOW. Community transmission risk for the general public remains
+            minimal.</div>
+        </div>
+        <div class="faq-item" id="fq2">
+          <button class="faq-btn" onclick="toggleFaq('fq2')">
+            <span>What are the first symptoms of hantavirus?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Early symptoms: fever (above 38.5°C), severe muscle aches in thighs, hips, and back,
+            intense fatigue, and headache. Nausea, vomiting, and diarrhea may also occur. These last 4–10 days before
+            potentially progressing to respiratory difficulty. If you were on the MV Hondius and develop symptoms, seek
+            immediate medical attention.</div>
+        </div>
+        <div class="faq-item" id="fq3">
+          <button class="faq-btn" onclick="toggleFaq('fq3')">
+            <span>When does breathing trouble appear?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Respiratory difficulty — the hallmark of HPS — typically begins 4–10 days after the
+            initial flu-like phase. Onset can be rapid and life-threatening, often requiring mechanical ventilation
+            within hours. If you have been potentially exposed and experience shortness of breath, call emergency
+            services immediately.</div>
+        </div>
+        <div class="faq-item" id="fq4">
+          <button class="faq-btn" onclick="toggleFaq('fq4')">
+            <span>How deadly is hantavirus?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 8
+            cases (37.5%), consistent with historical rates. However, early detection and aggressive ICU-level care
+            significantly improve survival outcomes.</div>
+        </div>
+        <div class="faq-item" id="fq5">
+          <button class="faq-btn" onclick="toggleFaq('fq5')">
+            <span>Is there a vaccine or cure?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">No approved hantavirus vaccine exists in Western countries as of 2026. Treatment is
+            supportive: ICU care, supplemental oxygen, and in severe cases mechanical ventilation or ECMO. Prevention
+            through rodent control and avoiding exposure remains the most critical strategy.</div>
+        </div>
+        <div class="faq-item" id="fq6">
+          <button class="faq-btn" onclick="toggleFaq('fq6')">
+            <span>How do I clean a rodent-contaminated area safely?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">CDC recommends: (1) ventilate 30 min before entry; (2) wear rubber gloves + N95
+            respirator; (3) spray droppings with 10% bleach solution, let sit 5 min; (4) wipe up — never dry sweep or
+            vacuum; (5) double-bag all waste; (6) disinfect gloves, then wash hands. Inhalation of aerosolized particles
+            is the primary transmission route.</div>
+        </div>
+        <div class="faq-item" id="fq7">
+          <button class="faq-btn" onclick="toggleFaq('fq7')">
+            <span>Should travelers be worried?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">WHO assessed global risk as LOW. The outbreak is contained to MV Hondius passengers and
+            close contacts. General travelers are not at elevated risk. However, anyone who did outdoor activities in
+            rural South America — especially wildlife excursions — should monitor for hantavirus symptoms.</div>
+        </div>
+        <div class="faq-item" id="fq8">
+          <button class="faq-btn" onclick="toggleFaq('fq8')">
+            <span>Why do map numbers differ by country?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Countries apply different case definitions — some report only PCR-confirmed cases,
+            others include suspected cases. This hantavirus map distinguishes confirmed (red), suspected (orange), and
+            monitoring (gray) status per country based on official WHO, ECDC, CDC, and national health authority reports
+            as of May 9, 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ ABOUT (SEO) ════════════════ -->
+  <section class="section" id="about-section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <div class="section-tag">Medical Reference</div>
+        <h2 class="section-title">What Is Hantavirus?</h2>
+        <p class="section-sub">Symptoms, transmission &amp; prevention — essential information for travelers and
+          returning MV Hondius passengers.</p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="about-h3">How Does Hantavirus Spread?</h3>
+        <p class="about-p">Hantavirus is primarily transmitted through contact with infected rodents or their droppings,
+          urine, or saliva. The most common route is inhaling contaminated dust. The virus does not spread through
+          casual person-to-person contact. However, the Andes virus — suspected in the 2026 MV Hondius outbreak — is the
+          only known hantavirus with evidence of limited human-to-human transmission.</p>
+
+        <h3 class="about-h3">Hantavirus Symptoms</h3>
+        <p class="about-p">Early symptoms appear 1–8 weeks after exposure: fever, severe muscle aches, fatigue, and
+          headache. Some cases progress to Hantavirus Pulmonary Syndrome (HPS) — characterized by shortness of breath,
+          fluid in the lungs, and rapid respiratory failure. The 2026 outbreak has resulted in 3 deaths from 8 known
+          cases (37.5% fatality rate).</p>
+
+        <h3 class="about-h3">How to Protect Yourself</h3>
+        <p class="about-p">Minimize exposure to rodents and their excreta. Ventilate contaminated areas for at least 30
+          minutes before entry. Wet contaminated material with disinfectant before wiping — never dry sweep. Wear rubber
+          gloves and an N95 respirator. If you were a passenger on the MV Hondius, contact your local health authority
+          immediately and follow the 45-day monitoring protocol.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ OFFICIAL SOURCES ════════════════ -->
+  <section class="section" id="sources-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">References</div>
+        <h2 class="section-title">Official Sources</h2>
+        <p class="section-sub">All data compiled from official public health agencies and verified international news
+          organizations.</p>
+      </div>
+
+      <div class="sources-pills">
+        <span class="source-pill">WHO Hantavirus Fact Sheet</span>
+        <span class="source-pill">WHO DON#99 Hantavirus-linked Cluster</span>
+        <span class="source-pill">WHO Emergency Event 2026-eSOG227</span>
+        <span class="source-pill">CDC About Hantavirus</span>
+        <span class="source-pill">CDC Reported US Cases</span>
+        <span class="source-pill">ECDC Hantavirus AIR 2023</span>
+        <span class="source-pill">CDC Orthohantavirus Factsheet</span>
+        <span class="source-pill">PAHO Epidemiological Alert Dec 2025</span>
+        <span class="source-pill">China CDC Weekly HFRS 2014–2023</span>
+        <span class="source-pill">CDC MMWR Southwestern US 1993</span>
+        <span class="source-pill">WHO Hantavirus Argentina 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD BOTTOM -->
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Cruise-linked · Newest First</div>
-      <h2 class="section-title">2026 Timeline</h2>
-      <p class="section-sub">Chronological record sourced from WHO Disease Outbreak News and official health agencies.</p>
-    </div>
-
-    <div class="timeline-list">
-      <div class="tl-item">
-        <div class="tl-dot active"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-05-08</div>
-          <div class="tl-title">WHO update: 5 confirmed Andes hantavirus and 3 suspected</div>
-          <div class="tl-desc">WHO updated 8 cluster cases. Public risk remains low. UKHSA reported a third British national with suspected infection. CDC raised travel response to level 3.</div>
-          <span class="tl-source">WHO · UKHSA · CDC</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot active"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-05-07</div>
-          <div class="tl-title">Three patients evacuated and ship sails for Spain</div>
-          <div class="tl-desc">Three sick passengers were evacuated for treatment. Ship continued north toward the Canary Islands while contact tracing expanded across 13 countries.</div>
-          <span class="tl-source">AP News · Reuters</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-05-06</div>
-          <div class="tl-title">International evacuation and monitoring reports</div>
-          <div class="tl-desc">Wire services reported continuing evacuations and additional returned passenger symptom monitoring in Europe. US sent CDC staff by plane to assist.</div>
-          <span class="tl-source">Reuters · ECDC</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-05-04</div>
-          <div class="tl-title">WHO public outbreak update — risk assessed LOW</div>
-          <div class="tl-desc">WHO reported 7 cases: 2 confirmed, 5 suspected, 3 deaths, 1 critical patient, and 3 mild cases while ship was moored off Cabo Verde.</div>
-          <span class="tl-source">WHO DON#99</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-05-02</div>
-          <div class="tl-title">WHO receives notification from UK focal point</div>
-          <div class="tl-desc">The United Kingdom focal point notified WHO of a severe acute respiratory illness cluster aboard the cruise ship.</div>
-          <span class="tl-source">WHO DON#99</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-04-30</div>
-          <div class="tl-title">ICU patient evacuated to South Africa</div>
-          <div class="tl-desc">Case 3 was medically evacuated from Ascension to South Africa and later confirmed PCR-positive for hantavirus while in ICU.</div>
-          <span class="tl-source">WHO DON#99</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-04-28</div>
-          <div class="tl-title">Confirmed fatal case reaches South Africa</div>
-          <div class="tl-desc">Case 2 deteriorated in transit to Johannesburg and died on arrival. WHO later confirmed PCR-positive hantavirus result.</div>
-          <span class="tl-source">WHO DON#99</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-date">2026-04-24</div>
-          <div class="tl-title">Shore excursion at St. Helena — suspected exposure</div>
-          <div class="tl-desc">Passengers disembarked for a bird-watching excursion. Contact with rodent-infested environments is identified as the probable hantavirus exposure event for the entire cluster.</div>
-          <span class="tl-source">WHO DON#99 · Reuters</span>
-        </div>
-      </div>
-    </div>
+    <div class="ad-slot" id="ad-bottom">Advertisement</div>
   </div>
-</section>
 
-<hr class="divider" />
-
-<!-- ════════════════ PUBLIC HEALTH FACTS ════════════════ -->
-<section class="section" id="facts-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Medical Reference</div>
-      <h2 class="section-title">Public Health Facts</h2>
-      <p class="section-sub">Evidence-based information about hantavirus — transmission, symptoms, and prevention.</p>
-    </div>
-
-    <div class="facts-grid">
-      <div class="fact-card">
-        <div class="fact-icon">🦠</div>
-        <div class="fact-title">What Hantaviruses Are</div>
-        <div class="fact-text">Hantaviruses are rodent-borne zoonotic viruses. Only some species cause human disease. The Andes virus — found in South America — is the strain suspected in the 2026 MV Hondius outbreak.</div>
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/about">About</a>
       </div>
-      <div class="fact-card">
-        <div class="fact-icon">🌬️</div>
-        <div class="fact-title">Main Route of Infection</div>
-        <div class="fact-text">People are primarily infected by inhaling aerosols from infected rodent droppings, urine, or saliva. Touching contaminated surfaces then touching eyes, nose, or mouth can also transmit the virus.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">👥</div>
-        <div class="fact-title">Human-to-Human Transmission</div>
-        <div class="fact-text">WHO and CDC state documented human-to-human transmission is limited to the Andes virus strain in the Americas. This is the primary reason WHO assessed global risk as LOW.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">🫁</div>
-        <div class="fact-title">Clinical Syndromes</div>
-        <div class="fact-text">In the Americas: Hantavirus Cardiopulmonary Syndrome (HCPS). In Europe and Asia: Hemorrhagic Fever with Renal Syndrome (HFRS). Both can be life-threatening without ICU care.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">⏱️</div>
-        <div class="fact-title">Incubation Window</div>
-        <div class="fact-text">Symptoms begin one to eight weeks after exposure. HPS symptoms appear two to four weeks after exposure. The wide window makes early identification difficult in outbreak clusters.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">💊</div>
-        <div class="fact-title">Treatment</div>
-        <div class="fact-text">No licensed antiviral for hantavirus exists. Early supportive care and ICU-level management significantly improve survival. Seek immediate care if symptomatic after potential exposure.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">🏠</div>
-        <div class="fact-title">Prevention</div>
-        <div class="fact-text">Seal buildings against rodents. Always use wet cleaning — never dry sweep. Ventilate for 30 min before entering rodent areas. Wear gloves and N95 respirator when cleaning droppings.</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-icon">🌍</div>
-        <div class="fact-title">Global Burden</div>
-        <div class="fact-text">WHO estimates 10,000–100,000+ hantavirus infections annually. Greatest burden in Asia and Europe (HFRS). The Americas report HPS cases yearly. South America has the highest mortality rate.</div>
+      <div class="footer-disclaimer">
+        Hantavirus Tracker — Updated 2026/5/9 19:45 GMT+8<br>
+        This tracker summarises public sources and is not a diagnostic tool. Medical emergencies require professional
+        care.
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- AD MIDDLE -->
-<div class="container"><div class="ad-slot" id="ad-middle">Advertisement</div></div>
+  <!-- ════════════════ SCRIPTS ════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    /* ── COUNTDOWN ── */
+    (function () {
+      var onset = new Date('2026-04-28T00:00:00Z');
+      function p(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var d = Math.max(0, Date.now() - onset.getTime());
+        document.getElementById('cd-d').textContent = p(Math.floor(d / 86400000));
+        document.getElementById('cd-h').textContent = p(Math.floor((d % 86400000) / 3600000));
+        document.getElementById('cd-m').textContent = p(Math.floor((d % 3600000) / 60000));
+        document.getElementById('cd-s').textContent = p(Math.floor((d % 60000) / 1000));
+      }
+      tick(); setInterval(tick, 1000);
+    })();
 
-<!-- ════════════════ FAQ ════════════════ -->
-<section class="section" id="faq-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">FAQ</div>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-sub">Common questions about hantavirus transmission, symptoms, and the 2026 MV Hondius outbreak.</p>
-    </div>
+    /* ── NAV ── */
+    function toggleNav() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+    function closeNav() {
+      document.getElementById('navDrawer').classList.remove('open');
+    }
 
-    <div class="faq-list">
-      <div class="faq-item" id="fq1">
-        <button class="faq-btn" onclick="toggleFaq('fq1')">
-          <span>Is hantavirus airborne between people?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">Most hantavirus strains do not spread between people. The Andes virus — suspected in the 2026 outbreak — is the only known hantavirus with documented limited human-to-human transmission. WHO has assessed global public health risk as LOW. Community transmission risk for the general public remains minimal.</div>
-      </div>
-      <div class="faq-item" id="fq2">
-        <button class="faq-btn" onclick="toggleFaq('fq2')">
-          <span>What are the first symptoms of hantavirus?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">Early symptoms: fever (above 38.5°C), severe muscle aches in thighs, hips, and back, intense fatigue, and headache. Nausea, vomiting, and diarrhea may also occur. These last 4–10 days before potentially progressing to respiratory difficulty. If you were on the MV Hondius and develop symptoms, seek immediate medical attention.</div>
-      </div>
-      <div class="faq-item" id="fq3">
-        <button class="faq-btn" onclick="toggleFaq('fq3')">
-          <span>When does breathing trouble appear?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">Respiratory difficulty — the hallmark of HPS — typically begins 4–10 days after the initial flu-like phase. Onset can be rapid and life-threatening, often requiring mechanical ventilation within hours. If you have been potentially exposed and experience shortness of breath, call emergency services immediately.</div>
-      </div>
-      <div class="faq-item" id="fq4">
-        <button class="faq-btn" onclick="toggleFaq('fq4')">
-          <span>How deadly is hantavirus?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 8 cases (37.5%), consistent with historical rates. However, early detection and aggressive ICU-level care significantly improve survival outcomes.</div>
-      </div>
-      <div class="faq-item" id="fq5">
-        <button class="faq-btn" onclick="toggleFaq('fq5')">
-          <span>Is there a vaccine or cure?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">No approved hantavirus vaccine exists in Western countries as of 2026. Treatment is supportive: ICU care, supplemental oxygen, and in severe cases mechanical ventilation or ECMO. Prevention through rodent control and avoiding exposure remains the most critical strategy.</div>
-      </div>
-      <div class="faq-item" id="fq6">
-        <button class="faq-btn" onclick="toggleFaq('fq6')">
-          <span>How do I clean a rodent-contaminated area safely?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">CDC recommends: (1) ventilate 30 min before entry; (2) wear rubber gloves + N95 respirator; (3) spray droppings with 10% bleach solution, let sit 5 min; (4) wipe up — never dry sweep or vacuum; (5) double-bag all waste; (6) disinfect gloves, then wash hands. Inhalation of aerosolized particles is the primary transmission route.</div>
-      </div>
-      <div class="faq-item" id="fq7">
-        <button class="faq-btn" onclick="toggleFaq('fq7')">
-          <span>Should travelers be worried?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">WHO assessed global risk as LOW. The outbreak is contained to MV Hondius passengers and close contacts. General travelers are not at elevated risk. However, anyone who did outdoor activities in rural South America — especially wildlife excursions — should monitor for hantavirus symptoms.</div>
-      </div>
-      <div class="faq-item" id="fq8">
-        <button class="faq-btn" onclick="toggleFaq('fq8')">
-          <span>Why do map numbers differ by country?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-body">Countries apply different case definitions — some report only PCR-confirmed cases, others include suspected cases. This hantavirus map distinguishes confirmed (red), suspected (orange), and monitoring (gray) status per country based on official WHO, ECDC, CDC, and national health authority reports as of May 9, 2026.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    /* ── FAQ ── */
+    function toggleFaq(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
 
-<hr class="divider" />
+    /* ── LOAD MORE NEWS ── */
+    function loadMoreNews() {
+      var extra = document.getElementById('newsGridExtra');
+      var btn = document.getElementById('loadMoreBtn');
+      extra.style.display = '';
+      btn.style.display = 'none';
+    }
 
-<!-- ════════════════ ABOUT (SEO) ════════════════ -->
-<section class="section" id="about-section">
-  <div class="container" style="max-width:800px;">
-    <div class="section-header">
-      <div class="section-tag">Medical Reference</div>
-      <h2 class="section-title">What Is Hantavirus?</h2>
-      <p class="section-sub">Symptoms, transmission &amp; prevention — essential information for travelers and returning MV Hondius passengers.</p>
-    </div>
+    /* ── COUNTRY PANEL DATA ── */
+    var countryData = {
+      'cape-verde': { name: 'Cabo Verde', severity: 'high', severityLabel: 'HIGH SEVERITY', confirmed: 2, suspected: 1, deaths: 0, desc: 'On-board medical evaluation, specimen collection, and patient evacuations. Andes hantavirus was laboratory confirmed in additional patients on/off Cape Verde and three patients were medically evacuated.', updates: ['WHO 8 May: 5 PCR-confirmed Andes hantavirus, 3 suspected. Three sick passengers evacuated to Spain while ship continued to Canary Islands.', '2026 May 8 – WHO update'], source: 'WHO DON#99, UKHSA, CDC' },
+      'south-africa': { name: 'South Africa', severity: 'medium', severityLabel: 'MEDIUM SEVERITY', confirmed: 1, suspected: 0, deaths: 1, desc: 'Case 2 deteriorated during travel to Johannesburg and died on arrival — PCR confirmed for hantavirus. Case 3 was medically evacuated from Ascension to South Africa and confirmed PCR-positive while in ICU.', updates: ['At least one fatal case confirmed following repatriation from MV Hondius.', 'ICU case later confirmed PCR-positive for Andes hantavirus.'], source: 'WHO DON#99' },
+      'saint-helena': { name: 'St. Helena', severity: 'high', severityLabel: 'EXPOSURE POINT', confirmed: 0, suspected: 0, deaths: 0, desc: 'Passengers disembarked April 24 for a shore excursion including bird-watching. Contact with rodent-infested environments is identified as the probable hantavirus exposure event for the entire cluster.', updates: ['April 24: Shore excursion. Bird-watching trip before boarding identified as suspected hantavirus origin.', 'All subsequent cases trace epidemiological links to this location.'], source: 'WHO DON#99, Reuters' },
+      'switzerland': { name: 'Switzerland', severity: 'low', severityLabel: 'MONITORING', confirmed: 0, suspected: 1, deaths: 0, desc: 'A returned MV Hondius passenger is under monitoring by Swiss health authorities. Following WHO 45-day monitoring protocol.', updates: ['Swiss health authorities notified of returned passenger with potential hantavirus exposure.', 'Patient under 45-day clinical monitoring.'], source: 'ECDC, WHO' },
+      'uk': { name: 'United Kingdom', severity: 'medium', severityLabel: 'SUSPECTED CASES', confirmed: 0, suspected: 3, deaths: 0, desc: 'UKHSA is monitoring 3 British nationals aboard the MV Hondius. Third suspected case added May 8, 2026. UK focal point also initiated the WHO notification.', updates: ['May 8: UKHSA confirmed a third British national with suspected hantavirus.', 'All three patients under clinical monitoring, 45-day follow-up in place.'], source: 'UKHSA, WHO DON#99' }
+    };
 
-    <div class="about-card">
-      <h3 class="about-h3">How Does Hantavirus Spread?</h3>
-      <p class="about-p">Hantavirus is primarily transmitted through contact with infected rodents or their droppings, urine, or saliva. The most common route is inhaling contaminated dust. The virus does not spread through casual person-to-person contact. However, the Andes virus — suspected in the 2026 MV Hondius outbreak — is the only known hantavirus with evidence of limited human-to-human transmission.</p>
+    function showPanel(key) {
+      var d = countryData[key]; if (!d) return;
+      var html =
+        '<div class="panel-country">' + d.name + '</div>' +
+        '<span class="panel-severity ' + d.severity + '">' + d.severityLabel + '</span><br>' +
+        '<div class="panel-stats-row">' +
+        '<div class="panel-stat"><div class="panel-stat-num">' + d.confirmed + '</div><div class="panel-stat-lbl">Confirmed</div></div>' +
+        '<div class="panel-stat"><div class="panel-stat-num">' + d.suspected + '</div><div class="panel-stat-lbl">Suspected</div></div>' +
+        '<div class="panel-stat"><div class="panel-stat-num">' + d.deaths + '</div><div class="panel-stat-lbl">Deaths</div></div>' +
+        '</div>' +
+        '<div class="panel-desc">' + d.desc + '</div>';
+      d.updates.forEach(function (u) { html += '<div class="panel-update">' + u + '</div>'; });
+      html += '<div class="panel-source"><strong>Source:</strong> ' + d.source + '</div>';
+      document.getElementById('mapPanel').innerHTML = html;
 
-      <h3 class="about-h3">Hantavirus Symptoms</h3>
-      <p class="about-p">Early symptoms appear 1–8 weeks after exposure: fever, severe muscle aches, fatigue, and headache. Some cases progress to Hantavirus Pulmonary Syndrome (HPS) — characterized by shortness of breath, fluid in the lungs, and rapid respiratory failure. The 2026 outbreak has resulted in 3 deaths from 8 known cases (37.5% fatality rate).</p>
+      /* On mobile: scroll panel into view */
+      if (window.innerWidth < 1024) {
+        document.getElementById('mapPanel').parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
 
-      <h3 class="about-h3">How to Protect Yourself</h3>
-      <p class="about-p">Minimize exposure to rodents and their excreta. Ventilate contaminated areas for at least 30 minutes before entry. Wet contaminated material with disinfectant before wiping — never dry sweep. Wear rubber gloves and an N95 respirator. If you were a passenger on the MV Hondius, contact your local health authority immediately and follow the 45-day monitoring protocol.</p>
-    </div>
-  </div>
-</section>
+    /* ── MAP ── */
+    var map = L.map('map', {
+      center: [20, -10],
+      zoom: 2,
+      minZoom: 1,
+      maxZoom: 10,
+      /* keep zoom controls away from iOS home bar */
+      zoomControl: true
+    });
 
-<hr class="divider" />
+    map.zoomControl.setPosition('topright');
 
-<!-- ════════════════ OFFICIAL SOURCES ════════════════ -->
-<section class="section" id="sources-section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">References</div>
-      <h2 class="section-title">Official Sources</h2>
-      <p class="section-sub">All data compiled from official public health agencies and verified international news organizations.</p>
-    </div>
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" style="color:#71717a">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" style="color:#71717a">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 20
+    }).addTo(map);
 
-    <div class="sources-pills">
-      <span class="source-pill">WHO Hantavirus Fact Sheet</span>
-      <span class="source-pill">WHO DON#99 Hantavirus-linked Cluster</span>
-      <span class="source-pill">WHO Emergency Event 2026-eSOG227</span>
-      <span class="source-pill">CDC About Hantavirus</span>
-      <span class="source-pill">CDC Reported US Cases</span>
-      <span class="source-pill">ECDC Hantavirus AIR 2023</span>
-      <span class="source-pill">CDC Orthohantavirus Factsheet</span>
-      <span class="source-pill">PAHO Epidemiological Alert Dec 2025</span>
-      <span class="source-pill">China CDC Weekly HFRS 2014–2023</span>
-      <span class="source-pill">CDC MMWR Southwestern US 1993</span>
-      <span class="source-pill">WHO Hantavirus Argentina 2019</span>
-    </div>
-  </div>
-</section>
-
-<!-- AD BOTTOM -->
-<div class="container"><div class="ad-slot" id="ad-bottom">Advertisement</div></div>
-
-<!-- ════════════════ FOOTER ════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-brand">HANTAVIRUS MAP</div>
-    <div class="footer-links">
-      <a href="/privacy-policy">Privacy Policy</a>
-      <a href="/terms-of-service">Terms of Service</a>
-      <a href="/about">About</a>
-    </div>
-    <div class="footer-disclaimer">
-      Hantavirus Tracker — Updated 2026/5/9 19:45 GMT+8<br>
-      This tracker summarises public sources and is not a diagnostic tool. Medical emergencies require professional care.
-    </div>
-  </div>
-</footer>
-
-<!-- ════════════════ SCRIPTS ════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script>
-/* ── COUNTDOWN ── */
-(function() {
-  var onset = new Date('2026-04-28T00:00:00Z');
-  function p(n) { return String(n).padStart(2,'0'); }
-  function tick() {
-    var d = Math.max(0, Date.now() - onset.getTime());
-    document.getElementById('cd-d').textContent = p(Math.floor(d/86400000));
-    document.getElementById('cd-h').textContent = p(Math.floor((d%86400000)/3600000));
-    document.getElementById('cd-m').textContent = p(Math.floor((d%3600000)/60000));
-    document.getElementById('cd-s').textContent = p(Math.floor((d%60000)/1000));
-  }
-  tick(); setInterval(tick, 1000);
-})();
-
-/* ── NAV ── */
-function toggleNav() {
-  document.getElementById('navDrawer').classList.toggle('open');
-}
-function closeNav() {
-  document.getElementById('navDrawer').classList.remove('open');
-}
-
-/* ── FAQ ── */
-function toggleFaq(id) {
-  document.getElementById(id).classList.toggle('open');
-}
-
-/* ── LOAD MORE NEWS ── */
-function loadMoreNews() {
-  var extra = document.getElementById('newsGridExtra');
-  var btn   = document.getElementById('loadMoreBtn');
-  extra.style.display = '';
-  btn.style.display   = 'none';
-}
-
-/* ── COUNTRY PANEL DATA ── */
-var countryData = {
-  'cape-verde':   { name:'Cabo Verde',     severity:'high',   severityLabel:'HIGH SEVERITY',   confirmed:2, suspected:1, deaths:0, desc:'On-board medical evaluation, specimen collection, and patient evacuations. Andes hantavirus was laboratory confirmed in additional patients on/off Cape Verde and three patients were medically evacuated.', updates:['WHO 8 May: 5 PCR-confirmed Andes hantavirus, 3 suspected. Three sick passengers evacuated to Spain while ship continued to Canary Islands.','2026 May 8 – WHO update'], source:'WHO DON#99, UKHSA, CDC' },
-  'south-africa': { name:'South Africa',   severity:'medium', severityLabel:'MEDIUM SEVERITY', confirmed:1, suspected:0, deaths:1, desc:'Case 2 deteriorated during travel to Johannesburg and died on arrival — PCR confirmed for hantavirus. Case 3 was medically evacuated from Ascension to South Africa and confirmed PCR-positive while in ICU.', updates:['At least one fatal case confirmed following repatriation from MV Hondius.','ICU case later confirmed PCR-positive for Andes hantavirus.'], source:'WHO DON#99' },
-  'saint-helena': { name:'St. Helena',     severity:'high',   severityLabel:'EXPOSURE POINT',  confirmed:0, suspected:0, deaths:0, desc:'Passengers disembarked April 24 for a shore excursion including bird-watching. Contact with rodent-infested environments is identified as the probable hantavirus exposure event for the entire cluster.', updates:['April 24: Shore excursion. Bird-watching trip before boarding identified as suspected hantavirus origin.','All subsequent cases trace epidemiological links to this location.'], source:'WHO DON#99, Reuters' },
-  'switzerland':  { name:'Switzerland',    severity:'low',    severityLabel:'MONITORING',      confirmed:0, suspected:1, deaths:0, desc:'A returned MV Hondius passenger is under monitoring by Swiss health authorities. Following WHO 45-day monitoring protocol.', updates:['Swiss health authorities notified of returned passenger with potential hantavirus exposure.','Patient under 45-day clinical monitoring.'], source:'ECDC, WHO' },
-  'uk':           { name:'United Kingdom', severity:'medium', severityLabel:'SUSPECTED CASES', confirmed:0, suspected:3, deaths:0, desc:'UKHSA is monitoring 3 British nationals aboard the MV Hondius. Third suspected case added May 8, 2026. UK focal point also initiated the WHO notification.', updates:['May 8: UKHSA confirmed a third British national with suspected hantavirus.','All three patients under clinical monitoring, 45-day follow-up in place.'], source:'UKHSA, WHO DON#99' }
-};
-
-function showPanel(key) {
-  var d = countryData[key]; if (!d) return;
-  var html =
-    '<div class="panel-country">' + d.name + '</div>' +
-    '<span class="panel-severity ' + d.severity + '">' + d.severityLabel + '</span><br>' +
-    '<div class="panel-stats-row">' +
-      '<div class="panel-stat"><div class="panel-stat-num">' + d.confirmed + '</div><div class="panel-stat-lbl">Confirmed</div></div>' +
-      '<div class="panel-stat"><div class="panel-stat-num">' + d.suspected + '</div><div class="panel-stat-lbl">Suspected</div></div>' +
-      '<div class="panel-stat"><div class="panel-stat-num">' + d.deaths    + '</div><div class="panel-stat-lbl">Deaths</div></div>' +
-    '</div>' +
-    '<div class="panel-desc">' + d.desc + '</div>';
-  d.updates.forEach(function(u) { html += '<div class="panel-update">' + u + '</div>'; });
-  html += '<div class="panel-source"><strong>Source:</strong> ' + d.source + '</div>';
-  document.getElementById('mapPanel').innerHTML = html;
-
-  /* On mobile: scroll panel into view */
-  if (window.innerWidth < 1024) {
-    document.getElementById('mapPanel').parentElement.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  }
-}
-
-/* ── MAP ── */
-var map = L.map('map', {
-  center: [20, -10],
-  zoom: 2,
-  minZoom: 1,
-  maxZoom: 10,
-  /* keep zoom controls away from iOS home bar */
-  zoomControl: true
-});
-
-map.zoomControl.setPosition('topright');
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" style="color:#71717a">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" style="color:#71717a">CARTO</a>',
-  subdomains: 'abcd', maxZoom: 20
-}).addTo(map);
-
-function mkIcon(color, size) {
-  return L.divIcon({
-    className: '',
-    html: '<div class="pm-wrap" style="width:' + size + 'px;height:' + size + 'px;">' +
+    function mkIcon(color, size) {
+      return L.divIcon({
+        className: '',
+        html: '<div class="pm-wrap" style="width:' + size + 'px;height:' + size + 'px;">' +
           '<div class="pm-inner" style="background:' + color + ';width:' + size + 'px;height:' + size + 'px;box-shadow:0 0 7px ' + color + ';"></div>' +
-          '<div class="pm-ring" style="border:2px solid ' + color + ';width:' + (size*2.4) + 'px;height:' + (size*2.4) + 'px;margin-left:-' + (size*0.7) + 'px;margin-top:-' + (size*0.7) + 'px;"></div>' +
+          '<div class="pm-ring" style="border:2px solid ' + color + ';width:' + (size * 2.4) + 'px;height:' + (size * 2.4) + 'px;margin-left:-' + (size * 0.7) + 'px;margin-top:-' + (size * 0.7) + 'px;"></div>' +
           '</div>',
-    iconSize: [size, size],
-    iconAnchor: [size/2, size/2],
-    popupAnchor: [0, -size]
-  });
-}
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2],
+        popupAnchor: [0, -size]
+      });
+    }
 
-var R = '#ef4444', O = '#f97316', G = '#71717a', Y = '#fbbf24';
+    var R = '#ef4444', O = '#f97316', G = '#71717a', Y = '#fbbf24';
 
-var pts = [
-  { lat:-34.6, lng:-58.4, c:O, s:14, key:null,          n:'Argentina',            sc:'orange', st:'Suspected Exposure Origin', dt:'Bird-watching excursion before boarding MV Hondius is the probable exposure site.' },
-  { lat: 52.4, lng:  4.9, c:R, s:16, key:null,          n:'Netherlands',          sc:'red',    st:'2 Deaths Confirmed',        dt:'Dutch couple confirmed dead from Hantavirus Pulmonary Syndrome after disembarkation.' },
-  { lat: 51.2, lng: 10.5, c:R, s:14, key:null,          n:'Germany',              sc:'red',    st:'1 Death Confirmed',         dt:'German national confirmed dead from hantavirus infection.' },
-  { lat: 51.5, lng: -0.1, c:O, s:16, key:'uk',          n:'United Kingdom',       sc:'orange', st:'3 Suspected Cases',         dt:'UKHSA monitoring 3 British nationals. Tap for details.' },
-  { lat: 40.4, lng: -3.7, c:O, s:13, key:null,          n:'Spain',                sc:'orange', st:'1 Suspected Case',          dt:'New suspected hantavirus case in an MV Hondius passenger.' },
-  { lat: 39.8, lng:-98.6, c:G, s:12, key:null,          n:'United States',        sc:'gray',   st:'Monitoring',                dt:'CDC Level 3 response. Passengers monitored across 5 US states.' },
-  { lat:-30.6, lng: 22.9, c:R, s:18, key:'south-africa',n:'South Africa',         sc:'red',    st:'1 Death · ICU Case',        dt:'One fatal case confirmed. ICU case also PCR positive. Tap for details.' },
-  { lat:  1.35,lng:103.8, c:G, s:11, key:null,          n:'Singapore',            sc:'gray',   st:'Monitoring',                dt:'Returned passengers under health monitoring protocols.' },
-  { lat: 14.6, lng:121.0, c:G, s:11, key:null,          n:'Philippines',          sc:'gray',   st:'Monitoring',                dt:'Returned passengers under health monitoring protocols.' },
-  { lat: 14.9, lng:-23.5, c:R, s:20, key:'cape-verde',  n:'Cabo Verde',           sc:'red',    st:'HIGH SEVERITY',             dt:'2 confirmed, 1 suspected. Medical evacuations occurred here. Tap for details.' },
-  { lat: 28.1, lng:-15.4, c:Y, s:13, key:null,          n:'Canary Islands',       sc:'orange', st:'Ship ETA: May 11, 2026',   dt:'MV Hondius currently en route. ETA May 11, 2026.' },
-  { lat:-15.9, lng: -5.7, c:R, s:17, key:'saint-helena',n:'St. Helena',           sc:'red',    st:'Exposure Point',            dt:'Shore excursion April 24 — primary exposure event. Tap for details.' },
-  { lat:-37.1, lng:-12.3, c:O, s:12, key:null,          n:'Tristan da Cunha',     sc:'orange', st:'1 Suspected Case',          dt:'New suspected hantavirus case in a returned passenger.' },
-  { lat: 46.8, lng:  8.2, c:G, s:12, key:'switzerland', n:'Switzerland',          sc:'gray',   st:'1 Suspected · Monitoring',  dt:'Returned passenger under 45-day monitoring. Tap for details.' }
-];
+    var pts = [
+      { lat: -34.6, lng: -58.4, c: O, s: 14, key: null, n: 'Argentina', sc: 'orange', st: 'Suspected Exposure Origin', dt: 'Bird-watching excursion before boarding MV Hondius is the probable exposure site.' },
+      { lat: 52.4, lng: 4.9, c: R, s: 16, key: null, n: 'Netherlands', sc: 'red', st: '2 Deaths Confirmed', dt: 'Dutch couple confirmed dead from Hantavirus Pulmonary Syndrome after disembarkation.' },
+      { lat: 51.2, lng: 10.5, c: R, s: 14, key: null, n: 'Germany', sc: 'red', st: '1 Death Confirmed', dt: 'German national confirmed dead from hantavirus infection.' },
+      { lat: 51.5, lng: -0.1, c: O, s: 16, key: 'uk', n: 'United Kingdom', sc: 'orange', st: '3 Suspected Cases', dt: 'UKHSA monitoring 3 British nationals. Tap for details.' },
+      { lat: 40.4, lng: -3.7, c: O, s: 13, key: null, n: 'Spain', sc: 'orange', st: '1 Suspected Case', dt: 'New suspected hantavirus case in an MV Hondius passenger.' },
+      { lat: 39.8, lng: -98.6, c: G, s: 12, key: null, n: 'United States', sc: 'gray', st: 'Monitoring', dt: 'CDC Level 3 response. Passengers monitored across 5 US states.' },
+      { lat: -30.6, lng: 22.9, c: R, s: 18, key: 'south-africa', n: 'South Africa', sc: 'red', st: '1 Death · ICU Case', dt: 'One fatal case confirmed. ICU case also PCR positive. Tap for details.' },
+      { lat: 1.35, lng: 103.8, c: G, s: 11, key: null, n: 'Singapore', sc: 'gray', st: 'Monitoring', dt: 'Returned passengers under health monitoring protocols.' },
+      { lat: 14.6, lng: 121.0, c: G, s: 11, key: null, n: 'Philippines', sc: 'gray', st: 'Monitoring', dt: 'Returned passengers under health monitoring protocols.' },
+      { lat: 14.9, lng: -23.5, c: R, s: 20, key: 'cape-verde', n: 'Cabo Verde', sc: 'red', st: 'HIGH SEVERITY', dt: '2 confirmed, 1 suspected. Medical evacuations occurred here. Tap for details.' },
+      { lat: 28.1, lng: -15.4, c: Y, s: 13, key: null, n: 'Canary Islands', sc: 'orange', st: 'Ship ETA: May 11, 2026', dt: 'MV Hondius currently en route. ETA May 11, 2026.' },
+      { lat: -15.9, lng: -5.7, c: R, s: 17, key: 'saint-helena', n: 'St. Helena', sc: 'red', st: 'Exposure Point', dt: 'Shore excursion April 24 — primary exposure event. Tap for details.' },
+      { lat: -37.1, lng: -12.3, c: O, s: 12, key: null, n: 'Tristan da Cunha', sc: 'orange', st: '1 Suspected Case', dt: 'New suspected hantavirus case in a returned passenger.' },
+      { lat: 46.8, lng: 8.2, c: G, s: 12, key: 'switzerland', n: 'Switzerland', sc: 'gray', st: '1 Suspected · Monitoring', dt: 'Returned passenger under 45-day monitoring. Tap for details.' }
+    ];
 
-pts.forEach(function(p) {
-  var m = L.marker([p.lat, p.lng], { icon: mkIcon(p.c, p.s) }).addTo(map);
-  m.bindPopup(
-    '<div class="lf-popup-name">' + p.n + '</div>' +
-    '<div class="lf-popup-status ' + p.sc + '">' + p.st + '</div>' +
-    '<div class="lf-popup-detail">' + p.dt + '</div>',
-    { maxWidth: 230 }
-  );
-  if (p.key) { m.on('click', function() { showPanel(p.key); }); }
-});
+    pts.forEach(function (p) {
+      var m = L.marker([p.lat, p.lng], { icon: mkIcon(p.c, p.s) }).addTo(map);
+      m.bindPopup(
+        '<div class="lf-popup-name">' + p.n + '</div>' +
+        '<div class="lf-popup-status ' + p.sc + '">' + p.st + '</div>' +
+        '<div class="lf-popup-detail">' + p.dt + '</div>',
+        { maxWidth: 230 }
+      );
+      if (p.key) { m.on('click', function () { showPanel(p.key); }); }
+    });
 
-/* Ship route */
-L.polyline([[-34.6,-58.4],[-37.1,-12.3],[-15.9,-5.7],[14.9,-23.5],[28.1,-15.4]], {
-  color:'#f97316', weight:2, opacity:0.5, dashArray:'7 5'
-}).addTo(map);
-</script>
+    /* Ship route */
+    L.polyline([[-34.6, -58.4], [-37.1, -12.3], [-15.9, -5.7], [14.9, -23.5], [28.1, -15.4]], {
+      color: '#f97316', weight: 2, opacity: 0.5, dashArray: '7 5'
+    }).addTo(map);
+  </script>
 
 </body>
+
 </html>
