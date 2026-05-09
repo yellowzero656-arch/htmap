@@ -1494,19 +1494,19 @@
       <!-- STAT CARDS: 2×2 on mobile, 4×1 on desktop -->
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-num">8</div>
+          <div class="stat-num" id="confirmed-cases">Loading...</div>
           <div class="stat-label">Total Cases</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">3</div>
+          <div class="stat-num" id="deaths">Loading...</div>
           <div class="stat-label">Deaths</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num orange">13</div>
-          <div class="stat-label">Countries</div>
+          <div class="stat-num orange" id="countries-affected">Loading...</div>
+          <div class="stat-label">Affected Countries</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num orange">3</div>
+          <div class="stat-num orange" id="suspected-cases">Loading...</div>
           <div class="stat-label">Suspected</div>
         </div>
       </div>
@@ -1661,8 +1661,8 @@
           <div class="tl-dot active"></div>
           <div class="tl-card">
             <div class="tl-date">2026-05-08</div>
-            <div class="tl-title">WHO update: 5 confirmed Andes hantavirus and 3 suspected</div>
-            <div class="tl-desc">WHO updated 8 cluster cases. Public risk remains low. UKHSA reported a third British
+            <div class="tl-title">WHO update: 5 confirmed Andes hantavirus and 8 suspected</div>
+            <div class="tl-desc">WHO updated 13 cluster cases (5 confirmed, 8 suspected). Public risk remains low. UKHSA reported a third British
               national with suspected infection. CDC raised travel response to level 3.</div>
             <span class="tl-source">WHO · UKHSA · CDC</span>
           </div>
@@ -1870,9 +1870,7 @@
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
-          <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 8
-            cases (37.5%), consistent with historical rates. However, early detection and aggressive ICU-level care
-            significantly improve survival outcomes.</div>
+          <div class="faq-body">HPS has a ~36% case fatality rate in the US. The 2026 outbreak shows 3 deaths from 5 confirmed cases (60%), above historical averages, likely reflecting the severity of the Andes strain. Early detection and aggressive ICU-level care significantly improve survival outcomes.</div>
         </div>
         <div class="faq-item" id="fq5">
           <button class="faq-btn" onclick="toggleFaq('fq5')">
@@ -1922,7 +1920,7 @@
           <div class="faq-body">Countries apply different case definitions — some report only PCR-confirmed cases,
             others include suspected cases. This hantavirus map distinguishes confirmed (red), suspected (orange), and
             monitoring (gray) status per country based on official WHO, ECDC, CDC, and national health authority reports
-            as of May 9, 2026.</div>
+            as of May 10, 2026.</div>
         </div>
       </div>
     </div>
@@ -1950,8 +1948,8 @@
         <h3 class="about-h3">Hantavirus Symptoms</h3>
         <p class="about-p">Early symptoms appear 1–8 weeks after exposure: fever, severe muscle aches, fatigue, and
           headache. Some cases progress to Hantavirus Pulmonary Syndrome (HPS) — characterized by shortness of breath,
-          fluid in the lungs, and rapid respiratory failure. The 2026 outbreak has resulted in 3 deaths from 8 known
-          cases (37.5% fatality rate).</p>
+          fluid in the lungs, and rapid respiratory failure. The 2026 outbreak has resulted in 3 deaths from 5 confirmed
+          cases (60% fatality rate), with 8 additional suspected cases under investigation.</p>
 
         <h3 class="about-h3">How to Protect Yourself</h3>
         <p class="about-p">Minimize exposure to rodents and their excreta. Ventilate contaminated areas for at least 30
@@ -2005,7 +2003,7 @@
         <a href="/about">About</a>
       </div>
       <div class="footer-disclaimer">
-        Hantavirus Tracker — Updated 2026/5/9 19:45 GMT+8<br>
+        Hantavirus Tracker — Updated <span id="last-updated">Loading...</span><br>
         This tracker summarises public sources and is not a diagnostic tool. Medical emergencies require professional
         care.
       </div>
@@ -2144,6 +2142,30 @@
     L.polyline([[-34.6, -58.4], [-37.1, -12.3], [-15.9, -5.7], [14.9, -23.5], [28.1, -15.4]], {
       color: '#f97316', weight: 2, opacity: 0.5, dashArray: '7 5'
     }).addTo(map);
+
+    /* ── STATS FROM JSON ── */
+    (function () {
+      function set(id, val) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = val;
+      }
+      fetch('/data/stats.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          set('confirmed-cases', d.confirmed_cases);
+          set('deaths', d.deaths);
+          set('countries-affected', d.countries_affected);
+          set('suspected-cases', d.suspected_cases);
+          set('last-updated', d.last_updated);
+        })
+        .catch(function () {
+          set('confirmed-cases', '—');
+          set('deaths', '—');
+          set('countries-affected', '—');
+          set('suspected-cases', '—');
+          set('last-updated', '—');
+        });
+    })();
   </script>
 
 </body>

@@ -1,0 +1,11 @@
+{
+  "last_updated": "2026-05-10",
+  "confirmed_cases": 5,
+  "suspected_cases": 8,
+  "deaths": 3,
+  "countries_affected": 6,
+  "outbreak_source": "MV Hondius cruise ship",
+  "virus_strain": "Andes virus",
+  "source": "WHO",
+  "source_url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599"
+}
