@@ -2,64 +2,43 @@
   {
     "type": "OFFICIAL",
     "date": "2026-05-08",
-    "title": "17 Americans Among Passengers to Quarantine in Nebraska for Hantavirus",
+    "title": "17 American passengers aboard hantavirus-hit cruise ship will quarantine in Nebraska",
     "source": "NBC News",
-    "url": "https://www.nbcnews.com/health/health-news/hantavirus-americans-quarantine-nebraska-mv-hondius-rcna205837"
+    "url": "https://www.nbcnews.com/health/health-news/flight-attendant-tests-negative-hantavirus-new-case-suspected-remote-i-rcna344191"
   },
   {
     "type": "OFFICIAL",
-    "date": "2026-05-07",
-    "title": "Hantavirus Cluster Linked to Cruise Ship Travel, Multi-country — WHO",
+    "date": "2026-05-04",
+    "title": "Hantavirus cluster linked to cruise ship travel, Multi-country",
     "source": "World Health Organization",
     "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599"
   },
   {
     "type": "UPDATE",
-    "date": "2026-05-07",
+    "date": "2026-05-08",
     "title": "CDC Provides Update on Hantavirus Outbreak Linked to M/V Hondius Cruise Ship",
     "source": "CDC",
     "url": "https://www.cdc.gov/media/releases/2026/2026-cdc-provides-update-on-hantavirus-outbreak-linked-to-m-v-hondius-cruise-ship.html"
   },
   {
     "type": "UPDATE",
-    "date": "2026-05-06",
-    "title": "U.S. Sends Plane with CDC Staff to Retrieve Passengers from Cruise Ship",
+    "date": "2026-05-09",
+    "title": "U.S. sends plane with CDC staff to retrieve passengers from cruise ship hit by hantavirus",
     "source": "CBS News",
     "url": "https://www.cbsnews.com/news/hantavirus-cruise-ship-mv-hondius-cdc-plane-passengers/"
   },
   {
     "type": "UPDATE",
-    "date": "2026-05-07",
-    "title": "Spain Readies for Evacuations as Hantavirus-Hit Cruise Ship Heads for Canary Islands",
-    "source": "AP News",
-    "url": "https://apnews.com/article/hantavirus-cruise-ship-spain-canary-islands-mv-hondius"
-  },
-  {
-    "type": "GUIDANCE",
-    "date": "2026-05-06",
-    "title": "What to Know About the Hantavirus Outbreak on an Atlantic Cruise Ship",
-    "source": "New York Times",
-    "url": "https://www.nytimes.com/2026/05/06/health/hantavirus-cruise-ship-outbreak.html"
-  },
-  {
-    "type": "UPDATE",
     "date": "2026-05-09",
-    "title": "Hantavirus Cruise Ship Expected to Arrive in Canary Islands, Sparking Local Protests",
-    "source": "CBS News",
-    "url": "https://www.cbsnews.com/news/hantavirus-cruise-ship-canary-islands-tenerife-protests/"
-  },
-  {
-    "type": "GUIDANCE",
-    "date": "2026-05-08",
-    "title": "Hantavirus Outbreak Toolkit — Centers for Disease Control and Prevention",
-    "source": "CDC",
-    "url": "https://www.cdc.gov/hantavirus/outbreak-toolkit/index.html"
+    "title": "Spain readies for evacuations as a hantavirus-hit cruise ship heads for the Canary Islands",
+    "source": "AP News",
+    "url": "https://apnews.com/article/hantavirus-cruise-ship-e5b35d12be9dc30213d7a2b8b4955a88"
   },
   {
     "type": "OFFICIAL",
-    "date": "2026-05-08",
-    "title": "Hantavirus: Current Situation — Centers for Disease Control and Prevention",
+    "date": "2026-04-23",
+    "title": "Reported Cases of Hantavirus Disease",
     "source": "CDC",
-    "url": "https://www.cdc.gov/hantavirus/php/situation-summary/index.html"
+    "url": "https://www.cdc.gov/hantavirus/data-research/cases/"
   }
 ]
