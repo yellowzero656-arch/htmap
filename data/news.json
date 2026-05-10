@@ -21,11 +21,11 @@
     "url": "https://www.cdc.gov/media/releases/2026/2026-cdc-provides-update-on-hantavirus-outbreak-linked-to-m-v-hondius-cruise-ship.html"
   },
   {
-    "type": "UPDATE",
+    "type": "OFFICIAL",
     "date": "2026-05-09",
-    "title": "U.S. sends plane with CDC staff to retrieve passengers from cruise ship hit by hantavirus",
-    "source": "CBS News",
-    "url": "https://www.cbsnews.com/news/hantavirus-cruise-ship-mv-hondius-cdc-plane-passengers/"
+    "title": "US sending charter flight to bring Americans home from hantavirus cruise ship",
+    "source": "BBC",
+    "url": "https://www.bbc.com/news/articles/c4g4r8pm832o"
   },
   {
     "type": "UPDATE",
@@ -36,9 +36,44 @@
   },
   {
     "type": "OFFICIAL",
-    "date": "2026-04-23",
-    "title": "Reported Cases of Hantavirus Disease",
-    "source": "CDC",
-    "url": "https://www.cdc.gov/hantavirus/data-research/cases/"
+    "date": "2026-05-09",
+    "title": "Medical epidemiologist explains what to know about the cruise ship hantavirus outbreak",
+    "source": "PBS",
+    "url": "https://www.pbs.org/newshour/health/medical-epidemiologist-explains-what-to-know-about-the-cruise-ship-hantavirus-outbreak"
+  },
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-09",
+    "title": "Spanish island braces for hantavirus cruise ship as WHO urges calm",
+    "source": "NBC News",
+    "url": "https://www.nbcnews.com/video/spanish-island-braces-for-hantavirus-cruise-ship-as-who-urges-calm-263056453526"
+  }
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-09",
+    "title": "This is not another COVID’: WHO seeks to reassure Spanish island as hantavirus-stricken ship approaches",
+    "source": "Los Angeles Times",
+    "url": "https://www.latimes.com/world-nation/story/2026-05-09/who-reassures-spanish-island-as-hantavirus-stricken-ship-en-route"
+  }
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-09",
+    "title": "Trump says hantavirus is ‘under control’ as WHO tracks cruise outbreak",
+    "source": "Al Jazeera",
+    "url": "https://www.aljazeera.com/video/newsfeed/2026/5/9/trump-says-hantavirus-is-under-control-as-who-tracks-cruise-outbreak"
+  }
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-09",
+    "title": "New Jersey joins list of US states monitoring hantavirus",
+    "source": "Fox News",
+    "url": "https://www.foxnews.com/video/6395074837112"
+  }
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-09",
+    "title": "American doctor aboard ship with hantavirus outbreak on what’s next",
+    "source": "CNN",
+    "url": "https://www.cnn.com/2026/05/09/world/video/hantavirus-cruise-ship-doctor-outbreak-vrtc-digvid"
   }
 ]
