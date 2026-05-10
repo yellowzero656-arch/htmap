@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Hantavirus Mortality Rate: Death Rate, Survival Odds &amp; Risk Factors | HantavirusMap</title>
+  <meta name="description" content="HPS carries a ~35% historical case fatality rate. The 2026 MV Hondius outbreak shows 3 deaths from 8 cases (37.5% CFR). Learn what determines survival odds." />
+  <link rel="canonical" href="https://hantavirusmap.net/blog/hantavirus-mortality-rate/" />
+  <meta property="og:title" content="Hantavirus Mortality Rate: Death Rate, Survival Odds &amp; Risk Factors | HantavirusMap" />
+  <meta property="og:description" content="HPS historical CFR ~35%. The 2026 MV Hondius outbreak shows 3 deaths from 8 cases (37.5%). Learn the risk factors that determine hantavirus survival odds." />
+  <meta property="og:url" content="https://hantavirusmap.net/blog/hantavirus-mortality-rate/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hantavirus Mortality Rate: Death Rate, Survival Odds &amp; Risk Factors | HantavirusMap" />
+  <meta name="twitter:description" content="Hantavirus HPS mortality rate is approximately 35%. The 2026 Hondius outbreak currently shows a 37.5% case fatality rate." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hantavirusmap.net/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hantavirusmap.net/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "Hantavirus Mortality Rate", "item": "https://hantavirusmap.net/blog/hantavirus-mortality-rate/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Hantavirus Mortality Rate: Understanding the Death Rate",
+    "datePublished": "2026-05-10",
+    "dateModified": "2026-05-10",
+    "author": {"@type": "Organization", "name": "HantavirusMap"},
+    "publisher": {"@type": "Organization", "name": "HantavirusMap", "url": "https://hantavirusmap.net"},
+    "url": "https://hantavirusmap.net/blog/hantavirus-mortality-rate/"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-app: #09090b; --bg-card: #18181b; --bg-hover: #27272a;
+      --fg-primary: #f4f4f5; --fg-muted: #a1a1aa; --border: #27272a;
+      --accent: #ef4444; --accent-bg: rgba(239,68,68,0.1); --accent-border: rgba(239,68,68,0.2);
+      --orange: #f97316; --blue: #60a5fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-app); color: var(--fg-primary); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    nav { position: sticky; top: 0; z-index: 2000; background: rgba(9,9,11,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--fg-primary); letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.45rem; text-decoration: none; }
+    .nav-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: blink 1.5s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: 0.2 } }
+    .nav-links { display: none; list-style: none; }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin-right: -8px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+    .hamburger span { display: block; width: 20px; height: 1.5px; background: var(--fg-muted); border-radius: 2px; }
+    .nav-drawer { display: none; flex-direction: column; background: rgba(9,9,11,0.98); border-bottom: 1px solid var(--border); padding: 0.5rem 1rem 1rem; gap: 0.25rem; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: flex; align-items: center; color: var(--fg-muted); font-size: 0.9rem; font-weight: 500; padding: 0.6rem 0.5rem; min-height: 44px; border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { color: var(--fg-primary); text-decoration: none; }
+    .nav-drawer .nav-blog { color: var(--accent); }
+
+    .breadcrumb { padding: 1rem 0 0; font-size: 0.78rem; color: var(--fg-muted); display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--fg-muted); }
+    .breadcrumb a:hover { color: var(--fg-primary); text-decoration: none; }
+    .breadcrumb-sep { opacity: 0.4; }
+    .breadcrumb-current { color: var(--fg-primary); }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 0 1rem; }
+    .article-header { padding: 2rem 0 1.5rem; }
+    .article-eyebrow { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 20px; padding: 0.28rem 0.8rem; margin-bottom: 0.9rem; }
+    .article-title { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--fg-primary); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .article-meta { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; font-size: 0.78rem; color: var(--fg-muted); padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .article-meta time { font-family: 'JetBrains Mono', monospace; }
+
+    .article-body { padding: 1.75rem 0; }
+    .article-body p { font-size: 0.92rem; color: var(--fg-muted); line-height: 1.8; margin-bottom: 1.1rem; }
+    .article-body h2 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--fg-primary); letter-spacing: -0.01em; margin: 2rem 0 0.75rem; line-height: 1.25; }
+    .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.1rem; }
+    .article-body li { font-size: 0.92rem; color: var(--fg-muted); line-height: 1.75; margin-bottom: 0.3rem; }
+    .article-body strong { color: var(--fg-primary); font-weight: 600; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1.25rem 0; }
+    .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; position: relative; overflow: hidden; }
+    .stat-box::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--accent); }
+    .stat-box-num { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-box-lbl { font-size: 0.65rem; color: var(--fg-muted); line-height: 1.4; }
+
+    .quote-box { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--orange); border-radius: 8px; padding: 1.1rem 1.3rem; margin: 1.25rem 0; }
+    .quote-box p { font-size: 0.9rem; color: var(--fg-primary); line-height: 1.75; font-style: italic; margin-bottom: 0; }
+    .quote-source { font-size: 0.68rem; color: var(--fg-muted); margin-top: 0.5rem; font-style: normal; }
+
+    .risk-grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; margin: 0.75rem 0 1.1rem; }
+    .risk-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.82rem; color: var(--fg-muted); line-height: 1.6; }
+    .risk-item strong { color: var(--fg-primary); display: block; margin-bottom: 0.2rem; }
+
+    .related-section { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+    .related-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 1rem; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+    .related-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.35rem; transition: background 0.15s; }
+    .related-card:hover { background: var(--bg-hover); text-decoration: none; }
+    .related-card-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .related-card-title { font-size: 0.85rem; font-weight: 600; color: var(--fg-primary); line-height: 1.35; }
+
+    footer { padding: 1.75rem 0; border-top: 1px solid var(--border); text-align: center; }
+    .footer-brand { font-family: 'Orbitron', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--fg-primary); margin-bottom: 0.5rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.75rem; color: var(--fg-muted); }
+    .footer-disclaimer { font-size: 0.7rem; color: var(--fg-muted); max-width: 680px; margin: 0 auto; line-height: 1.65; }
+
+    @media (min-width: 640px) {
+      .article-title { font-size: 2rem; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .risk-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+      .nav-links a { color: var(--fg-muted); font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+      .nav-links a:hover { color: var(--fg-primary); background: var(--bg-hover); text-decoration: none; }
+      .nav-links .nav-blog { color: var(--fg-primary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.75rem; }
+      .hamburger { display: none; }
+      .nav-drawer { display: none !important; }
+      .article-title { font-size: 2.4rem; }
+      .article-body h2 { font-size: 1.2rem; }
+      .related-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><div class="nav-live-dot"></div>HANTAVIRUS MAP</a>
+      <ul class="nav-links">
+        <li><a href="/#map-section">Map</a></li>
+        <li><a href="/#news-section">News</a></li>
+        <li><a href="/#timeline-section">Timeline</a></li>
+        <li><a href="/#faq-section">FAQ</a></li>
+        <li><a href="/blog/" class="nav-blog">Blog</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="/#map-section" onclick="closeNav()">Map</a>
+      <a href="/#news-section" onclick="closeNav()">News</a>
+      <a href="/#timeline-section" onclick="closeNav()">Timeline</a>
+      <a href="/#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="/blog/" class="nav-blog" onclick="closeNav()">Blog</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Hantavirus Mortality Rate</span>
+    </nav>
+  </div>
+
+  <div class="article-wrap">
+    <header class="article-header">
+      <div class="article-eyebrow">Data</div>
+      <h1 class="article-title">Hantavirus Mortality Rate: Understanding the Death Rate</h1>
+      <div class="article-meta">
+        <time datetime="2026-05-10">May 10, 2026</time>
+        <span>·</span>
+        <span>Source: CDC, WHO</span>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <p>The hantavirus mortality rate is one of the most critical figures for understanding the severity of any outbreak. Hantavirus Pulmonary Syndrome (HPS) — caused by North and South American hantavirus strains including the Andes virus — has historically been among the most lethal respiratory illnesses known to infect humans. This article examines the historical hantavirus death rate data, identifies the factors that determine survival odds, and contextualizes the 2026 MV Hondius outbreak figures within that history.</p>
+
+      <h2>Historical HPS Case Fatality Rate</h2>
+      <p>Since the first documented outbreak of HPS in the southwestern United States in 1993, public health agencies have accumulated substantial data on the hantavirus death rate. Based on CDC surveillance data from 1993 to 2023 — covering approximately 890 reported cases in the United States — the overall <strong>case fatality rate for HPS is approximately 35%</strong>.</p>
+      <p>This figure means that roughly one in three people diagnosed with HPS in the US dies from the disease. This makes HPS far more lethal than influenza (0.1%), and comparable to untreated bacterial pneumonia in immunocompromised patients. The high hantavirus mortality rate is driven by the rapid progression of the disease's cardiopulmonary phase, which can kill within 24–48 hours of respiratory symptom onset.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-box-num">~35%</div><div class="stat-box-lbl">HPS case fatality rate (CDC 1993–2023, ~890 US cases)</div></div>
+        <div class="stat-box"><div class="stat-box-num">890</div><div class="stat-box-lbl">Reported HPS cases in US since 1993</div></div>
+        <div class="stat-box"><div class="stat-box-num">37.5%</div><div class="stat-box-lbl">2026 MV Hondius CFR (3 deaths / 8 reported cases)</div></div>
+      </div>
+
+      <h2>Andes Virus Historical Mortality Data</h2>
+      <p>The Andes virus — the strain responsible for the 2026 MV Hondius hantavirus outbreak — is the dominant HPS-causing pathogen in South America, particularly in Argentina and Chile. Historical data from South American outbreaks suggest the <strong>Andes virus carries a case fatality rate comparable to or slightly higher than the North American HPS average</strong>, typically in the 30–40% range, though figures vary significantly by outbreak and by the speed with which patients received advanced care.</p>
+      <p>A key historical reference point is the 1996–1997 Andes virus outbreak cluster in the Patagonia region of Argentina, where person-to-person transmission was first documented. Early data from that cluster showed high mortality reflecting delays in recognition and treatment. As awareness and preparedness improved in subsequent years, survival rates in specialized centers improved meaningfully — underscoring that the hantavirus survival rate is not fixed and is highly sensitive to the quality and speed of care received.</p>
+
+      <h2>Risk Factors That Affect Hantavirus Survival Odds</h2>
+      <p>The hantavirus mortality rate is not uniform across all patients. Several factors have been identified as strongly associated with outcomes:</p>
+
+      <div class="risk-grid">
+        <div class="risk-item"><strong>Age and underlying conditions</strong>Older patients and those with cardiovascular disease, diabetes, or immunosuppression face higher mortality. The 2026 outbreak's first and second fatalities were a 70-year-old man and his 69-year-old widow.</div>
+        <div class="risk-item"><strong>Speed of ICU transfer</strong>Patients who reach intensive care before the onset of respiratory failure have significantly better outcomes. Delay is the most modifiable risk factor.</div>
+        <div class="risk-item"><strong>Access to advanced ventilatory support</strong>Mechanical ventilation and, in severe cases, extracorporeal membrane oxygenation (ECMO) can bridge patients through the acute phase. Limited availability of these resources dramatically worsens outcomes.</div>
+        <div class="risk-item"><strong>Viral load and strain virulence</strong>Higher initial viral loads are associated with more severe disease. The specific genetic variant of the Andes virus in the 2026 outbreak is under investigation by Argentine and international researchers.</div>
+      </div>
+
+      <h2>The 2026 Outbreak Case Fatality Rate</h2>
+      <p>The following statement represents the current data from the 2026 hantavirus outbreak as of May 9, 2026:</p>
+
+      <div class="quote-box">
+        <p>"As of May 9, 2026, three of the eight reported cases have resulted in death, representing a case fatality rate of 37.5% among reported cases. This figure may change as the outbreak evolves and additional cases are confirmed."</p>
+        <div class="quote-source">— HantavirusMap, based on WHO data</div>
+      </div>
+
+      <p>It is important to note that a case fatality rate calculated during an active outbreak — particularly one where case-finding is still in progress — is subject to significant uncertainty. If additional mild or asymptomatic cases are identified and confirmed in the coming days, the true CFR may be lower than 37.5%. Conversely, if patients currently hospitalized deteriorate, the rate could rise. The WHO and national health agencies will refine this figure as the 45-day monitoring period progresses.</p>
+      <p>Two of the three deaths have been laboratory-confirmed as caused by Andes virus. The third death, while linked to the outbreak cluster, remains under laboratory investigation. This distinction matters for the official WHO case count, which separates confirmed from probable cases.</p>
+
+      <h2>Why Early Treatment Is Critical for Hantavirus Survival</h2>
+      <p>There is currently no approved antiviral medication for hantavirus infection anywhere in the world. Treatment is entirely supportive — meaning that medical care aims to sustain the patient through the acute phase until the immune system can control the virus. The key elements of effective supportive care include:</p>
+      <ul>
+        <li><strong>Early oxygen supplementation</strong> before respiratory failure becomes established</li>
+        <li><strong>Fluid management</strong> to prevent pulmonary edema while maintaining blood pressure</li>
+        <li><strong>Mechanical ventilation</strong> with low tidal volumes to limit ventilator-induced lung injury</li>
+        <li><strong>ECMO</strong> in the most severe cases with profound cardiopulmonary failure</li>
+        <li><strong>Hemodynamic monitoring</strong> and vasopressor support when needed</li>
+      </ul>
+      <p>If you have been exposed to a confirmed case or have recently visited rodent-endemic regions in South America and develop fever, severe muscle aches, or any shortness of breath, seek emergency medical evaluation immediately. Early presentation — before the pulmonary phase — is the single most important factor in improving your hantavirus survival odds. Do not wait for symptoms to worsen before seeking care.</p>
+    </article>
+
+    <section class="related-section">
+      <div class="related-label">Related Articles</div>
+      <div class="related-grid">
+        <a class="related-card" href="/blog/hantavirus-outbreak-2026/">
+          <span class="related-card-tag">Outbreak</span>
+          <span class="related-card-title">Hantavirus Outbreak 2026: A Complete Guide</span>
+        </a>
+        <a class="related-card" href="/blog/hantavirus-spread-and-transmission/">
+          <span class="related-card-tag">Science</span>
+          <span class="related-card-title">How Does Hantavirus Spread? Transmission &amp; Infection Risks</span>
+        </a>
+        <a class="related-card" href="/blog/what-is-andes-virus/">
+          <span class="related-card-tag">Virology</span>
+          <span class="related-card-title">What Is Andes Virus? The Strain Behind the 2026 Outbreak</span>
+        </a>
+        <a class="related-card" href="/blog/mv-hondius-hantavirus-timeline/">
+          <span class="related-card-tag">Timeline</span>
+          <span class="related-card-title">MV Hondius Hantavirus Outbreak: Complete Timeline</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about">About</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+      </div>
+      <div class="footer-disclaimer">
+        Hantavirus Map — Last updated May 10, 2026<br>
+        This site summarises public sources and is not a diagnostic tool. Medical emergencies require professional care.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navDrawer').classList.toggle('open'); }
+    function closeNav() { document.getElementById('navDrawer').classList.remove('open'); }
+  </script>
+</body>
+</html>

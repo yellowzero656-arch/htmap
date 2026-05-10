@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Hantavirus Blog - Outbreak News, Maps &amp; Expert Analysis | HantavirusMap</title>
+  <meta name="description" content="Stay updated on the 2026 hantavirus outbreak. Expert articles on hantavirus spread, mortality rate, Andes virus, and the MV Hondius cruise ship cases." />
+  <link rel="canonical" href="https://hantavirusmap.net/blog/" />
+  <meta property="og:title" content="Hantavirus Blog - Outbreak News, Maps &amp; Expert Analysis | HantavirusMap" />
+  <meta property="og:description" content="Stay updated on the 2026 hantavirus outbreak. Expert articles on hantavirus spread, mortality rate, Andes virus, and the MV Hondius cruise ship cases." />
+  <meta property="og:url" content="https://hantavirusmap.net/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hantavirus Blog - Outbreak News, Maps &amp; Expert Analysis | HantavirusMap" />
+  <meta name="twitter:description" content="Stay updated on the 2026 hantavirus outbreak. Expert articles on hantavirus spread, mortality rate, Andes virus, and the MV Hondius cruise ship cases." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hantavirusmap.net/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hantavirusmap.net/blog/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-app: #09090b;
+      --bg-card: #18181b;
+      --bg-hover: #27272a;
+      --fg-primary: #f4f4f5;
+      --fg-muted: #a1a1aa;
+      --border: #27272a;
+      --accent: #ef4444;
+      --accent-bg: rgba(239, 68, 68, 0.1);
+      --accent-border: rgba(239, 68, 68, 0.2);
+      --orange: #f97316;
+      --blue: #60a5fa;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-app);
+      color: var(--fg-primary);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 2000;
+      background: rgba(9, 9, 11, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 700;
+      color: var(--fg-primary); letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 0.45rem; text-decoration: none;
+    }
+    .nav-live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 8px var(--accent);
+      animation: blink 1.5s ease-in-out infinite; flex-shrink: 0;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1 } 50% { opacity: 0.2 } }
+
+    .nav-links { display: none; list-style: none; }
+
+    .hamburger {
+      display: flex; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 8px; margin-right: -8px;
+      min-width: 44px; min-height: 44px;
+      align-items: center; justify-content: center;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--fg-muted); border-radius: 2px; transition: background 0.15s;
+    }
+    .nav-drawer {
+      display: none; flex-direction: column;
+      background: rgba(9, 9, 11, 0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem 1rem; gap: 0.25rem;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      display: flex; align-items: center;
+      color: var(--fg-muted); font-size: 0.9rem; font-weight: 500;
+      padding: 0.6rem 0.5rem; min-height: 44px;
+      border-bottom: 1px solid var(--border); transition: color 0.15s;
+    }
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { color: var(--fg-primary); text-decoration: none; }
+    .nav-drawer .nav-active { color: var(--accent); }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 1rem 0 0;
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--fg-muted); }
+    .breadcrumb a:hover { color: var(--fg-primary); text-decoration: none; }
+    .breadcrumb-sep { opacity: 0.4; }
+    .breadcrumb-current { color: var(--fg-primary); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 2rem 0 1.5rem; }
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-bg); border: 1px solid var(--accent-border);
+      border-radius: 20px; padding: 0.28rem 0.8rem; margin-bottom: 0.9rem;
+    }
+    .page-title {
+      font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 900;
+      color: var(--fg-primary); line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .page-sub { font-size: 0.88rem; color: var(--fg-muted); line-height: 1.6; max-width: 600px; }
+
+    /* BLOG GRID */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.5rem 0 3rem;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: background 0.15s, border-color 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: var(--accent); box-shadow: 0 0 6px var(--accent);
+    }
+    .blog-card:active { background: var(--bg-hover); }
+
+    .blog-card-meta {
+      display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    }
+    .blog-tag {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 20px;
+      background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border);
+    }
+    .blog-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--fg-muted);
+    }
+    .blog-card-title {
+      font-size: 1rem; font-weight: 700; color: var(--fg-primary);
+      line-height: 1.35;
+    }
+    .blog-card-excerpt {
+      font-size: 0.82rem; color: var(--fg-muted); line-height: 1.65;
+      flex: 1;
+    }
+    .blog-read-more {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      margin-top: 0.25rem;
+    }
+    .blog-read-more:hover { text-decoration: none; opacity: 0.8; }
+    .blog-read-more svg { transition: transform 0.15s; }
+    .blog-read-more:hover svg { transform: translateX(3px); }
+
+    /* FOOTER */
+    footer {
+      padding: 1.75rem 0; border-top: 1px solid var(--border); text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Orbitron', sans-serif; font-size: 0.72rem; font-weight: 700;
+      color: var(--fg-primary); margin-bottom: 0.5rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 1rem;
+      margin-bottom: 0.75rem; flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 0.75rem; color: var(--fg-muted); }
+    .footer-links a:active { color: var(--fg-primary); }
+    .footer-disclaimer {
+      font-size: 0.7rem; color: var(--fg-muted);
+      max-width: 680px; margin: 0 auto; line-height: 1.65;
+    }
+
+    /* TABLET */
+    @media (min-width: 640px) {
+      .container { padding: 0 1.25rem; }
+      .page-title { font-size: 2.2rem; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* DESKTOP */
+    @media (min-width: 1024px) {
+      .container { padding: 0 1.5rem; }
+      .nav-links {
+        display: flex; align-items: center; gap: 0.25rem; list-style: none;
+      }
+      .nav-links a {
+        color: var(--fg-muted); font-size: 0.8rem; font-weight: 500;
+        padding: 0.35rem 0.75rem; border-radius: 6px;
+        transition: color 0.15s, background 0.15s;
+      }
+      .nav-links a:hover {
+        color: var(--fg-primary); background: var(--bg-hover); text-decoration: none;
+      }
+      .nav-links .nav-active {
+        color: var(--fg-primary); background: var(--bg-card);
+        border: 1px solid var(--border); border-radius: 20px;
+        padding: 0.3rem 0.8rem; font-size: 0.75rem;
+      }
+      .hamburger { display: none; }
+      .nav-drawer { display: none !important; }
+      .page-header { padding: 3rem 0 2rem; }
+      .page-title { font-size: 2.8rem; }
+      .blog-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; padding: 2rem 0 4rem; }
+      .blog-card { padding: 1.5rem; }
+      .blog-card:hover { background: var(--bg-hover); border-color: #3f3f46; }
+      .blog-card-title { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#map-section">Map</a></li>
+        <li><a href="/#news-section">News</a></li>
+        <li><a href="/#timeline-section">Timeline</a></li>
+        <li><a href="/#faq-section">FAQ</a></li>
+        <li><a href="/blog/" class="nav-active">Blog</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="/#map-section" onclick="closeNav()">Map</a>
+      <a href="/#news-section" onclick="closeNav()">News</a>
+      <a href="/#timeline-section" onclick="closeNav()">Timeline</a>
+      <a href="/#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="/blog/" class="nav-active" onclick="closeNav()">Blog</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB + HEADER -->
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Blog</span>
+    </nav>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="page-eyebrow">Outbreak Analysis &amp; Research</div>
+      <h1 class="page-title">Hantavirus Outbreak Blog</h1>
+      <p class="page-sub">In-depth articles on the 2026 hantavirus outbreak, the Andes virus, MV Hondius timeline, and public health guidance — sourced from WHO, CDC, and peer-reviewed data.</p>
+    </div>
+  </div>
+
+  <!-- BLOG LISTING -->
+  <div class="container">
+    <div class="blog-grid">
+
+      <article class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-tag">Outbreak</span>
+          <time class="blog-date" datetime="2026-05-10">May 10, 2026</time>
+        </div>
+        <h2 class="blog-card-title">Hantavirus Outbreak 2026: What You Need to Know</h2>
+        <p class="blog-card-excerpt">The 2026 hantavirus outbreak aboard the MV Hondius cruise ship has affected passengers from 23 countries across multiple continents. As of May 9, WHO reports 6 confirmed cases, 2 probable cases, and 3 deaths — with an overall public health risk assessed as LOW.</p>
+        <a class="blog-read-more" href="/blog/hantavirus-outbreak-2026/">
+          Read More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-tag">Science</span>
+          <time class="blog-date" datetime="2026-05-10">May 10, 2026</time>
+        </div>
+        <h2 class="blog-card-title">How Does Hantavirus Spread? Transmission &amp; Infection Risks</h2>
+        <p class="blog-card-excerpt">Hantavirus spreads primarily through inhaling aerosols from infected rodent droppings, urine, or saliva. The Andes virus — identified in the 2026 MV Hondius outbreak — is the only known hantavirus that can also spread between humans under close and prolonged contact.</p>
+        <a class="blog-read-more" href="/blog/hantavirus-spread-and-transmission/">
+          Read More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-tag">Data</span>
+          <time class="blog-date" datetime="2026-05-10">May 10, 2026</time>
+        </div>
+        <h2 class="blog-card-title">Hantavirus Mortality Rate: Death Rate, Survival Odds &amp; Risk Factors</h2>
+        <p class="blog-card-excerpt">Hantavirus Pulmonary Syndrome carries a historical case fatality rate of approximately 35% based on CDC data from 1993 to 2023. The 2026 MV Hondius outbreak has recorded three deaths from eight reported cases, yielding a current case fatality rate of 37.5%.</p>
+        <a class="blog-read-more" href="/blog/hantavirus-mortality-rate/">
+          Read More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-tag">Virology</span>
+          <time class="blog-date" datetime="2026-05-10">May 10, 2026</time>
+        </div>
+        <h2 class="blog-card-title">What Is Andes Virus? The Strain Behind the 2026 Hantavirus Outbreak</h2>
+        <p class="blog-card-excerpt">Andes virus is a species within the family Hantaviridae, found primarily in South America. It is the only hantavirus known to spread from person to person, making it uniquely dangerous in close-contact settings such as cruise ship cabins.</p>
+        <a class="blog-read-more" href="/blog/what-is-andes-virus/">
+          Read More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-tag">Timeline</span>
+          <time class="blog-date" datetime="2026-05-10">May 10, 2026</time>
+        </div>
+        <h2 class="blog-card-title">MV Hondius Hantavirus Outbreak: Complete Timeline</h2>
+        <p class="blog-card-excerpt">A complete day-by-day record of the 2026 hantavirus outbreak aboard the MV Hondius, from the vessel's departure at Ushuaia on April 1 through the international evacuation at the Port of Granadilla, Tenerife on May 10.</p>
+        <a class="blog-read-more" href="/blog/mv-hondius-hantavirus-timeline/">
+          Read More
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about">About</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+      </div>
+      <div class="footer-disclaimer">
+        Hantavirus Map — Last updated May 10, 2026<br>
+        This site summarises public sources and is not a diagnostic tool. Medical emergencies require professional care.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navDrawer').classList.toggle('open'); }
+    function closeNav() { document.getElementById('navDrawer').classList.remove('open'); }
+  </script>
+</body>
+</html>
