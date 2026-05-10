@@ -8,6 +8,9 @@
   <meta name="description"
     content="Track hantavirus cases, deaths & affected countries in real time. Live 2026 data covering the USA and global regions, sourced from WHO and CDC." />
   <link rel="canonical" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="en" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="uk" href="https://hantavirusmap.net/uk/" />
+  <link rel="alternate" hreflang="x-default" href="https://hantavirusmap.net/" />
   <link rel="icon" type="image/png" href="/logo.png" />
   <meta property="og:title" content="Hantavirus Map 2026 – Live Outbreak Tracker" />
   <meta property="og:description"
@@ -153,6 +156,23 @@
       50% {
         opacity: 0.2
       }
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex; align-items: center; gap: 0.25rem;
+    }
+    .lang-switch a {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--fg-muted); padding: 0.22rem 0.5rem;
+      border-radius: 5px; border: 1px solid transparent;
+      transition: all 0.15s; text-decoration: none; white-space: nowrap;
+    }
+    .lang-switch a.lang-active {
+      color: var(--fg-primary); border-color: var(--border); background: var(--bg-card);
+    }
+    .lang-switch a:hover:not(.lang-active) {
+      color: var(--fg-primary); background: var(--bg-hover); text-decoration: none;
     }
 
     /* Desktop nav links — hidden on mobile */
@@ -1451,9 +1471,15 @@
         <li><a href="#faq-section">FAQ</a></li>
         <li><a href="/blog/" class="nav-tg">Blog</a></li>
       </ul>
-      <!-- Mobile hamburger -->
-      <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <!-- Language switcher + Mobile hamburger -->
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div class="lang-switch">
+          <a href="/" class="lang-active">🇬🇧 EN</a>
+          <a href="/uk/">🇺🇦 UA</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
     <!-- Mobile drawer -->
@@ -1463,6 +1489,7 @@
       <a href="#timeline-section" onclick="closeNav()">Timeline</a>
       <a href="#faq-section" onclick="closeNav()">FAQ</a>
       <a href="/blog/" class="nav-tg" onclick="closeNav()">Blog</a>
+      <a href="/uk/" onclick="closeNav()">🇺🇦 Українська</a>
     </div>
   </nav>
 
