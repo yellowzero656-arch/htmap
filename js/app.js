@@ -6,7 +6,7 @@
 
   /* COUNTDOWN */
   (function () {
-    var onset = new Date('2026-04-28T00:00:00Z');
+    var onset = new Date('2026-04-06T00:00:00Z');
     function setDigits(id, n) {
       var s = String(n).padStart(2, '0');
       var el = document.getElementById(id);
