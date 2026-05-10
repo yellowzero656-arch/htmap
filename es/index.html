@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Mapa del Hantavirus - Rastreador en Vivo 2026 | Casos y Muertes Globales</title>
+  <meta name="description"
+    content="Mapa del hantavirus en vivo 2026. Rastrea casos confirmados, muertes y países afectados en tiempo real. Datos del brote del crucero MV Hondius según la OMS y los CDC." />
+  <link rel="canonical" href="https://hantavirusmap.net/es/" />
+  <link rel="alternate" hreflang="en" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="uk" href="https://hantavirusmap.net/uk/" />
+  <link rel="alternate" hreflang="es" href="https://hantavirusmap.net/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://hantavirusmap.net/" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <meta property="og:title" content="Mapa del Hantavirus 2026 – Rastreador en Vivo" />
+  <meta property="og:description" content="Rastrea el brote de hantavirus 2026 con un mapa global en tiempo real. Casos, muertes y datos por país de la OMS y los CDC." />
+  <meta property="og:url" content="https://hantavirusmap.net/es/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mapa del Hantavirus 2026 – Rastreador en Vivo" />
+  <meta name="twitter:description" content="Rastrea el brote de hantavirus 2026 en tiempo real. Datos en vivo de la OMS y los CDC." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://hantavirusmap.net/es/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </div>
+      <ul class="nav-links">
+        <li><a href="#map-section">Mapa</a></li>
+        <li><a href="#news-section">Noticias</a></li>
+        <li><a href="#timeline-section">Cronología</a></li>
+        <li><a href="#faq-section">Preguntas</a></li>
+        <li><a href="/blog/" class="nav-tg">Blog</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div class="lang-switch">
+          <a href="/">🇬🇧 EN</a>
+          <a href="/uk/">🇺🇦 UA</a>
+          <a href="/es/" class="lang-active">🇪🇸 ES</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#map-section" onclick="closeNav()">Mapa</a>
+      <a href="#news-section" onclick="closeNav()">Noticias</a>
+      <a href="#timeline-section" onclick="closeNav()">Cronología</a>
+      <a href="#faq-section" onclick="closeNav()">Preguntas</a>
+      <a href="/blog/" onclick="closeNav()">Blog</a>
+      <a href="/" onclick="closeNav()">🇬🇧 English</a>
+      <a href="/uk/" onclick="closeNav()">🇺🇦 Українська</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow">Rastreador en Vivo · Riesgo OMS: BAJO</div>
+
+      <h1 class="hero-title">Mapa del Hantavirus<br><span class="accent">en Vivo 2026</span></h1>
+
+      <div class="countdown-block">
+        <div class="countdown-label">Desde el primer síntoma — 28 abr. 2026</div>
+        <div class="countdown-display">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Días</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Horas</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Min</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Seg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="confirmed-cases">6</div>
+          <div class="stat-label">Casos Confirmados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="deaths">3</div>
+          <div class="stat-label">Muertes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="countries-affected">6</div>
+          <div class="stat-label">Países Afectados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="suspected-cases">8</div>
+          <div class="stat-label">Casos Sospechosos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-top">Advertisement</div>
+  </div>
+
+  <!-- MAP -->
+  <section class="section" id="map-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Mapa Interactivo</div>
+        <h2 class="section-title">Mapa de Casos 2026</h2>
+        <p class="section-sub">Mapa de países con casos confirmados o sospechosos. Toca un marcador para ver los detalles del país.</p>
+      </div>
+
+      <div class="map-unified">
+        <div id="map"></div>
+        <div class="map-panel">
+          <div class="map-panel-header">Detalles del País</div>
+          <div class="map-panel-body" id="mapPanel">
+            <div class="panel-placeholder">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Toca un marcador para ver el expediente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> Caso Confirmado</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Sospechoso / No Confirmado</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#71717a;"></div> Monitoreo / Tratamiento</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#3f3f46;"></div> Sin Caso en 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NEWS -->
+  <section class="section" id="news-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Más Recientes Primero</div>
+        <h2 class="section-title">Últimas Noticias del Brote</h2>
+        <p class="section-sub">Cobertura en tiempo real de la OMS, los CDC, la UKHSA y medios internacionales.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid"></div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Cargar más noticias</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIMELINE -->
+  <section class="section" id="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Vinculado al Crucero · Más Recientes Primero</div>
+        <h2 class="section-title">Cronología 2026</h2>
+        <p class="section-sub">Registro cronológico según el Informe de Brote de la OMS y organismos oficiales de salud.</p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-08</div>
+            <div class="tl-title">Actualización OMS: 5 casos confirmados de virus Andes y 8 sospechosos</div>
+            <div class="tl-desc">La OMS actualizó el brote a 13 casos (5 confirmados, 8 sospechosos). El riesgo público permanece bajo. La UKHSA reportó un tercer ciudadano británico con infección sospechosa. Los CDC elevaron la respuesta de viaje al nivel 3.</div>
+            <span class="tl-source">OMS · UKHSA · CDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-07</div>
+            <div class="tl-title">Tres pacientes evacuados y el buque navega hacia España</div>
+            <div class="tl-desc">Tres pasajeros enfermos fueron evacuados para recibir tratamiento. El buque continuó hacia el norte, rumbo a las Islas Canarias, mientras el rastreo de contactos se amplió a 13 países.</div>
+            <span class="tl-source">AP News · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-06</div>
+            <div class="tl-title">Evacuaciones internacionales y monitoreo de pasajeros</div>
+            <div class="tl-desc">Las agencias de noticias informaron de evacuaciones continuas y monitoreo de síntomas en pasajeros que regresaron a Europa. EE. UU. envió personal del CDC en avión para asistir.</div>
+            <span class="tl-source">Reuters · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-04</div>
+            <div class="tl-title">Actualización pública de la OMS — riesgo evaluado como BAJO</div>
+            <div class="tl-desc">La OMS reportó 7 casos: 2 confirmados, 5 sospechosos, 3 muertes, 1 paciente crítico y 3 casos leves mientras el buque estaba anclado frente a Cabo Verde.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-02</div>
+            <div class="tl-title">La OMS recibe notificación del punto focal del Reino Unido</div>
+            <div class="tl-desc">El punto focal del Reino Unido notificó a la OMS sobre un clúster de enfermedad respiratoria aguda severa a bordo del crucero.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-30</div>
+            <div class="tl-title">Paciente en UCI evacuado a Sudáfrica</div>
+            <div class="tl-desc">El caso 3 fue evacuado médicamente desde la Isla Ascensión a Sudáfrica y posteriormente confirmado PCR-positivo para hantavirus en la UCI.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-28</div>
+            <div class="tl-title">Caso fatal confirmado llega a Sudáfrica</div>
+            <div class="tl-desc">El caso 2 se deterioró durante el traslado a Johannesburgo y murió al llegar. La OMS confirmó posteriormente resultado PCR-positivo para hantavirus.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-24</div>
+            <div class="tl-title">Excursión en tierra en Santa Elena — posible exposición</div>
+            <div class="tl-desc">Los pasajeros desembarcaron para una excursión de avistamiento de aves. El contacto con entornos infestados de roedores se identifica como el probable evento de exposición al hantavirus para todo el clúster.</div>
+            <span class="tl-source">OMS DON#99 · Reuters</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLIC HEALTH FACTS -->
+  <section class="section" id="facts-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Referencia Médica</div>
+        <h2 class="section-title">Datos de Salud Pública</h2>
+        <p class="section-sub">Información basada en evidencia sobre el hantavirus: transmisión, síntomas y prevención.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">🦠</div>
+          <div class="fact-title">Qué Son los Hantavirus</div>
+          <div class="fact-text">Los hantavirus son virus zoonóticos transmitidos por roedores. Solo algunas especies causan enfermedades en humanos. El Virus Andes — presente en Sudamérica — es la cepa sospechosa en el brote del MV Hondius 2026.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌬️</div>
+          <div class="fact-title">Principal Vía de Infección</div>
+          <div class="fact-text">Las personas se infectan principalmente al inhalar aerosoles de excrementos, orina o saliva de roedores infectados. Tocar superficies contaminadas y luego tocarse los ojos, la nariz o la boca también puede transmitir el virus.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">👥</div>
+          <div class="fact-title">Transmisión de Persona a Persona</div>
+          <div class="fact-text">La OMS y los CDC señalan que la transmisión documentada de persona a persona está limitada al Virus Andes en las Américas. Esta es la razón principal por la que la OMS evaluó el riesgo global como BAJO.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🫁</div>
+          <div class="fact-title">Síndromes Clínicos</div>
+          <div class="fact-text">En las Américas: Síndrome Cardiopulmonar por Hantavirus (SCPH). En Europa y Asia: Fiebre Hemorrágica con Síndrome Renal (FHSR). Ambos pueden ser mortales sin atención en UCI.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">⏱️</div>
+          <div class="fact-title">Período de Incubación</div>
+          <div class="fact-text">Los síntomas aparecen entre una y ocho semanas después de la exposición. Los síntomas de SCPH aparecen dos a cuatro semanas después. El amplio período dificulta la identificación temprana en clústeres.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">💊</div>
+          <div class="fact-title">Tratamiento</div>
+          <div class="fact-text">No existe antiviral autorizado para el hantavirus. La atención de soporte temprana y el manejo a nivel de UCI mejoran significativamente la supervivencia. Busca atención inmediata si tienes síntomas tras una posible exposición.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🏠</div>
+          <div class="fact-title">Prevención</div>
+          <div class="fact-text">Sella edificios contra roedores. Limpia siempre con agua — nunca barras en seco. Ventila 30 min antes de entrar en zonas con roedores. Usa guantes y mascarilla N95 al limpiar excrementos.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌍</div>
+          <div class="fact-title">Carga Global</div>
+          <div class="fact-text">La OMS estima entre 10.000 y más de 100.000 infecciones por hantavirus al año. Mayor carga en Asia y Europa (FHSR). Las Américas reportan casos de SCPH anualmente. Sudamérica tiene la mayor tasa de mortalidad.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-middle">Advertisement</div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Preguntas Frecuentes</div>
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-sub">Preguntas comunes sobre la transmisión, síntomas y el brote del MV Hondius 2026.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" id="fq1">
+          <button class="faq-btn" onclick="toggleFaq('fq1')">
+            <span>¿El hantavirus se transmite por el aire entre personas?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">La mayoría de las cepas de hantavirus no se transmiten entre personas. El Virus Andes —sospechoso en el brote 2026— es el único hantavirus con transmisión limitada documentada de persona a persona. La OMS evaluó el riesgo global como BAJO. El riesgo de transmisión comunitaria para el público general sigue siendo mínimo.</div>
+        </div>
+        <div class="faq-item" id="fq2">
+          <button class="faq-btn" onclick="toggleFaq('fq2')">
+            <span>¿Cuáles son los primeros síntomas del hantavirus?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">Síntomas tempranos: fiebre (superior a 38,5 °C), dolor muscular severo en muslos, caderas y espalda, fatiga intensa y dolor de cabeza. También pueden aparecer náuseas, vómitos y diarrea. Estos duran 4–10 días antes de evolucionar posiblemente a dificultad respiratoria. Si viajaste en el MV Hondius y presentas síntomas, busca atención médica inmediata.</div>
+        </div>
+        <div class="faq-item" id="fq3">
+          <button class="faq-btn" onclick="toggleFaq('fq3')">
+            <span>¿Cuándo aparece la dificultad respiratoria?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">La dificultad respiratoria —característica del SCPH— suele comenzar 4–10 días después de la fase gripal inicial. El inicio puede ser rápido y potencialmente mortal, requiriendo ventilación mecánica en pocas horas. Si has podido estar expuesto y experimentas falta de aire, llama a los servicios de emergencia de inmediato.</div>
+        </div>
+        <div class="faq-item" id="fq4">
+          <button class="faq-btn" onclick="toggleFaq('fq4')">
+            <span>¿Qué tan mortal es el hantavirus?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">El SCPH tiene una tasa de letalidad de ~36% en EE. UU. El brote 2026 muestra 3 muertes de 5 casos confirmados (60%), por encima de los promedios históricos, probablemente reflejando la gravedad de la cepa Andes. La detección temprana y la atención agresiva en UCI mejoran significativamente los resultados.</div>
+        </div>
+        <div class="faq-item" id="fq5">
+          <button class="faq-btn" onclick="toggleFaq('fq5')">
+            <span>¿Existe vacuna o cura?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">No existe vacuna aprobada para el hantavirus en los países occidentales a 2026. El tratamiento es de soporte: cuidados intensivos, oxígeno suplementario y en casos graves ventilación mecánica o ECMO. La prevención mediante el control de roedores y la evitación de la exposición sigue siendo la estrategia más crítica.</div>
+        </div>
+        <div class="faq-item" id="fq6">
+          <button class="faq-btn" onclick="toggleFaq('fq6')">
+            <span>¿Cómo limpiar de forma segura un área contaminada por roedores?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">Los CDC recomiendan: (1) ventilar 30 min antes de entrar; (2) usar guantes de goma y mascarilla N95; (3) rociar los excrementos con solución de lejía al 10%, dejar actuar 5 min; (4) limpiar con trapo — nunca barrer en seco ni aspirar; (5) doble bolsa para todos los residuos; (6) desinfectar guantes, luego lavarse las manos. La inhalación de partículas aerosolizadas es la principal vía de transmisión.</div>
+        </div>
+        <div class="faq-item" id="fq7">
+          <button class="faq-btn" onclick="toggleFaq('fq7')">
+            <span>¿Deben preocuparse los viajeros?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">La OMS evaluó el riesgo global como BAJO. El brote está contenido en los pasajeros del MV Hondius y sus contactos cercanos. Los viajeros en general no corren mayor riesgo. Sin embargo, quien haya realizado actividades al aire libre en zonas rurales de Sudamérica —especialmente excursiones de vida silvestre— debe vigilar síntomas de hantavirus.</div>
+        </div>
+        <div class="faq-item" id="fq8">
+          <button class="faq-btn" onclick="toggleFaq('fq8')">
+            <span>¿Por qué difieren los números del mapa por país?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          <div class="faq-body">Los países aplican diferentes definiciones de caso — algunos reportan solo casos confirmados por PCR, otros incluyen casos sospechosos. Este mapa distingue el estado confirmado (rojo), sospechoso (naranja) y en monitoreo (gris) por país, basándose en informes oficiales de la OMS, el ECDC, los CDC y autoridades nacionales de salud a 10 de mayo de 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT (SEO) -->
+  <section class="section" id="about-section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <div class="section-tag">Referencia Médica</div>
+        <h2 class="section-title">¿Qué Es el Hantavirus?</h2>
+        <p class="section-sub">Síntomas, transmisión y prevención — información esencial para viajeros y pasajeros del MV Hondius.</p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="about-h3">¿Cómo se Transmite el Hantavirus?</h3>
+        <p class="about-p">El hantavirus se transmite principalmente por contacto con roedores infectados o sus excrementos, orina o saliva. La vía más común es inhalar polvo contaminado. El virus no se transmite por contacto casual entre personas. Sin embargo, el Virus Andes —sospechoso en el brote del MV Hondius 2026— es el único hantavirus conocido con evidencia de transmisión limitada de persona a persona.</p>
+
+        <h3 class="about-h3">Síntomas del Hantavirus</h3>
+        <p class="about-p">Los síntomas tempranos aparecen 1–8 semanas tras la exposición: fiebre, dolor muscular severo, fatiga y dolor de cabeza. Algunos casos progresan al Síndrome Pulmonar por Hantavirus (SPH), caracterizado por dificultad para respirar, líquido en los pulmones y falla respiratoria rápida. El brote 2026 ha resultado en 3 muertes de 5 casos confirmados (60% de tasa de letalidad), con 8 casos sospechosos adicionales bajo investigación.</p>
+
+        <h3 class="about-h3">Cómo Protegerse</h3>
+        <p class="about-p">Minimiza la exposición a roedores y sus excretas. Ventila las zonas contaminadas al menos 30 minutos antes de entrar. Humedece el material contaminado con desinfectante antes de limpiar — nunca barras en seco. Usa guantes de goma y mascarilla N95. Si fuiste pasajero del MV Hondius, contacta de inmediato a tu autoridad sanitaria local y sigue el protocolo de monitoreo de 45 días.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- OFFICIAL SOURCES -->
+  <section class="section" id="sources-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Referencias</div>
+        <h2 class="section-title">Fuentes Oficiales</h2>
+        <p class="section-sub">Todos los datos compilados de organismos oficiales de salud pública y medios internacionales verificados.</p>
+      </div>
+
+      <div class="sources-pills">
+        <span class="source-pill">OMS — Hoja Informativa sobre Hantavirus</span>
+        <span class="source-pill">OMS DON#99 Clúster Vinculado al Hantavirus</span>
+        <span class="source-pill">OMS Evento de Emergencia 2026-eSOG227</span>
+        <span class="source-pill">CDC — Acerca del Hantavirus</span>
+        <span class="source-pill">CDC — Casos Reportados en EE. UU.</span>
+        <span class="source-pill">ECDC Hantavirus AIR 2023</span>
+        <span class="source-pill">CDC — Ficha Técnica Orthohantavirus</span>
+        <span class="source-pill">OPS — Alerta Epidemiológica Dic. 2025</span>
+        <span class="source-pill">China CDC Weekly HFRS 2014–2023</span>
+        <span class="source-pill">CDC MMWR Suroeste EE. UU. 1993</span>
+        <span class="source-pill">OMS Hantavirus Argentina 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-bottom">Advertisement</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="/about">Acerca de</a>
+        <a href="/privacy-policy">Política de Privacidad</a>
+        <a href="/terms-of-service">Términos de Servicio</a>
+      </div>
+      <div class="footer-disclaimer">
+        Rastreador de Hantavirus — Actualizado <span id="last-updated">2026-05-10</span><br>
+        Fuente: OMS · Última actualización: mayo 2026<br>
+        © 2026 HantavirusMap. Todos los derechos reservados.<br>
+        Este rastreador resume fuentes públicas y no es una herramienta de diagnóstico. Las emergencias médicas requieren atención profesional.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    /* Language config — Spanish */
+    window.APP_CONFIG = {
+      locale: 'es-ES',
+      labels: { confirmed: 'Confirmados', suspected: 'Sospechosos', deaths: 'Muertes', source: 'Fuente' },
+      countryData: {
+        'south-africa': { name: 'Sudáfrica', severity: 'high', severityLabel: 'CONFIRMADO · 1 MUERTE', confirmed: 1, suspected: 0, deaths: 1, desc: 'Casos confirmados de Virus Andes en un hospital de Johannesburgo. Un pasajero del MV Hondius murió al llegar (PCR confirmado). Un segundo paciente fue evacuado médicamente desde la Isla Ascensión y confirmado PCR-positivo en UCI.', updates: ['Caso 2 se deterioró en tránsito a Johannesburgo y murió al llegar — Virus Andes confirmado por PCR.', 'Caso 3 evacuado desde Isla Ascensión, confirmado PCR-positivo en UCI de Johannesburgo.'], source: 'OMS DON#99' },
+        'switzerland': { name: 'Suiza', severity: 'high', severityLabel: 'CONFIRMADO', confirmed: 1, suspected: 0, deaths: 0, desc: 'Un pasajero del MV Hondius que regresó a Suiza fue confirmado con Virus Andes y está bajo atención clínica.', updates: ['Caso confirmado de Virus Andes en pasajero del MV Hondius.', 'Protocolo de monitoreo clínico de 45 días en vigor.'], source: 'OMS, Wikipedia' },
+        'netherlands': { name: 'Países Bajos', severity: 'medium', severityLabel: 'SOSPECHOSO · 2 MUERTES', confirmed: 0, suspected: 1, deaths: 2, desc: 'Una pareja neerlandesa, pasajeros del MV Hondius, falleció tras el desembarco. Los casos se clasifican como sospechosos/no confirmados. Ambas muertes vinculadas a la excursión del 24 de abril en Santa Elena.', updates: ['Pareja neerlandesa falleció tras desembarcar del MV Hondius — casos sospechosos, no confirmados por PCR.', 'Fuente: Wikipedia.'], source: 'Wikipedia, OMS' },
+        'uk': { name: 'Reino Unido', severity: 'high', severityLabel: 'CONFIRMADO + SOSPECHOSO', confirmed: 2, suspected: 1, deaths: 0, desc: 'El Reino Unido confirmó 2 casos de Virus Andes y 1 caso sospechoso adicional entre pasajeros del MV Hondius. La UKHSA coordina el monitoreo y el seguimiento de 45 días de todos los contactos expuestos.', updates: ['Reino Unido confirmó 2 casos de Virus Andes y 1 sospechoso del MV Hondius (CNN).', 'Monitoreo de seguimiento de 45 días para contactos expuestos.'], source: 'CNN, UKHSA, OMS' },
+        'saint-helena': { name: 'Santa Elena', severity: 'medium', severityLabel: 'NO CONFIRMADO · PUNTO DE EXPOSICIÓN', confirmed: 0, suspected: 1, deaths: 0, desc: 'Los pasajeros desembarcaron el 24 de abril para una excursión de avistamiento de aves. El contacto con entornos infestados de roedores se identifica como el probable evento de exposición al hantavirus para todo el clúster.', updates: ['24 de abril: excursión en tierra — viaje de avistamiento de aves identificado como probable origen de exposición.', 'Casos no confirmados vinculados a Santa Elena. Fuente: Wikipedia.'], source: 'OMS DON#99, Wikipedia' }
+      },
+      pts: [
+        { lat: -54.8, lng: -68.3, c: '#71717a', s: 12, key: null, n: 'Argentina (Ushuaia)', sc: 'gray', st: 'Puerto de Salida del Crucero', dt: 'MV Hondius partió de Ushuaia. Excursión en Santa Elena el 24 abr. identificada como probable punto de exposición.' },
+        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'Santa Elena', sc: 'orange', st: 'No Confirmado · Punto de Exposición', dt: 'Excursión 24 abr. — probable evento de exposición al hantavirus. Casos no confirmados vinculados aquí. Toca para detalles.' },
+        { lat: -26.2, lng: 28.0, c: '#ef4444', s: 18, key: 'south-africa', n: 'Sudáfrica', sc: 'red', st: 'Confirmado · 1 Muerte', dt: 'Virus Andes confirmado en hospital de Johannesburgo. Un caso fatal confirmado por PCR. Toca para detalles.' },
+        { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Suiza', sc: 'red', st: 'Caso Confirmado', dt: 'Virus Andes confirmado en pasajero del MV Hondius. Toca para detalles.' },
+        { lat: 52.4, lng: 4.9, c: '#f97316', s: 15, key: 'netherlands', n: 'Países Bajos', sc: 'orange', st: 'Sospechoso · 2 Muertes', dt: 'Pareja neerlandesa falleció tras desembarcar del MV Hondius. Casos sospechosos/no confirmados. Toca para detalles.' },
+        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Reino Unido', sc: 'red', st: '2 Confirmados · 1 Sospechoso', dt: 'Reino Unido confirmó 2 casos de Virus Andes + 1 sospechoso (CNN). Toca para detalles.' },
+        { lat: 51.2, lng: 10.5, c: '#71717a', s: 12, key: null, n: 'Alemania', sc: 'gray', st: 'Pacientes en Tratamiento', dt: 'Pacientes trasladados en avión a Alemania para tratamiento médico. Clasificación del caso en investigación.' },
+        { lat: 46.2, lng: 2.2, c: '#f97316', s: 12, key: null, n: 'Francia', sc: 'orange', st: 'Casos No Confirmados', dt: 'Casos de hantavirus no confirmados vinculados a pasajeros del MV Hondius.' },
+        { lat: 28.1, lng: -15.4, c: '#71717a', s: 12, key: null, n: 'España (Tenerife)', sc: 'gray', st: 'Puerto de Destino del MV Hondius', dt: 'MV Hondius se dirige a Tenerife, Islas Canarias.' },
+        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapur', sc: 'gray', st: 'Monitoreo', dt: '2 residentes en observación de cuarentena, resultados pendientes.' },
+        { lat: 39.8, lng: -98.6, c: '#71717a', s: 12, key: null, n: 'Estados Unidos', sc: 'gray', st: 'Cuarentena a la Llegada', dt: '17 pasajeros estadounidenses escoltados por los CDC a Nebraska para cuarentena.' }
+      ]
+    };
+  </script>
+  <script src="/js/app.js"></script>
+
+</body>
+</html>
