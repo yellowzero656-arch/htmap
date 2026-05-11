@@ -132,8 +132,8 @@
 
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-num" id="confirmed-cases">6</div>
-          <div class="stat-label">Casos Confirmados</div>
+          <div class="stat-num" id="confirmed-cases">9</div>
+          <div class="stat-label">Total Casos</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" id="deaths">3</div>
@@ -144,8 +144,8 @@
           <div class="stat-label">Países Afectados</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num orange" id="suspected-cases">8</div>
-          <div class="stat-label">Casos Sospechosos</div>
+          <div class="stat-num orange" id="suspected-cases">2</div>
+          <div class="stat-label">Casos Probables</div>
         </div>
       </div>
     </div>
@@ -236,10 +236,19 @@
         <div class="tl-item">
           <div class="tl-dot active"></div>
           <div class="tl-card">
+            <div class="tl-date">2026-05-11</div>
+            <div class="tl-title">Pasajeros francesa y estadounidense dan positivo — total: 7 confirmados, 9 casos</div>
+            <div class="tl-desc">Una ciudadana francesa evacuada el 10 de mayo dio positivo al Virus Andes el 11 de mayo, con empeoramiento de su salud. Un estadounidense asintomático también dio positivo. Un segundo estadounidense con síntomas leves permanece bajo investigación como caso probable. Francia elevó su nivel de alerta e identificó 22 contactos de alto riesgo. El ECDC confirmó 7 casos confirmados y 2 probables (9 total), 3 muertes; riesgo para la población general de la UE/EEE muy bajo.</div>
+            <span class="tl-source">ECDC · Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
             <div class="tl-date">2026-05-10</div>
-            <div class="tl-title">MV Hondius atraca en Tenerife; OMS actualiza a 6 confirmados</div>
-            <div class="tl-desc">El MV Hondius llegó a Tenerife, Islas Canarias. La OMS actualizó el clúster a 6 casos confirmados de Virus Andes y 8 sospechosos, con 3 muertes. Las autoridades españolas supervisaron el desembarco de los pasajeros restantes bajo protocolos sanitarios.</div>
-            <span class="tl-source">OMS · Reuters · Ministerio de Sanidad de España</span>
+            <div class="tl-title">MV Hondius atraca en Tenerife; 7 vuelos de evacuación; paracaidistas llegan a Tristán de Acuña</div>
+            <div class="tl-desc">El MV Hondius llegó al Puerto de Granadilla cerca de las 05:30. Los pasajeros embarcaron en lanchas directamente al aeropuerto sin contacto con los residentes. Al final del 10 de mayo, siete vuelos habían transportado a 94 pasajeros a seis países europeos y Canadá. Paracaidistas británicos del 16 Air Assault Brigade entregaron 3.300 kg de suministros médicos en Tristán de Acuña, donde un residente (ex-pasajero del MV Hondius) es sospechoso de infección.</div>
+            <span class="tl-source">OMS · Wikipedia · ECDC</span>
           </div>
         </div>
         <div class="tl-item">
@@ -487,7 +496,7 @@
             </svg>
           </button>
           <div class="faq-body">El SCPH tiene una tasa de letalidad de ~36% en EE. UU. El brote 2026 muestra 3 muertes
-            de 5 casos confirmados (60%), por encima de los promedios históricos, probablemente reflejando la gravedad
+            de 7 casos confirmados (43%), por encima de los promedios históricos, probablemente reflejando la gravedad
             de la cepa Andes. La detección temprana y la atención agresiva en UCI mejoran significativamente los
             resultados.</div>
         </div>
@@ -541,7 +550,7 @@
           <div class="faq-body">Los países aplican diferentes definiciones de caso — algunos reportan solo casos
             confirmados por PCR, otros incluyen casos sospechosos. Este mapa distingue el estado confirmado (rojo),
             sospechoso (naranja) y en monitoreo (gris) por país, basándose en informes oficiales de la OMS, el ECDC, los
-            CDC y autoridades nacionales de salud a 10 de mayo de 2026.</div>
+            CDC y autoridades nacionales de salud a 11 de mayo de 2026.</div>
         </div>
       </div>
     </div>
@@ -570,8 +579,8 @@
         <p class="about-p">Los síntomas tempranos aparecen 1–8 semanas tras la exposición: fiebre, dolor muscular
           severo, fatiga y dolor de cabeza. Algunos casos progresan al Síndrome Pulmonar por Hantavirus (SPH),
           caracterizado por dificultad para respirar, líquido en los pulmones y falla respiratoria rápida. El brote 2026
-          ha resultado en 3 muertes de 5 casos confirmados (60% de tasa de letalidad), con 8 casos sospechosos
-          adicionales bajo investigación.</p>
+          ha resultado en 3 muertes de 7 casos confirmados (43% de tasa de letalidad), con 2 casos probables
+          adicionales bajo monitoreo.</p>
 
         <h3 class="about-h3">Cómo Protegerse</h3>
         <p class="about-p">Minimiza la exposición a roedores y sus excretas. Ventila las zonas contaminadas al menos 30
@@ -625,7 +634,7 @@
         <a href="/terms-of-service">Términos de Servicio</a>
       </div>
       <div class="footer-disclaimer">
-        Rastreador de Hantavirus — Actualizado <span id="last-updated">2026-05-10</span><br>
+        Rastreador de Hantavirus — Actualizado <span id="last-updated">2026-05-11</span><br>
         Fuente: OMS · Última actualización: mayo 2026<br>
         © 2026 HantavirusMap. Todos los derechos reservados.<br>
         Este rastreador resume fuentes públicas y no es una herramienta de diagnóstico. Las emergencias médicas
@@ -640,26 +649,28 @@
     /* Language config — Spanish */
     window.APP_CONFIG = {
       locale: 'es-ES',
-      labels: { confirmed: 'Confirmados', suspected: 'Sospechosos', deaths: 'Muertes', source: 'Fuente' },
+      labels: { confirmed: 'Confirmados', suspected: 'Probables', deaths: 'Muertes', source: 'Fuente' },
       countryData: {
         'south-africa': { name: 'Sudáfrica', severity: 'high', severityLabel: 'CONFIRMADO · 2 CASOS · 1 MUERTE', confirmed: 2, suspected: 0, deaths: 1, desc: 'Casos confirmados de Virus Andes en un hospital de Johannesburgo. Un pasajero del MV Hondius murió al llegar (PCR confirmado). Un segundo paciente fue evacuado médicamente desde la Isla Ascensión y confirmado PCR-positivo en UCI.', updates: ['Caso 2 se deterioró en tránsito a Johannesburgo y murió al llegar — Virus Andes confirmado por PCR.', 'Caso 3 evacuado desde Isla Ascensión, confirmado PCR-positivo en UCI de Johannesburgo.'], source: 'OMS DON#99' },
         'switzerland': { name: 'Suiza', severity: 'high', severityLabel: 'CONFIRMADO', confirmed: 1, suspected: 0, deaths: 0, desc: 'Un pasajero del MV Hondius que regresó a Suiza fue confirmado con Virus Andes y está bajo atención clínica.', updates: ['Caso confirmado de Virus Andes en pasajero del MV Hondius.', 'Protocolo de monitoreo clínico de 45 días en vigor.'], source: 'OMS, Wikipedia' },
-        'netherlands': { name: 'Países Bajos', severity: 'medium', severityLabel: 'SOSPECHOSO · 2 MUERTES', confirmed: 0, suspected: 1, deaths: 2, desc: 'Una pareja neerlandesa, pasajeros del MV Hondius, falleció tras el desembarco. Los casos se clasifican como sospechosos/no confirmados. Ambas muertes vinculadas a la excursión del 24 de abril en Santa Elena.', updates: ['Pareja neerlandesa falleció tras desembarcar del MV Hondius — casos sospechosos, no confirmados por PCR.', 'Fuente: Wikipedia.'], source: 'Wikipedia, OMS' },
-        'uk': { name: 'Reino Unido', severity: 'high', severityLabel: 'CONFIRMADO + SOSPECHOSO', confirmed: 2, suspected: 1, deaths: 0, desc: 'El Reino Unido confirmó 2 casos de Virus Andes y 1 caso sospechoso adicional entre pasajeros del MV Hondius. La UKHSA coordina el monitoreo y el seguimiento de 45 días de todos los contactos expuestos.', updates: ['Reino Unido confirmó 2 casos de Virus Andes y 1 sospechoso del MV Hondius (CNN).', 'Monitoreo de seguimiento de 45 días para contactos expuestos.'], source: 'CNN, UKHSA, OMS' },
-        'saint-helena': { name: 'Santa Elena', severity: 'medium', severityLabel: 'NO CONFIRMADO · PUNTO DE EXPOSICIÓN', confirmed: 0, suspected: 1, deaths: 0, desc: 'Los pasajeros desembarcaron el 24 de abril para una excursión de avistamiento de aves. El contacto con entornos infestados de roedores se identifica como el probable evento de exposición al hantavirus para todo el clúster.', updates: ['24 de abril: excursión en tierra — viaje de avistamiento de aves identificado como probable origen de exposición.', 'Casos no confirmados vinculados a Santa Elena. Fuente: Wikipedia.'], source: 'OMS DON#99, Wikipedia' }
+        'netherlands': { name: 'Países Bajos', severity: 'high', severityLabel: 'CONFIRMADO · 2 MUERTES NEERLANDESAS', confirmed: 1, suspected: 0, deaths: 2, desc: 'Caso confirmado de Virus Andes en un neerlandés evacuado del MV Hondius el 6 de mayo, hospitalizado en el Radboud UMC y confirmado PCR-positivo el 7 de mayo. Dos neerlandeses fallecieron: Leo Schilperoord (murió a bordo, 11 de abril) y su esposa (murió en Johannesburgo, 26 de abril).', updates: ['7 may: Evacuado neerlandés confirmado PCR-positivo en Radboud UMC.', 'Dos neerlandeses fallecidos: primero a bordo el 11 abr., segundo en Johannesburgo el 26 abr.'], source: 'Wikipedia, OMS' },
+        'uk': { name: 'Reino Unido', severity: 'high', severityLabel: 'CONFIRMADO + SOSPECHOSO', confirmed: 2, suspected: 1, deaths: 0, desc: 'El Reino Unido confirmó 2 casos de Virus Andes y 1 caso sospechoso adicional. Un caso confirmado evacuado a los Países Bajos (Leiden UMC); otro a Sudáfrica. Un tercer británico es sospechoso de haber contraído el virus en Tristán de Acuña (13–15 abril) y está hospitalizado en la isla. La UKHSA coordina el seguimiento de 45 días.', updates: ['Dos británicos confirmados con Virus Andes — uno en Países Bajos, otro en Sudáfrica.', 'Caso sospechoso en Tristán de Acuña: militares británicos paracaidistas entregaron suministros el 10 may.'], source: 'UKHSA, Wikipedia' },
+        'france': { name: 'Francia', severity: 'high', severityLabel: 'CONFIRMADO', confirmed: 1, suspected: 0, deaths: 0, desc: 'Una ciudadana francesa evacuada del MV Hondius el 10 de mayo dio positivo al Virus Andes el 11 de mayo, con empeoramiento de su salud. Cinco nacionales franceses estaban a bordo y fueron evacuados a París el 10 de mayo. Francia elevó su nivel de alerta de salud pública e identificó 22 contactos de alto riesgo.', updates: ['11 may: Ciudadana francesa confirmada PCR-positiva; salud en deterioro.', 'Francia eleva alerta sanitaria; 22 contactos de alto riesgo identificados.'], source: 'Wikipedia' },
+        'saint-helena': { name: 'Santa Elena', severity: 'medium', severityLabel: 'CASO PROBABLE · PUNTO DE EXPOSICIÓN', confirmed: 0, suspected: 1, deaths: 0, desc: 'Los pasajeros desembarcaron el 24 de abril para una excursión en tierra. El contacto con entornos infestados de roedores es el probable evento de exposición al hantavirus para todo el clúster. Un caso probable está vinculado a Santa Elena. Todos los 30 pasajeros desembarcados han sido rastreados por la UKHSA.', updates: ['24 de abril: excursión identificada como probable origen de exposición.', 'Todos los 30 pasajeros contactados y rastreados. Caso probable vinculado aquí.'], source: 'OMS DON#99, Wikipedia' }
       },
       pts: [
         { lat: -54.8, lng: -68.3, c: '#71717a', s: 12, key: null, n: 'Argentina (Ushuaia)', sc: 'gray', st: 'Puerto de Salida del Crucero', dt: 'MV Hondius partió de Ushuaia. Excursión en Santa Elena el 24 abr. identificada como probable punto de exposición.' },
-        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'Santa Elena', sc: 'orange', st: 'No Confirmado · Punto de Exposición', dt: 'Excursión 24 abr. — probable evento de exposición al hantavirus. Casos no confirmados vinculados aquí. Toca para detalles.' },
+        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'Santa Elena', sc: 'orange', st: 'Caso Probable · Punto de Exposición', dt: 'Excursión 24 abr. — probable evento de exposición al hantavirus. Caso probable vinculado aquí. Toca para detalles.' },
         { lat: -26.2, lng: 28.0, c: '#ef4444', s: 18, key: 'south-africa', n: 'Sudáfrica', sc: 'red', st: 'Confirmado · 2 Casos · 1 Muerte', dt: 'Virus Andes confirmado en hospital de Johannesburgo. Un caso fatal confirmado por PCR. Toca para detalles.' },
         { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Suiza', sc: 'red', st: 'Caso Confirmado', dt: 'Virus Andes confirmado en pasajero del MV Hondius. Toca para detalles.' },
-        { lat: 52.4, lng: 4.9, c: '#f97316', s: 15, key: 'netherlands', n: 'Países Bajos', sc: 'orange', st: 'Sospechoso · 2 Muertes', dt: 'Pareja neerlandesa falleció tras desembarcar del MV Hondius. Casos sospechosos/no confirmados. Toca para detalles.' },
-        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Reino Unido', sc: 'red', st: '2 Confirmados · 1 Sospechoso', dt: 'Reino Unido confirmó 2 casos de Virus Andes + 1 sospechoso (CNN). Toca para detalles.' },
-        { lat: 51.2, lng: 10.5, c: '#71717a', s: 12, key: null, n: 'Alemania', sc: 'gray', st: 'Pacientes en Tratamiento', dt: 'Pacientes trasladados en avión a Alemania para tratamiento médico. Clasificación del caso en investigación.' },
-        { lat: 46.2, lng: 2.2, c: '#f97316', s: 12, key: null, n: 'Francia', sc: 'orange', st: 'Casos No Confirmados', dt: 'Casos de hantavirus no confirmados vinculados a pasajeros del MV Hondius.' },
-        { lat: 28.1, lng: -15.4, c: '#71717a', s: 12, key: null, n: 'España (Tenerife)', sc: 'gray', st: 'Puerto de Destino del MV Hondius', dt: 'MV Hondius se dirige a Tenerife, Islas Canarias.' },
-        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapur', sc: 'gray', st: 'Monitoreo', dt: '2 residentes en observación de cuarentena, resultados pendientes.' },
-        { lat: 39.8, lng: -98.6, c: '#71717a', s: 12, key: null, n: 'Estados Unidos', sc: 'gray', st: 'Cuarentena a la Llegada', dt: '17 pasajeros estadounidenses escoltados por los CDC a Nebraska para cuarentena.' }
+        { lat: 52.4, lng: 4.9, c: '#ef4444', s: 15, key: 'netherlands', n: 'Países Bajos', sc: 'red', st: 'Confirmado · 2 Muertes Neerlandesas', dt: 'Evacuado neerlandés confirmado PCR-positivo el 7 may. en Radboud UMC. Dos neerlandeses fallecidos. Toca para detalles.' },
+        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Reino Unido', sc: 'red', st: '2 Confirmados · 1 Sospechoso', dt: 'Reino Unido confirmó 2 casos + 1 sospechoso en Tristán de Acuña. Toca para detalles.' },
+        { lat: 51.2, lng: 10.5, c: '#71717a', s: 11, key: null, n: 'Alemania', sc: 'gray', st: 'Prueba Negativa', dt: 'Nacional alemán evacuado el 6 may. para tratamiento; prueba de Virus Andes negativa. Fuente: Wikipedia.' },
+        { lat: 46.2, lng: 2.2, c: '#ef4444', s: 14, key: 'france', n: 'Francia', sc: 'red', st: 'Caso Confirmado', dt: 'Ciudadana francesa confirmada PCR-positiva el 11 may.; salud en deterioro. 5 franceses evacuados el 10 may. Toca para detalles.' },
+        { lat: 28.1, lng: -15.4, c: '#71717a', s: 12, key: null, n: 'España (Tenerife)', sc: 'gray', st: 'Desembarco Completado', dt: 'MV Hondius llegó al Puerto de Granadilla el 10 may. 7 vuelos de evacuación, 94 pasajeros a 6 países. Fuente: ECDC.' },
+        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapur', sc: 'gray', st: 'Prueba Negativa', dt: '2 residentes analizados — ambos negativos al Virus Andes. Fuente: Wikipedia.' },
+        { lat: 39.8, lng: -98.6, c: '#ef4444', s: 13, key: null, n: 'Estados Unidos', sc: 'red', st: 'Caso Confirmado', dt: 'Pasajero estadounidense asintomático confirmado PCR-positivo el 11 may. 17 americanos repatriados al UNMC de Nebraska.' },
+        { lat: -37.1, lng: -12.3, c: '#f97316', s: 13, key: null, n: 'Tristán de Acuña', sc: 'orange', st: 'Caso Sospechoso', dt: 'Un residente de la isla (ex-pasajero del MV Hondius, 13–15 abr.) sospechoso de infección. Paracaidistas británicos del 16 Air Assault Brigade entregaron 3.300 kg de suministros médicos el 10 may.' }
       ]
     };
   </script>
