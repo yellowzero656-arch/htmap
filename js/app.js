@@ -71,7 +71,7 @@
       a.innerHTML =
         '<div class="news-card-top">' +
         '<span class="badge ' + (badgeMap[item.type] || 'badge-official') + '">' +
-        item.type[0] + item.type.slice(1).toLowerCase() +
+        (badgeLabels[item.type] || (item.type[0] + item.type.slice(1).toLowerCase())) +
         '</span>' +
         '<span class="news-date">' + formatDate(item.date) + '</span>' +
         '</div>' +
