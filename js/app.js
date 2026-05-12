@@ -39,6 +39,7 @@
     if (!grid || !btn) return;
     var overflow = [];
     var badgeMap = { OFFICIAL: 'badge-official', UPDATE: 'badge-update', GUIDANCE: 'badge-guidance' };
+    var badgeLabels = (CFG.labels && CFG.labels.badgeLabels) || {};
     var locale = CFG.locale || 'en-US';
     var fallbackNews = [
       { type: 'OFFICIAL', date: '2026-05-09', title: 'US sending charter flight to bring Americans home from hantavirus cruise ship', source: 'BBC', url: 'https://www.bbc.com/news/articles/c4g4r8pm832o' },
