@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Hantavirus Karte - Live Tracker 2026 | Falle und Tode</title>
+  <meta name="description"
+    content="Hantavirus Live-Karte 2026. Bestatige Falle, Todesfalle und betroffene Lander in Echtzeit. MV Hondius Ausbruch laut WHO und CDC." />
+  <link rel="canonical" href="https://hantavirusmap.net/de/" />
+  <link rel="alternate" hreflang="en" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="uk" href="https://hantavirusmap.net/uk/" />
+  <link rel="alternate" hreflang="es" href="https://hantavirusmap.net/es/" />
+  <link rel="alternate" hreflang="ru" href="https://hantavirusmap.net/ru/" />
+  <link rel="alternate" hreflang="it" href="https://hantavirusmap.net/it/" />
+  <link rel="alternate" hreflang="de" href="https://hantavirusmap.net/de/" />
+  <link rel="alternate" hreflang="ro" href="https://hantavirusmap.net/ro/" />
+  <link rel="alternate" hreflang="x-default" href="https://hantavirusmap.net/" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <meta property="og:title" content="Hantavirus Karte 2026 &#8211; Live Tracker" />
+  <meta property="og:description"
+    content="Verfolge den Hantavirus-Ausbruch 2026 mit einer Live-Weltkarte. Falle, Todesfalle und Landerdaten von WHO und CDC." />
+  <meta property="og:url" content="https://hantavirusmap.net/de/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hantavirus Karte 2026 &#8211; Live Tracker" />
+  <meta name="twitter:description"
+    content="Verfolge den Hantavirus-Ausbruch 2026 in Echtzeit. Live-Daten von WHO und CDC." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Startseite",
+        "item": "https://hantavirusmap.net/de/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </div>
+      <ul class="nav-links">
+        <li><a href="#map-section">Karte</a></li>
+        <li><a href="#news-section">Nachrichten</a></li>
+        <li><a href="#timeline-section">Zeitlinie</a></li>
+        <li><a href="#faq-section">FAQ</a></li>
+        <li><a href="/blog/" class="nav-tg">Blog</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div class="lang-switch">
+          <a href="/">&#127468;&#127463; EN</a>
+          <a href="/uk/">&#127482;&#127462; UA</a>
+          <a href="/es/">&#127466;&#127480; ES</a>
+          <a href="/ru/">&#127479;&#127482; RU</a>
+          <a href="/it/">&#127470;&#127481; IT</a>
+          <a href="/de/" class="lang-active">&#127465;&#127466; DE</a>
+          <a href="/ro/">&#127479;&#127476; RO</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Men&#252;">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#map-section" onclick="closeNav()">Karte</a>
+      <a href="#news-section" onclick="closeNav()">Nachrichten</a>
+      <a href="#timeline-section" onclick="closeNav()">Zeitlinie</a>
+      <a href="#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="/blog/" onclick="closeNav()">Blog</a>
+      <a href="/" onclick="closeNav()">&#127468;&#127463; English</a>
+      <a href="/uk/" onclick="closeNav()">&#127482;&#127462; Ukrainian</a>
+      <a href="/es/" onclick="closeNav()">&#127466;&#127480; Espa&#241;ol</a>
+      <a href="/ru/" onclick="closeNav()">&#127479;&#127482; Russian</a>
+      <a href="/it/" onclick="closeNav()">&#127470;&#127481; Italiano</a>
+      <a href="/de/" onclick="closeNav()" class="lang-active">&#127465;&#127466; Deutsch</a>
+      <a href="/ro/" onclick="closeNav()">&#127479;&#127476; Rom&#226;n&#259;</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow">Live Tracker &middot; WHO-Risiko: NIEDRIG</div>
+
+      <h1 class="hero-title">Hantavirus Karte<br><span class="accent">Live 2026</span></h1>
+
+      <div class="countdown-block">
+        <div class="countdown-label">Seit dem ersten Symptom &#8212; 6. Apr. 2026</div>
+        <div class="countdown-display">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Tage</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Stunden</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Min</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Sek</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="confirmed-cases">11</div>
+          <div class="stat-label">Gesamt Falle</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="deaths">3</div>
+          <div class="stat-label">Todesfalle</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="countries-affected">7</div>
+          <div class="stat-label">Betroffene Lander</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="suspected-cases">2</div>
+          <div class="stat-label">Wahrscheinliche Falle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-top">Advertisement</div>
+  </div>
+
+  <!-- MAP -->
+  <section class="section" id="map-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interaktive Karte</div>
+        <h2 class="section-title">Fallkarte 2026</h2>
+        <p class="section-sub">Karte der Lander mit bestatigten oder verdachtigen Fallen. Tippe auf einen Marker fur Landerdetails.</p>
+      </div>
+
+      <div class="map-unified">
+        <div id="map"></div>
+        <div class="map-panel">
+          <div class="map-panel-header">Landerdetails</div>
+          <div class="map-panel-body" id="mapPanel">
+            <div class="panel-placeholder">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Tippe auf einen Marker fur das Landerprofil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> Bestatigter Fall
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Verdachtig / Unbestatigt
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#71717a;"></div> Uberwachung / Behandlung
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#3f3f46;"></div> Kein Fall 2026
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NEWS -->
+  <section class="section" id="news-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Neueste Zuerst</div>
+        <h2 class="section-title">Aktuelle Ausbruchsnachrichten</h2>
+        <p class="section-sub">Echtzeit-Berichterstattung von WHO, CDC, UKHSA und internationalen Medien.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid"></div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Weitere Nachrichten laden</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIMELINE -->
+  <section class="section" id="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Kreuzfahrtbezogen &middot; Neueste Zuerst</div>
+        <h2 class="section-title">Zeitlinie 2026</h2>
+        <p class="section-sub">Chronologisches Protokoll nach WHO-Ausbruchsbericht und offiziellen Gesundheitsbehorden.</p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-12</div>
+            <div class="tl-title">Spanischer Fall im Krankenhaus bestatigt; 12 Nijmegener Mitarbeiter in Quarantine &#8212; 9 bestatigt, 11 gesamt</div>
+            <div class="tl-desc">Der spanische Passagier, der am 11. Mai positiv getestet wurde, wurde am 12. Mai als symptomatisch bestatigt und hospitalisiert. 12 Mitarbeiter des Radboud UMC in Nijmegen (Niederlande) wurden in Isolation gebracht, nachdem sie die Infektionsschutzprotokolle nicht eingehalten hatten. Die Ruckfuhrung aller Passagiere wurde am 11. Mai abgeschlossen. Gesamtzahl: 9 bestatigt und 2 wahrscheinlich (11 gesamt), 3 Todesfalle (ECDC).</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-11</div>
+            <div class="tl-title">Franzosischer Patient in kritischem Zustand; MV Hondius verlasst Teneriffa; spanischer Fall bestatigt &#8212; 7 bestatigt, 9 gesamt</div>
+            <div class="tl-desc">Die WHO bestatige, dass der franzosische Patient sich in sehr kritischem Zustand befand. MV Hondius verlie&#223; Teneriffa gegen 20:00 WET mit 25 Besatzungsmitgliedern und 2 RIVM-Arzten an Bord, Kurs Rotterdam (ETA 17. Mai). Spanische Gesundheitsbehorden teilten mit, dass 1 von 14 Spaniern positiv auf Andes-Virus war. Ein asymptomatischer Amerikaner wurde ebenfalls positiv getestet. ECDC bestatige 7 bestatigt und 2 wahrscheinlich (9 gesamt), 3 Todesfalle.</div>
+            <span class="tl-source">ECDC &middot; Wikipedia &middot; WHO</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-10</div>
+            <div class="tl-title">MV Hondius erreicht Teneriffa; 7 Evakuierungsfluige; Fallschirmspringer erreichen Tristan da Cunha</div>
+            <div class="tl-desc">MV Hondius erreichte den Hafen von Granadilla gegen 05:30 Uhr. Passagiere wurden per Schnellboot direkt zum Flughafen transportiert ohne Kontakt mit Einwohnern. Bis zum Ende des 10. Mai hatten sieben Fluge 94 Passagiere in sechs europaische Lander und Kanada gebracht. Britische Fallschirmjager der 16. Air Assault Brigade lieferten 3.300 kg Hilfsguter auf Tristan da Cunha.</div>
+            <span class="tl-source">WHO &middot; Wikipedia &middot; ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-09</div>
+            <div class="tl-title">USA organisieren Charterflug; WHO mahnt zur Ruhe</div>
+            <div class="tl-desc">Die USA organisierten einen Charterflug zur Ruckfuhrung amerikanischer Passagiere. Spanien bereitete Evakuierungsverfahren vor. Die WHO erklarte das ist kein neues COVID und bewertete das globale Risiko als NIEDRIG. Trump sagte der Ausbruch sei unter Kontrolle.</div>
+            <span class="tl-source">BBC &middot; AP News &middot; WHO &middot; NBC News</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-08</div>
+            <div class="tl-title">WHO-Update: 5 bestatige Andes-Virus-Falle und 8 Verdachtsfalle</div>
+            <div class="tl-desc">Die WHO aktualisierte den Cluster auf 13 Falle (5 bestatigt, 8 verdachtig). Das offentliche Risiko bleibt niedrig. Die UKHSA meldete einen dritten britischen Staatsburger mit Infektionsverdacht. Das CDC erhohe die Reisereaktionsstufe auf Stufe 3.</div>
+            <span class="tl-source">WHO &middot; UKHSA &middot; CDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-07</div>
+            <div class="tl-title">Drei Patienten evakuiert; Schiff segelt nach Spanien</div>
+            <div class="tl-desc">Drei kranke Passagiere wurden zur Behandlung evakuiert. Das Schiff setzte seinen Weg nordwarts zu den Kanarischen Inseln fort, wahrend die Kontaktverfolgung auf 13 Lander ausgeweitet wurde.</div>
+            <span class="tl-source">AP News &middot; Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-06</div>
+            <div class="tl-title">Internationale Evakuierungen und Passagieruberwachung</div>
+            <div class="tl-desc">Nachrichtenagenturen berichteten uber fortlaufende Evakuierungen und Symptomuberwachung bei zuruckgekehrten Passagieren. Die USA entsandten CDC-Personal zur Unterstutzung.</div>
+            <span class="tl-source">Reuters &middot; ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-04</div>
+            <div class="tl-title">WHO-Offentlichkeitsupdate &#8212; Risiko als NIEDRIG eingestuft</div>
+            <div class="tl-desc">Die WHO meldete 7 Falle: 2 bestatigt, 5 verdachtig, 3 Todesfalle, 1 kritischer Patient und 3 leichte Falle, wahrend das Schiff vor Kap Verde ankerte.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-02</div>
+            <div class="tl-title">Dritter Todesfall an Bord; Gro&#223;britannien informiert die WHO</div>
+            <div class="tl-desc">Eine deutsche Passagierin starb an Bord der MV Hondius &#8212; der dritte mit dem Ausbruch in Verbindung stehende Todesfall. Der britische Kontaktpunkt informierte die WHO uber einen schweren akuten respiratorischen Erkrankungscluster.</div>
+            <span class="tl-source">WHO DON#99 &middot; Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-30</div>
+            <div class="tl-title">ITS-Patient nach Sudafrika evakuiert</div>
+            <div class="tl-desc">Fall 3 wurde von Ascension Island nach Sudafrika medizinisch evakuiert und spater auf Hantavirus PCR-positiv bestatigt.</div>
+            <span class="tl-source">WHO DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-25</div>
+            <div class="tl-title">Bestatigter Todesfall erreicht Sudafrika und stirbt</div>
+            <div class="tl-desc">Eine kritisch kranke Passagierin (Ehefrau des ersten Opfers) wurde von Flug KL592 entfernt und nach Sudafrika evakuiert, wo sie am selben Tag starb. Die WHO bestatige spater ein PCR-positives Ergebnis fur das Andes-Virus.</div>
+            <span class="tl-source">WHO DON#99 &middot; Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-24</div>
+            <div class="tl-title">Landausflug auf St. Helena &#8212; mogliche Exposition</div>
+            <div class="tl-desc">Passagiere stiegen fur einen Vogelbeobachtungsausflug aus. Kontakt mit nagetierbefallenen Umgebungen wird als wahrscheinliches Hantavirus-Expositionsereignis fur den gesamten Cluster identifiziert.</div>
+            <span class="tl-source">WHO DON#99 &middot; Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-11</div>
+            <div class="tl-title">Erster Todesfall an Bord &#8212; Leo Schilperoord</div>
+            <div class="tl-desc">Der niederlandische Passagier Leo Schilperoord (80) wurde die erste Person, die an Bord der MV Hondius an dem starb, was spater als Andes-Hantavirus bestatigt wurde.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-06</div>
+            <div class="tl-title">Erste Symptome an Bord der MV Hondius</div>
+            <div class="tl-desc">Die erste Person an Bord des Expeditionskreuzfahrtschiffs MV Hondius beginnt, Symptome dessen zu zeigen, was spater als Andes-Hantavirus identifiziert werden wurde. Das Schiff befuhr antarktische und sudatlantische Gewasser.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLIC HEALTH FACTS -->
+  <section class="section" id="facts-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Medizinische Referenz</div>
+        <h2 class="section-title">Fakten zur offentlichen Gesundheit</h2>
+        <p class="section-sub">Evidenzbasierte Informationen uber Hantavirus: Ubertragung, Symptome und Pravention.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">&#129440;</div>
+          <div class="fact-title">Was Sind Hantaviren</div>
+          <div class="fact-text">Hantaviren sind zoonotische Viren, die von Nagetieren ubertragen werden. Nur einige Spezies verursachen Erkrankungen beim Menschen. Das Andes-Virus &#8212; in Sudamerika gefunden &#8212; ist der vermutete Stamm beim MV Hondius-Ausbruch 2026.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#127756;&#65039;</div>
+          <div class="fact-title">Hauptinfektionsweg</div>
+          <div class="fact-text">Menschen infizieren sich hauptsachlich durch Einatmen von Aerosolen aus Kot, Urin oder Speichel infizierter Nagetiere. Das Beruhren kontaminierter Oberflachen und anschlie&#223;endes Anfassen von Augen, Nase oder Mund kann das Virus ubertragen.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#128101;</div>
+          <div class="fact-title">Mensch-zu-Mensch-Ubertragung</div>
+          <div class="fact-text">WHO und CDC weisen darauf hin, dass dokumentierte Mensch-zu-Mensch-Ubertragung auf das Andes-Virus in Amerika beschrankt ist. Dies ist der Hauptgrund, warum die WHO das globale Risiko als NIEDRIG eingestuft hat.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#129409;</div>
+          <div class="fact-title">Klinische Syndrome</div>
+          <div class="fact-text">In Amerika: Hantavirus-Kardiopulmonales Syndrom (HPS). In Europa und Asien: Hamorrhagisches Fieber mit Nierensyndrom (HFRS). Beide konnen ohne Intensivpflege todlich sein.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#9203;&#65039;</div>
+          <div class="fact-title">Inkubationszeit</div>
+          <div class="fact-text">Symptome treten ein bis acht Wochen nach Exposition auf. HPS-Symptome treten zwei bis vier Wochen spater auf. Die breite Zeitspanne erschwert die fruhzeitige Erkennung.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#128138;</div>
+          <div class="fact-title">Behandlung</div>
+          <div class="fact-text">Es gibt kein zugelassenes Antivirenmittel gegen Hantavirus. Fruhzeitige supportive Versorgung und Intensivpflege verbessern das Uberleben erheblich. Bei Symptomen nach moglicher Exposition sofort arztliche Hilfe suchen.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#127968;</div>
+          <div class="fact-title">Pravention</div>
+          <div class="fact-text">Gebaude gegen Nagetiere abdichten. Immer mit Wasser reinigen &#8212; nie trocken kehren. 30 Minuten vor dem Betreten von Nagier-Bereichen luften. Bei der Reinigung Handschuhe und N95-Maske tragen.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">&#127757;</div>
+          <div class="fact-title">Globale Last</div>
+          <div class="fact-text">Die WHO schatzt 10.000 bis uber 100.000 Hantavirus-Infektionen pro Jahr. Gro&#223;te Last in Asien und Europa (HFRS). Amerika meldet jahrlich HPS-Falle. Sudamerika hat die hochste Sterblichkeitsrate.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-middle">Advertisement</div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Haufig Gestellte Fragen</div>
+        <h2 class="section-title">Haufig Gestellte Fragen</h2>
+        <p class="section-sub">Haufige Fragen zur Hantavirus-Ubertragung, Symptomen und dem MV Hondius-Ausbruch 2026.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" id="fq1">
+          <button class="faq-btn" onclick="toggleFaq('fq1')">
+            <span>Wird Hantavirus zwischen Menschen ubertragen?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Die meisten Hantavirus-Stamme werden nicht zwischen Menschen ubertragen. Das Andes-Virus &#8212; verdachtig beim Ausbruch 2026 &#8212; ist das einzige mit dokumentierter begrenzter Mensch-zu-Mensch-Ubertragung. Die WHO bewertete das globale Risiko als NIEDRIG.</div>
+        </div>
+        <div class="faq-item" id="fq2">
+          <button class="faq-btn" onclick="toggleFaq('fq2')">
+            <span>Was sind die ersten Symptome einer Hantavirus-Infektion?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Fruhe Symptome: Fieber (uber 38,5 C), starke Muskelschmerzen in Oberschenkeln und Rucken, starke Mudigkeit und Kopfschmerzen. Ubelkeit, Erbrechen und Durchfall konnen auftreten. Diese dauern 4-10 Tage. Wenn Sie auf der MV Hondius mitgefahren sind und Symptome haben, suchen Sie sofort arztliche Hilfe.</div>
+        </div>
+        <div class="faq-item" id="fq3">
+          <button class="faq-btn" onclick="toggleFaq('fq3')">
+            <span>Wann treten Atembeschwerden auf?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Atembeschwerden beginnen typischerweise 4-10 Tage nach der ersten grippeahnlichen Phase. Der Beginn kann schnell und lebensbedrohlich sein. Wenn Sie nach moglicher Exposition Kurzatmigkeit erleben, rufen Sie sofort den Rettungsdienst.</div>
+        </div>
+        <div class="faq-item" id="fq4">
+          <button class="faq-btn" onclick="toggleFaq('fq4')">
+            <span>Wie todlich ist Hantavirus?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">HPS hat eine Sterblichkeitsrate von ca. 36% in den USA. Der Ausbruch 2026 zeigt 3 Todesfalle bei 9 bestatigten Fallen (33,3%), uber historischen Durchschnittswerten. Fruhzeitige Erkennung und aggressive Intensivpflege verbessern die Uberlebenschancen erheblich.</div>
+        </div>
+        <div class="faq-item" id="fq5">
+          <button class="faq-btn" onclick="toggleFaq('fq5')">
+            <span>Gibt es einen Impfstoff oder eine Heilung?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Es gibt keinen zugelassenen Hantavirus-Impfstoff in westlichen Landern im Jahr 2026. Die Behandlung ist unterstutzend: Intensivpflege, Sauerstofferganzung und in schweren Fallen mechanische Beatmung oder ECMO.</div>
+        </div>
+        <div class="faq-item" id="fq6">
+          <button class="faq-btn" onclick="toggleFaq('fq6')">
+            <span>Wie reinigt man sicher einen nagier-kontaminierten Bereich?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Das CDC empfiehlt: (1) 30 Minuten vor dem Betreten luften; (2) Gummihandschuhe und N95-Maske tragen; (3) Kot mit 10%iger Bleichlosung beSpruhen, 5 Minuten einwirken lassen; (4) mit Tuch abwischen &#8212; nie fegen oder staubsaugen; (5) alle Abfalle doppelt einpacken; (6) Handschuhe desinfizieren, dann Hande waschen.</div>
+        </div>
+        <div class="faq-item" id="fq7">
+          <button class="faq-btn" onclick="toggleFaq('fq7')">
+            <span>Sollten sich Reisende Sorgen machen?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Die WHO bewertete das globale Risiko als NIEDRIG. Der Ausbruch ist auf MV Hondius-Passagiere und ihre engen Kontakte beschrankt. Wer Outdoor-Aktivitaten in landlichen Gebieten Sudamerikas durchgefuhrt hat, sollte Hantavirus-Symptome uberwachen.</div>
+        </div>
+        <div class="faq-item" id="fq8">
+          <button class="faq-btn" onclick="toggleFaq('fq8')">
+            <span>Warum unterscheiden sich die Zahlen auf der Karte nach Landern?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Lander wenden unterschiedliche Falldefinitionen an &#8212; einige melden nur PCR-bestatige Falle, andere schlie&#223;en Verdachtsfalle ein. Diese Karte unterscheidet bestatigt (rot), verdachtig (orange) und Uberwachung (grau) nach Land, basierend auf offiziellen Daten zum 12. Mai 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT (SEO) -->
+  <section class="section" id="about-section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <div class="section-tag">Medizinische Referenz</div>
+        <h2 class="section-title">Was Ist Hantavirus?</h2>
+        <p class="section-sub">Symptome, Ubertragung und Pravention &#8212; wichtige Informationen fur Reisende und MV Hondius-Passagiere.</p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="about-h3">Wie wird Hantavirus ubertragen?</h3>
+        <p class="about-p">Hantavirus wird hauptsachlich durch Kontakt mit infizierten Nagetieren oder deren Kot, Urin oder Speichel ubertragen. Der haufigste Weg ist das Einatmen von kontaminiertem Staub. Das Virus wird nicht durch beilaufigen Kontakt ubertragen. Das Andes-Virus &#8212; verdachtig beim MV Hondius-Ausbruch 2026 &#8212; ist das einzige bekannte Hantavirus mit Belegen fur begrenzte Mensch-zu-Mensch-Ubertragung.</p>
+
+        <h3 class="about-h3">Hantavirus-Symptome</h3>
+        <p class="about-p">Fruhe Symptome treten 1-8 Wochen nach Exposition auf: Fieber, starke Muskelschmerzen, Mudigkeit und Kopfschmerzen. Einige Falle entwickeln sich zu Hantavirus-Lungensyndrom (HPS) &#8212; mit Kurzatmigkeit, Flussigkeit in den Lungen und schnellem Atemversagen. Der Ausbruch 2026 fuhrte zu 3 Todesfallen bei 9 bestatigten Fallen (33,3%), mit 2 zusatzlichen wahrscheinlichen Fallen unter Beobachtung.</p>
+
+        <h3 class="about-h3">Wie schutzt man sich</h3>
+        <p class="about-p">Exposition gegenuber Nagetieren minimieren. Kontaminierte Bereiche mindestens 30 Minuten vor dem Betreten luften. Kontaminiertes Material vor dem Abwischen mit Desinfektionsmittel benetzen &#8212; nie trocken wischen. Gummihandschuhe und N95-Maske tragen. Wenn Sie Passagier der MV Hondius waren, wenden Sie sich sofort an Ihre lokale Gesundheitsbehorde und befolgen Sie das 45-tagige Uberwachungsprotokoll.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- OFFICIAL SOURCES -->
+  <section class="section" id="sources-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Referenzen</div>
+        <h2 class="section-title">Offizielle Quellen</h2>
+        <p class="section-sub">Alle Daten aus offiziellen Gesundheitsbehorden und verifizierten internationalen Medien.</p>
+      </div>
+
+      <div class="sources-pills">
+        <span class="source-pill">WHO &#8212; Hantavirus-Merkblatt</span>
+        <span class="source-pill">WHO DON#99 Hantavirus-Cluster</span>
+        <span class="source-pill">WHO Notfallereignis 2026-eSOG227</span>
+        <span class="source-pill">CDC &#8212; Uber Hantavirus</span>
+        <span class="source-pill">CDC &#8212; Gemeldete Falle in den USA</span>
+        <span class="source-pill">ECDC Hantavirus AIR 2023</span>
+        <span class="source-pill">CDC &#8212; Orthohantavirus-Technisches Blatt</span>
+        <span class="source-pill">PAHO &#8212; Epidemiologischer Alarm Dez. 2025</span>
+        <span class="source-pill">China CDC Weekly HFRS 2014-2023</span>
+        <span class="source-pill">CDC MMWR Sudwesten USA 1993</span>
+        <span class="source-pill">WHO Hantavirus Argentinien 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-bottom">Advertisement</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="/about">Uber uns</a>
+        <a href="/privacy-policy">Datenschutzrichtlinie</a>
+        <a href="/terms-of-service">Nutzungsbedingungen</a>
+      </div>
+      <div class="footer-disclaimer">
+        Hantavirus Tracker &#8212; Aktualisiert <span id="last-updated">2026-05-12</span><br>
+        Quelle: WHO &middot; Letzte Aktualisierung: Mai 2026<br>
+        &copy; 2026 HantavirusMap. Alle Rechte vorbehalten.<br>
+        Dieser Tracker fasst offentliche Quellen zusammen und ist kein Diagnosewerkzeug. Medizinische Notfalle erfordern professionelle Hilfe.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    /* Language config -- German */
+    window.APP_CONFIG = {
+      locale: 'de-DE',
+      labels: { confirmed: 'Bestatigt', suspected: 'Wahrscheinlich', deaths: 'Todesfalle', source: 'Quelle' },
+      countryData: {
+        'south-africa': { name: 'Sudafrika', severity: 'high', severityLabel: 'BESTATIGT · 2 FALLE · 1 TODESFALL', confirmed: 2, suspected: 0, deaths: 1, desc: 'Bestatige Andes-Virus-Falle in einem Johannesburger Krankenhaus. Ein MV Hondius-Passagier starb bei der Ankunft (PCR-bestatigt). Ein zweiter Patient wurde von Ascension Island evakuiert und PCR-positiv in der Intensivstation bestatigt.', updates: ['Fall 2 verschlechterte sich auf dem Weg nach Johannesburg und starb bei der Ankunft — Andes-Virus PCR-bestatigt.', 'Fall 3 von Ascension Island evakuiert, PCR-positiv in Johannesburger Intensivstation bestatigt.'], source: 'WHO DON#99' },
+        'switzerland': { name: 'Schweiz', severity: 'high', severityLabel: 'BESTATIGT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Ein zuruckgekehrter MV Hondius-Passagier wurde mit Andes-Virus bestatigt und befindet sich in klinischer Behandlung.', updates: ['Bestatigter Andes-Virus-Fall bei zuruckgekehrtem MV Hondius-Passagier.', '45-tagiges klinisches Uberwachungsprotokoll in Kraft.'], source: 'WHO, Wikipedia' },
+        'netherlands': { name: 'Niederlande', severity: 'high', severityLabel: 'BESTATIGT · 2 NIEDERLANDISCHE TODESFALLE', confirmed: 1, suspected: 0, deaths: 2, desc: 'Bestatigter Andes-Virus-Fall bei einem Niederlander, der am 6. Mai von MV Hondius evakuiert wurde, im Radboud UMC (Nijmegen) hospitalisiert und am 7. Mai PCR-positiv bestatigt. Zwei Niederlander starben: Leo Schilperoord (an Bord am 11. April) und seine Frau (in Johannesburg am 26. April). Am 12. Mai wurden 12 Krankenhauspersonal wegen Protokollverletzungen isoliert.', updates: ['7. Mai: niederlandischer Evakuierter PCR-positiv im Radboud UMC bestatigt.', 'Zwei Niederlander gestorben: erster an Bord 11. Apr., zweiter in Johannesburg 26. Apr.', '12. Mai: 12 Radboud UMC Nijmegen-Mitarbeiter wegen Protokollverletzungen in Isolation.'], source: 'Wikipedia, WHO' },
+        'uk': { name: 'Vereinigtes Konigreich', severity: 'high', severityLabel: 'BESTATIGT + VERDACHTIG', confirmed: 2, suspected: 1, deaths: 0, desc: 'Das Vereinigte Konigreich bestatige 2 Andes-Virus-Falle und 1 weiteren Verdachtsfall. Ein bestatigter Fall in die Niederlande evakuiert (Leiden UMC); einer nach Sudafrika. Ein dritter Brite wird verdachtigt, sich auf Tristan da Cunha (13.-15. Apr.) angesteckt zu haben und ist auf der Insel hospitalisiert. UKHSA koordiniert 45-tagige Nachverfolgung.', updates: ['Zwei Briten bestatigt — einer in den Niederlanden, einer in Sudafrika.', 'Verdachtsfall auf Tristan da Cunha: britische Fallschirmjager lieferten Hilfsguter am 10. Mai.'], source: 'UKHSA, Wikipedia' },
+        'france': { name: 'Frankreich', severity: 'high', severityLabel: 'BESTATIGT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Eine franzosische Staatsburgerin, die am 10. Mai von MV Hondius evakuiert wurde, testete am 11. Mai positiv auf Andes-Virus, mit Verschlechterung ihres Gesundheitszustands. Funf franzosische Staatsangehorige waren an Bord und wurden am 10. Mai nach Paris evakuiert. Frankreich erhohte sein Gesundheitsalarmierungsniveau und identifizierte 22 Hochrisikokontakte.', updates: ['11. Mai: franzosische Burgerin PCR-positiv bestatigt; Gesundheitszustand verschlechtert sich.', 'Frankreich erhohte Alarmstufe; 22 Hochrisikokontakte identifiziert.'], source: 'Wikipedia' },
+        'saint-helena': { name: 'St. Helena', severity: 'medium', severityLabel: 'WAHRSCHEINLICHER FALL · EXPOSITIONSPUNKT', confirmed: 0, suspected: 1, deaths: 0, desc: 'Passagiere stiegen am 24. April fur einen Landausflug aus. Kontakt mit nagetierbefallenen Umgebungen ist das wahrscheinliche Hantavirus-Expositionsereignis fur den gesamten Cluster. Ein wahrscheinlicher Fall ist mit St. Helena verbunden. Alle 30 ausgestiegenen Passagiere wurden von UKHSA kontaktverfolgung unterzogen.', updates: ['24. April: Ausflug als wahrscheinlicher Expositionsursprung identifiziert.', 'Alle 30 Passagiere verfolgt. Wahrscheinlicher Fall hier verbunden.'], source: 'WHO DON#99, Wikipedia' },
+        'spain': { name: 'Spanien', severity: 'high', severityLabel: 'BESTATIGT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Ein spanischer Staatsburger, MV Hondius-Passagier, testete positiv auf Andes-Virus und wurde am 12. Mai als symptomatisch bestatigt und hospitalisiert. Von 14 getesteten Spaniern war nur 1 positiv. MV Hondius legte am 10. Mai in Teneriffa an.', updates: ['11. Mai: 1 von 14 Spaniern positiv auf Andes-Virus.', '12. Mai: spanischer Fall als symptomatisch bestatigt und hospitalisiert.'], source: 'Wikipedia' }
+      },
+      pts: [
+        { lat: -54.8, lng: -68.3, c: '#71717a', s: 12, key: null, n: 'Argentinien (Ushuaia)', sc: 'gray', st: 'Kreuzfahrtabfahrtshafen', dt: 'MV Hondius brach von Ushuaia auf. Landausflug auf St. Helena am 24. Apr. als wahrscheinlicher Expositionspunkt identifiziert.' },
+        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'St. Helena', sc: 'orange', st: 'Wahrscheinlicher Fall · Expositionspunkt', dt: 'Ausflug 24. Apr. — wahrscheinliches Expositionsereignis. Wahrscheinlicher Fall hier verbunden. Tippe fur Details.' },
+        { lat: -26.2, lng: 28.0, c: '#ef4444', s: 18, key: 'south-africa', n: 'Sudafrika', sc: 'red', st: 'Bestatigt · 2 Falle · 1 Todesfall', dt: 'Andes-Virus in Johannesburger Krankenhaus bestatigt. Ein todlicher Fall PCR-bestatigt. Tippe fur Details.' },
+        { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Schweiz', sc: 'red', st: 'Bestatigter Fall', dt: 'Andes-Virus bei zuruckgekehrtem MV Hondius-Passagier bestatigt. Tippe fur Details.' },
+        { lat: 52.4, lng: 4.9, c: '#ef4444', s: 15, key: 'netherlands', n: 'Niederlande', sc: 'red', st: 'Bestatigt · 2 Niederlandische Todesfalle', dt: 'Niederlandischer Evakuierter am 7. Mai im Radboud UMC PCR-bestatigt. Zwei Niederlander gestorben. Tippe fur Details.' },
+        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Vereinigtes Konigreich', sc: 'red', st: '2 Bestatigt · 1 Verdachtig', dt: 'UK bestatige 2 Falle + 1 Verdachtsfall auf Tristan da Cunha. Tippe fur Details.' },
+        { lat: 51.2, lng: 10.5, c: '#71717a', s: 11, key: null, n: 'Deutschland', sc: 'gray', st: 'Test Negativ', dt: 'Evakuierter Deutscher am 6. Mai getestet; Andes-Virus negativ. Quelle: Wikipedia.' },
+        { lat: 46.2, lng: 2.2, c: '#ef4444', s: 14, key: 'france', n: 'Frankreich', sc: 'red', st: 'Bestatigter Fall', dt: 'Franzosische Burgerin am 11. Mai PCR-positiv bestatigt; Zustand verschlechtert. 5 Franzosen am 10. Mai evakuiert. Tippe fur Details.' },
+        { lat: 40.4, lng: -3.7, c: '#ef4444', s: 13, key: 'spain', n: 'Spanien', sc: 'red', st: 'Bestatigter Fall', dt: 'Spanischer Burger am 12. Mai PCR-positiv bestatigt; hospitalisiert. MV Hondius am 10. Mai in Teneriffa; 94 Passagiere von Bord. Tippe fur Details.' },
+        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapur', sc: 'gray', st: 'Test Negativ', dt: '2 Einwohner getestet — beide Andes-Virus negativ. Quelle: Wikipedia.' },
+        { lat: 39.8, lng: -98.6, c: '#ef4444', s: 13, key: null, n: 'Vereinigte Staaten', sc: 'red', st: 'Bestatigter Fall', dt: 'Asymptomatischer amerikanischer Passagier am 11. Mai PCR-positiv bestatigt. 17 Amerikaner ins UNMC in Nebraska zuruckgefuhrt.' },
+        { lat: -37.1, lng: -12.3, c: '#f97316', s: 13, key: null, n: 'Tristan da Cunha', sc: 'orange', st: 'Verdachtsfall', dt: 'Ein Inseleinwohner (ehemaliger MV Hondius-Passagier, 13.-15. Apr.) wird der Infektion verdachtigt. Britische Fallschirmjager der 16. Air Assault Brigade lieferten 3.300 kg medizinische Versorgungsguter am 10. Mai.' }
+      ]
+    };
+  </script>
+  <script src="/js/app.js"></script>
+
+</body>
+
+</html>

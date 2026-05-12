@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Harta Hantavirus - Tracker Live 2026 | Cazuri și Decese</title>
+  <meta name="description"
+    content="Harta hantavirusului în timp real 2026. Urmărește cazurile confirmate, decesele și țările afectate. Date despre epidemia de pe nava de croazieră MV Hondius conform OMS și CDC." />
+  <link rel="canonical" href="https://hantavirusmap.net/ro/" />
+  <link rel="alternate" hreflang="en" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="uk" href="https://hantavirusmap.net/uk/" />
+  <link rel="alternate" hreflang="es" href="https://hantavirusmap.net/es/" />
+  <link rel="alternate" hreflang="ru" href="https://hantavirusmap.net/ru/" />
+  <link rel="alternate" hreflang="it" href="https://hantavirusmap.net/it/" />
+  <link rel="alternate" hreflang="de" href="https://hantavirusmap.net/de/" />
+  <link rel="alternate" hreflang="ro" href="https://hantavirusmap.net/ro/" />
+  <link rel="alternate" hreflang="x-default" href="https://hantavirusmap.net/" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <meta property="og:title" content="Harta Hantavirus 2026 – Tracker Live" />
+  <meta property="og:description"
+    content="Urmărește epidemia de hantavirus 2026 cu o hartă globală în timp real. Cazuri, decese și date pe țări de la OMS și CDC." />
+  <meta property="og:url" content="https://hantavirusmap.net/ro/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Harta Hantavirus 2026 – Tracker Live" />
+  <meta name="twitter:description"
+    content="Urmărește epidemia de hantavirus 2026 în timp real. Date live de la OMS și CDC." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Acasă",
+        "item": "https://hantavirusmap.net/ro/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </div>
+      <ul class="nav-links">
+        <li><a href="#map-section">Hartă</a></li>
+        <li><a href="#news-section">Știri</a></li>
+        <li><a href="#timeline-section">Cronologie</a></li>
+        <li><a href="#faq-section">FAQ</a></li>
+        <li><a href="/blog/" class="nav-tg">Blog</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div class="lang-switch">
+          <a href="/">🇬🇧 EN</a>
+          <a href="/uk/">🇺🇦 UA</a>
+          <a href="/es/">🇪🇸 ES</a>
+          <a href="/ru/">🇷🇺 RU</a>
+          <a href="/it/">🇮🇹 IT</a>
+          <a href="/de/">🇩🇪 DE</a>
+          <a href="/ro/" class="lang-active">🇷🇴 RO</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Meniu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#map-section" onclick="closeNav()">Hartă</a>
+      <a href="#news-section" onclick="closeNav()">Știri</a>
+      <a href="#timeline-section" onclick="closeNav()">Cronologie</a>
+      <a href="#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="/blog/" onclick="closeNav()">Blog</a>
+      <a href="/" onclick="closeNav()">🇬🇧 English</a>
+      <a href="/uk/" onclick="closeNav()">🇺🇦 Українська</a>
+      <a href="/es/" onclick="closeNav()">🇪🇸 Español</a>
+      <a href="/ru/" onclick="closeNav()">🇷🇺 Русский</a>
+      <a href="/it/" onclick="closeNav()">🇮🇹 Italiano</a>
+      <a href="/de/" onclick="closeNav()">🇩🇪 Deutsch</a>
+      <a href="/ro/" onclick="closeNav()">🇷🇴 Română</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow">Tracker Live Epidemie · Risc OMS: SCĂZUT</div>
+
+      <h1 class="hero-title">Harta Hantavirus<br><span class="accent">Live 2026</span></h1>
+
+      <div class="countdown-block">
+        <div class="countdown-label">De la primele simptome — 6 apr. 2026</div>
+        <div class="countdown-display">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Zile</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Ore</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Min</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Sec</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="confirmed-cases">11</div>
+          <div class="stat-label">Total Cazuri</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="deaths">3</div>
+          <div class="stat-label">Decese</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="countries-affected">7</div>
+          <div class="stat-label">Țări Afectate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="suspected-cases">2</div>
+          <div class="stat-label">Cazuri Probabile</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-top">Advertisement</div>
+  </div>
+
+  <!-- MAP -->
+  <section class="section" id="map-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Hartă Interactivă</div>
+        <h2 class="section-title">Harta Cazurilor 2026</h2>
+        <p class="section-sub">Harta țărilor cu cazuri confirmate sau suspecte. Faceți clic pe un marker pentru informații despre țară.</p>
+      </div>
+
+      <div class="map-unified">
+        <div id="map"></div>
+        <div class="map-panel">
+          <div class="map-panel-header">Informații Țară</div>
+          <div class="map-panel-body" id="mapPanel">
+            <div class="panel-placeholder">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Faceți clic pe un marker pentru a vedea datele</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> Caz Confirmat
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Suspect / Neconfirmat
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#71717a;"></div> Monitorizare / Tratament
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#3f3f46;"></div> Niciun caz în 2026
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NEWS -->
+  <section class="section" id="news-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cele Mai Recente Întâi</div>
+        <h2 class="section-title">Ultimele Știri despre Epidemie</h2>
+        <p class="section-sub">Acoperire în timp real de la OMS, CDC, UKHSA și mass-media internațională.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid"></div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Încarcă mai multe știri</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIMELINE -->
+  <section class="section" id="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Legat de Croazieră · Cele Mai Recente Întâi</div>
+        <h2 class="section-title">Cronologie 2026</h2>
+        <p class="section-sub">Înregistrare cronologică bazată pe datele OMS și ale autorităților oficiale de sănătate.</p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-12</div>
+            <div class="tl-title">Cazul spaniol confirmat în spital; 12 lucrători din Nijmegen în carantină — 9 confirmate, 11 total</div>
+            <div class="tl-desc">Pasagerul spaniol testat pozitiv pe 11 mai este confirmat simptomatic și spitalizat pe 12 mai. 12 lucrători medicali de la Radboud UMC din Nijmegen (Olanda) sunt izolați după nerespectarea protocoalelor de control al infecțiilor. Repatrierea tuturor pasagerilor finalizată pe 11 mai. Total: 9 confirmate și 2 probabile (11 total), 3 decese (ECDC).</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-11</div>
+            <div class="tl-title">Pacientul francez în stare critică; MV Hondius pleacă din Tenerife; cazul spaniol confirmat — 7 confirmate, 9 total</div>
+            <div class="tl-desc">OMS confirmă că pacientul francez este în "stare critică". MV Hondius pleacă din Tenerife în jurul orei 20:00 WET cu 25 de membri ai echipajului și 2 medici RIVM la bord, cu destinația Rotterdam (sosire estimată: 17 mai). Autoritățile spaniole de sănătate raportează 1 rezultat pozitiv din 14 spanioli testați. Un american asimptomatic testează și el pozitiv. Un al doilea american cu simptome ușoare rămâne caz probabil. ECDC confirmă 7 cazuri confirmate și 2 probabile (9 total), 3 decese.</div>
+            <span class="tl-source">ECDC · Wikipedia · OMS</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-10</div>
+            <div class="tl-title">MV Hondius sosește în Tenerife; 7 zboruri de evacuare; parașutiști ajung la Tristan da Cunha</div>
+            <div class="tl-desc">MV Hondius ajunge în portul Granadilla în jurul orei 05:30. Pasagerii sunt transferați cu bărci rapide direct la aeroport fără contact cu localnicii. Până la sfârșitul zilei de 10 mai, șapte zboruri au transportat 94 de pasageri în șase țări europene și Canada. Parașutiștii britanici din Brigada 16 Aeroasalt au lansat 3.300 kg de medicamente la Tristan da Cunha, unde un locuitor este suspect de infectare.</div>
+            <span class="tl-source">OMS · Wikipedia · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-09</div>
+            <div class="tl-title">SUA organizează zbor charter; OMS îndeamnă la calm</div>
+            <div class="tl-desc">SUA au organizat un zbor charter pentru repatrierea pasagerilor americani. Spania a pregătit proceduri de evacuare. OMS a declarat: "Acesta nu este un nou COVID" și a evaluat riscul global ca SCĂZUT. Trump a spus că epidemia este "sub control".</div>
+            <span class="tl-source">BBC · AP News · OMS · NBC News</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-08</div>
+            <div class="tl-title">Actualizare OMS: 5 cazuri confirmate de virus Andes și 8 suspecte</div>
+            <div class="tl-desc">OMS a actualizat datele la 13 cazuri (5 confirmate, 8 suspecte). Riscul public rămâne scăzut. UKHSA a raportat un al treilea cetățean britanic suspect. CDC a ridicat nivelul de răspuns la 3.</div>
+            <span class="tl-source">OMS · UKHSA · CDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-07</div>
+            <div class="tl-title">Evacuarea a trei pacienți; nava se îndreaptă spre Spania</div>
+            <div class="tl-desc">Trei pasageri bolnavi sunt evacuați pentru tratament. Nava continuă spre nord spre Insulele Canare în timp ce investigația de contact se extinde la 13 țări.</div>
+            <span class="tl-source">AP News · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-06</div>
+            <div class="tl-title">Evacuări internaționale și monitorizarea pasagerilor</div>
+            <div class="tl-desc">Agențiile de știri au raportat evacuări continue și monitorizarea simptomelor la pasagerii returnați. SUA au trimis personal CDC cu avionul pentru a acorda asistență.</div>
+            <span class="tl-source">Reuters · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-04</div>
+            <div class="tl-title">Actualizare publică OMS — risc evaluat ca SCĂZUT</div>
+            <div class="tl-desc">OMS a raportat 7 cazuri: 2 confirmate, 5 suspecte, 3 decese, 1 caz critic și 3 ușoare, în timp ce nava staționa la Cabo Verde.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-02</div>
+            <div class="tl-title">Al treilea deces la bord; Marea Britanie notifică OMS</div>
+            <div class="tl-desc">O pasageră germană a decedat la bordul MV Hondius — al treilea deces legat de epidemie. Centrul de coordonare britanic a notificat OMS cu privire la un cluster de boli respiratorii acute severe la bordul unei nave de croazieră.</div>
+            <span class="tl-source">OMS DON#99 · Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-30</div>
+            <div class="tl-title">Pacient din ATI evacuat în Africa de Sud</div>
+            <div class="tl-desc">Cazul 3 este evacuat medical de pe Insula Ascension în Africa de Sud și ulterior confirmat PCR pozitiv pentru hantavirus.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-25</div>
+            <div class="tl-title">Caz mortal confirmat ajunge în Africa de Sud și decedează</div>
+            <div class="tl-desc">O pasageră în stare critică (văduva primei victime) este debarcată de pe zborul KL592 și evacuată medical în Africa de Sud, unde decedează în aceeași zi. OMS confirmă PCR pozitiv pentru virusul Andes.</div>
+            <span class="tl-source">OMS DON#99 · Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-24</div>
+            <div class="tl-title">Excursie pe Insula Sfânta Elena — expunere probabilă</div>
+            <div class="tl-desc">Pasagerii au debarcat pentru observarea păsărilor. Contactul cu rozătoarele infectate este identificat ca evenimentul probabil de infectare pentru întregul cluster.</div>
+            <span class="tl-source">OMS DON#99 · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-11</div>
+            <div class="tl-title">Primul deces la bord — Leo Schipper­oord</div>
+            <div class="tl-desc">Pasagerul olandez Leo Schilperoord (80 de ani) a devenit prima persoană care a decedat la bordul MV Hondius din cauza hantavirusului Andes.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-06</div>
+            <div class="tl-title">Primele simptome la bordul MV Hondius</div>
+            <div class="tl-desc">Prima persoană de la bordul navei de croazieră de expediție MV Hondius a început să manifeste simptome de hantavirus Andes. Nava naviga în apele antarctice și din Atlanticul de Sud.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLIC HEALTH FACTS -->
+  <section class="section" id="facts-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Referință Medicală</div>
+        <h2 class="section-title">Fapte de Sănătate Publică</h2>
+        <p class="section-sub">Informații bazate pe dovezi despre hantavirus: transmitere, simptome și prevenție.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">🦠</div>
+          <div class="fact-title">Ce Sunt Hantavirusurile</div>
+          <div class="fact-text">Hantavirusurile sunt virusuri zoonotice transmise de rozătoare. Doar unele specii cauzează boli la oameni. Virusul Andes — detectat în America de Sud — este tulpina probabilă în epidemia MV Hondius 2026.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌬️</div>
+          <div class="fact-title">Calea Principală de Transmitere</div>
+          <div class="fact-text">Oamenii se infectează în principal prin inhalarea aerosolilor din fecalele, urina sau saliva rozătoarelor infectate. Atingerea suprafețelor contaminate urmată de atingerea ochilor, nasului sau gurii poate transmite și ea virusul.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">👥</div>
+          <div class="fact-title">Transmitere de la Om la Om</div>
+          <div class="fact-text">OMS și CDC indică faptul că transmiterea documentată de la om la om este limitată la virusul Andes din America. Acesta este motivul principal pentru care OMS a evaluat riscul global ca SCĂZUT.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🫁</div>
+          <div class="fact-title">Sindroame Clinice</div>
+          <div class="fact-text">În America: sindromul cardiopulmonar hantaviral (SCPH). În Europa și Asia: febra hemoragică cu sindrom renal (FHSR). Ambele pot fi fatale fără tratament în ATI.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">⏱️</div>
+          <div class="fact-title">Perioada de Incubație</div>
+          <div class="fact-text">Simptomele apar la una până la opt săptămâni după expunere. Simptomele SCPH apar la două până la patru săptămâni. Perioada largă îngreunează detectarea timpurie în clustere.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">💊</div>
+          <div class="fact-title">Tratament</div>
+          <div class="fact-text">Nu există un antiviral aprobat pentru hantavirus. Terapia suportivă timpurie și managementul în ATI îmbunătățesc semnificativ supraviețuirea. Solicitați asistență medicală imediat dacă aveți simptome.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🏠</div>
+          <div class="fact-title">Prevenție</div>
+          <div class="fact-text">Etanșați clădirile împotriva rozătoarelor. Curățați întotdeauna umed — niciodată uscat. Ventilați 30 de minute înainte de a intra în zone cu rozătoare. Folosiți mănuși și mască N95 la curățarea fecalelor.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌍</div>
+          <div class="fact-title">Povara Globală</div>
+          <div class="fact-text">OMS estimează între 10.000 și peste 100.000 de infecții cu hantavirus pe an. Cea mai mare povară în Asia și Europa (FHSR). Cazuri anuale de SCPH în America. Rata mortalității cea mai ridicată în America de Sud.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-middle">Advertisement</div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Întrebări Frecvente</div>
+        <h2 class="section-title">Întrebări Frecvente</h2>
+        <p class="section-sub">Întrebări comune despre transmiterea hantavirusului, simptome și epidemia MV Hondius 2026.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" id="fq1">
+          <button class="faq-btn" onclick="toggleFaq('fq1')">
+            <span>Se transmite hantavirusul pe cale aeriană între oameni?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Majoritatea tulpinilor de hantavirus nu se transmit între oameni. Virusul Andes — agentul cauzal probabil al epidemiei din 2026 — este singurul hantavirus cu transmitere limitată documentată de la om la om. OMS a evaluat riscul global ca SCĂZUT. Riscul de transmitere pentru publicul larg rămâne minim.</div>
+        </div>
+        <div class="faq-item" id="fq2">
+          <button class="faq-btn" onclick="toggleFaq('fq2')">
+            <span>Care sunt primele simptome ale hantavirusului?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Simptomele timpurii includ febră (peste 38,5 °C), dureri musculare severe în coapse și spate, oboseală extremă și dureri de cap. Pot apărea și greață, vărsături și diaree. Durează 4–10 zile înainte de posibila progresie la dificultăți de respirație. Dacă ați fost pe MV Hondius și aveți simptome, solicitați imediat asistență medicală.</div>
+        </div>
+        <div class="faq-item" id="fq3">
+          <button class="faq-btn" onclick="toggleFaq('fq3')">
+            <span>Când apar dificultățile de respirație?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Dificultățile de respirație — semnul distinctiv al SCPH — încep de obicei la 4–10 zile după faza inițială asemănătoare gripei. Debutul poate fi rapid și amenințător de viață. Dacă aveți dificultăți de respirație după o posibilă expunere, sunați imediat la serviciile de urgență.</div>
+        </div>
+        <div class="faq-item" id="fq4">
+          <button class="faq-btn" onclick="toggleFaq('fq4')">
+            <span>Cât de mortal este hantavirusul?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">SCPH are o rată de fatalitate de ~36% în SUA. Epidemia din 2026: 3 decese din 9 cazuri confirmate (33,3%), peste mediile istorice. Detectarea timpurie și terapia agresivă în ATI îmbunătățesc semnificativ rezultatele.</div>
+        </div>
+        <div class="faq-item" id="fq5">
+          <button class="faq-btn" onclick="toggleFaq('fq5')">
+            <span>Există un vaccin sau tratament?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Nu există vaccin aprobat pentru hantavirus în țările occidentale în 2026. Tratamentul este suportiv: terapie intensivă, oxigen suplimentar, ventilație mecanică sau ECMO în cazuri severe. Prevenția rămâne cea mai importantă strategie.</div>
+        </div>
+        <div class="faq-item" id="fq6">
+          <button class="faq-btn" onclick="toggleFaq('fq6')">
+            <span>Cum să curățați în siguranță o zonă contaminată cu rozătoare?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">CDC recomandă: (1) ventilați 30 min înainte de intrare; (2) purtați mănuși de cauciuc și mască N95; (3) pulverizați fecalele cu soluție de clor 10%, așteptați 5 min; (4) ștergeți cu cârpă — nu măturați și nu aspirați niciodată; (5) sac dublu pentru toate deșeurile; (6) dezinfectați mănușile, apoi spălați-vă mâinile.</div>
+        </div>
+        <div class="faq-item" id="fq7">
+          <button class="faq-btn" onclick="toggleFaq('fq7')">
+            <span>Ar trebui să fie îngrijorați călătorii?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">OMS a evaluat riscul global ca SCĂZUT. Epidemia este limitată la pasagerii MV Hondius și contactele lor apropiate. Cei care au desfășurat activități recreative în zonele rurale din America de Sud ar trebui să monitorizeze simptomele.</div>
+        </div>
+        <div class="faq-item" id="fq8">
+          <button class="faq-btn" onclick="toggleFaq('fq8')">
+            <span>De ce diferă datele hărții pe țări?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Țările aplică definiții diferite ale cazurilor — unele raportează doar cazurile confirmate PCR, altele includ cazurile suspecte. Această hartă distinge statutul confirmat (roșu), suspect (portocaliu) și monitorizare (gri) pe baza datelor OMS, ECDC, CDC din 12 mai 2026.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT (SEO) -->
+  <section class="section" id="about-section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <div class="section-tag">Referință Medicală</div>
+        <h2 class="section-title">Ce Este Hantavirusul?</h2>
+        <p class="section-sub">Simptome, transmitere și prevenție — informații esențiale pentru călători și pasagerii MV Hondius.</p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="about-h3">Cum Se Transmite Hantavirusul?</h3>
+        <p class="about-p">Hantavirusul se transmite în principal prin contactul cu rozătoarele infectate sau cu fecalele, urina sau saliva acestora. Cea mai frecventă cale este inhalarea prafului contaminat. Virusul nu se transmite prin contactul obișnuit între oameni. Totuși, virusul Andes — agentul cauzal probabil al epidemiei MV Hondius 2026 — este singurul hantavirus cunoscut cu dovezi de transmitere limitată de la om la om.</p>
+
+        <h3 class="about-h3">Simptomele Hantavirusului</h3>
+        <p class="about-p">Simptomele timpurii apar la 1–8 săptămâni după expunere: febră, dureri musculare severe, oboseală și dureri de cap. Unele cazuri progresează la sindromul cardiopulmonar hantaviral (SCPH), caracterizat prin dificultăți de respirație, lichid în plămâni și insuficiență respiratorie rapidă. Epidemia din 2026: 3 decese din 9 cazuri confirmate (rata mortalității 33,3%), 2 cazuri probabile suplimentare sub monitorizare.</p>
+
+        <h3 class="about-h3">Cum Să Vă Protejați</h3>
+        <p class="about-p">Minimizați contactul cu rozătoarele și fecalele lor. Ventilați zonele contaminate cel puțin 30 de minute înainte de intrare. Umeziti materialul contaminat cu dezinfectant înainte de ștergere — nu măturați niciodată uscat. Purtați mănuși de cauciuc și mască N95. Dacă ați fost pasager pe MV Hondius, contactați imediat autoritățile locale de sănătate și urmați protocolul de monitorizare de 45 de zile.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- OFFICIAL SOURCES -->
+  <section class="section" id="sources-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Surse</div>
+        <h2 class="section-title">Surse Oficiale</h2>
+        <p class="section-sub">Toate datele sunt colectate din autoritățile oficiale de sănătate publică și mass-media internațională verificată.</p>
+      </div>
+
+      <div class="sources-pills">
+        <span class="source-pill">OMS — Fișă Informativă Hantavirus</span>
+        <span class="source-pill">OMS DON#99 Cluster Hantavirus</span>
+        <span class="source-pill">OMS Eveniment de Urgență 2026-eSOG227</span>
+        <span class="source-pill">CDC — Despre Hantavirus</span>
+        <span class="source-pill">CDC — Cazuri Raportate în SUA</span>
+        <span class="source-pill">ECDC Hantavirus AIR 2023</span>
+        <span class="source-pill">CDC — Informații Tehnice Orthohantavirus</span>
+        <span class="source-pill">PAHO — Alertă Epidemiologică Dec. 2025</span>
+        <span class="source-pill">China CDC Weekly HFRS 2014–2023</span>
+        <span class="source-pill">CDC MMWR Sud-vest SUA 1993</span>
+        <span class="source-pill">OMS Hantavirus Argentina 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-bottom">Advertisement</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="/about">Despre noi</a>
+        <a href="/privacy-policy">Politică de Confidențialitate</a>
+        <a href="/terms-of-service">Termeni și Condiții</a>
+      </div>
+      <div class="footer-disclaimer">
+        Tracker Hantavirus — Actualizat <span id="last-updated">2026-05-12</span><br>
+        Sursă: OMS · Ultima actualizare: mai 2026<br>
+        © 2026 HantavirusMap. Toate drepturile rezervate.<br>
+        Acest tracker rezumă surse publice și nu este un instrument de diagnostic. În urgențe medicale, consultați specialiști.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    /* Language config — Romanian */
+    window.APP_CONFIG = {
+      locale: 'ro-RO',
+      labels: { confirmed: 'Cazuri Confirmate', suspected: 'Cazuri Probabile', deaths: 'Decese', source: 'Sursa' },
+      countryData: {
+        'south-africa': { name: 'Africa de Sud', severity: 'high', severityLabel: 'CONFIRMAT · 2 CAZURI · 1 DECES', confirmed: 2, suspected: 0, deaths: 1, desc: 'Cazuri confirmate de virus Andes la spitalul din Johannesburg. Un pasager MV Hondius a decedat la sosire (confirmat PCR). Al doilea pacient evacuat medical de pe Insula Ascension, confirmat PCR pozitiv in ATI.', updates: ['Cazul 2 s-a deteriorat in drum spre Johannesburg si a decedat la sosire — virus Andes confirmat PCR.', 'Cazul 3 evacuat de pe Insula Ascension, confirmat PCR pozitiv in ATI Johannesburg.'], source: 'WHO DON#99' },
+        'switzerland': { name: 'Elvetia', severity: 'high', severityLabel: 'CONFIRMAT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Pasager MV Hondius revenit confirmat cu virus Andes si aflat sub supraveghere medicala.', updates: ['Caz confirmat de virus Andes la pasager MV Hondius revenit.', 'Protocol de monitorizare clinica de 45 de zile.'], source: 'WHO, Wikipedia' },
+        'netherlands': { name: 'Olanda', severity: 'high', severityLabel: 'CONFIRMAT · 2 DECESE OLANDEZE', confirmed: 1, suspected: 0, deaths: 2, desc: 'Caz confirmat de virus Andes la un olandez evacuat de pe MV Hondius pe 6 mai, spitalizat la Radboud UMC (Nijmegen) si confirmat PCR pozitiv pe 7 mai. Doi olandezi au decedat: Leo Schilperoord (decedat la bord, 11 apr.) si sotia sa (decedata la Johannesburg, 26 apr.). Pe 12 mai, 12 lucratori medicali au fost izolati din cauza nerespectarii protocoalelor.', updates: ['7 mai: olandez evacuat confirmat PCR pozitiv la Radboud UMC.', 'Doi olandezi au decedat: primul la bord pe 11 apr., al doilea la Johannesburg pe 26 apr.', '12 mai: 12 angajati Radboud UMC Nijmegen in izolare din cauza nerespectarii protocoalelor.'], source: 'Wikipedia, WHO' },
+        'uk': { name: 'Marea Britanie', severity: 'high', severityLabel: 'CONFIRMAT + SUSPECT', confirmed: 2, suspected: 1, deaths: 0, desc: 'Marea Britanie a confirmat 2 cazuri de virus Andes si 1 caz suspect suplimentar. Un confirmat evacuat in Olanda (Leiden UMC); altul in Africa de Sud. Al treilea britanic este suspect de infectare la Tristan da Cunha (13–15 apr.) si spitalizat pe insula. UKHSA coordoneaza supravegherea de 45 de zile.', updates: ['Doi britanici confirmati — unul in Olanda, altul in Africa de Sud.', 'Caz suspect la Tristan da Cunha: parautisti britanici au livrat medicamente pe 10 mai.'], source: 'UKHSA, Wikipedia' },
+        'france': { name: 'Franta', severity: 'high', severityLabel: 'CONFIRMAT', confirmed: 1, suspected: 0, deaths: 0, desc: 'O cetatenie franceza evacuata de pe MV Hondius pe 10 mai a testat pozitiv pentru virusul Andes pe 11 mai, starea sa deteriorandu-se. Cinci cetateni francezi au fost evacuati la Paris pe 10 mai. Franta a ridicat nivelul de pregatire pentru sanatate publica si a identificat 22 de contacte cu risc ridicat.', updates: ['11 mai: cetatenie franceza confirmata PCR pozitiva; stare in deteriorare.', 'Franta a ridicat nivelul de pregatire; 22 de contacte cu risc ridicat identificate.'], source: 'Wikipedia' },
+        'saint-helena': { name: 'Insula Sfanta Elena', severity: 'medium', severityLabel: 'CAZ PROBABIL · PUNCT DE EXPUNERE', confirmed: 0, suspected: 1, deaths: 0, desc: 'Pasagerii au debarcat pe 24 aprilie pentru o excursie pe tarm. Contactul cu rozatoarele infectate a fost identificat ca evenimentul probabil de infectare pentru intregul cluster. Un caz probabil este legat de insula. Toti cei 30 de pasageri care au debarcat au fost urmariti de UKHSA.', updates: ['24 aprilie: excursie pe tarm — locul probabil de infectare.', 'Toti cei 30 de pasageri urmariti. Caz probabil legat de acest loc.'], source: 'WHO DON#99, Wikipedia' },
+        'spain': { name: 'Spania', severity: 'high', severityLabel: 'CONFIRMAT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Un cetatean spaniol, pasager MV Hondius, a testat pozitiv pentru virusul Andes si a fost confirmat simptomatic si spitalizat pe 12 mai. Din 14 spanioli testati, 1 a iesit pozitiv. MV Hondius a sosit la Tenerife (portul Granadilla) pe 10 mai pentru debarcarea pasagerilor.', updates: ['11 mai: 1 din 14 spanioli a testat pozitiv pentru virusul Andes.', '12 mai: cazul spaniol confirmat simptomatic; spitalizat.'], source: 'Wikipedia' }
+      },
+      pts: [
+        { lat: -54.8, lng: -68.3, c: '#71717a', s: 12, key: null, n: 'Argentina (Ushuaia)', sc: 'gray', st: 'Port de Plecare', dt: 'MV Hondius a plecat din Ushuaia. Excursia pe Insula Sfanta Elena pe 24 apr. — punctul probabil de infectare.' },
+        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'Insula Sfanta Elena', sc: 'orange', st: 'Caz Probabil · Punct de Expunere', dt: 'Excursie pe 24 apr. — evenimentul probabil de infectare. Caz probabil legat de acest loc. Click pentru detalii.' },
+        { lat: -26.2, lng: 28.0, c: '#ef4444', s: 18, key: 'south-africa', n: 'Africa de Sud', sc: 'red', st: 'Confirmat · 2 Cazuri · 1 Deces', dt: 'Virus Andes confirmat la spitalul din Johannesburg. Un deces confirmat PCR. Click pentru detalii.' },
+        { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Elvetia', sc: 'red', st: 'Caz Confirmat', dt: 'Virus Andes confirmat la pasager MV Hondius revenit. Click pentru detalii.' },
+        { lat: 52.4, lng: 4.9, c: '#ef4444', s: 15, key: 'netherlands', n: 'Olanda', sc: 'red', st: 'Confirmat · 2 Decese Olandeze', dt: 'Olandez evacuat confirmat PCR pe 7 mai la Radboud UMC. Doi olandezi au decedat. Click pentru detalii.' },
+        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Marea Britanie', sc: 'red', st: '2 Confirmate · 1 Suspect', dt: 'Marea Britanie a confirmat 2 cazuri + 1 suspect la Tristan da Cunha. Click pentru detalii.' },
+        { lat: 51.2, lng: 10.5, c: '#71717a', s: 11, key: null, n: 'Germania', sc: 'gray', st: 'Test Negativ', dt: 'Germanul evacuat testat pe 6 mai; rezultat negativ pentru virusul Andes. Sursa: Wikipedia.' },
+        { lat: 46.2, lng: 2.2, c: '#ef4444', s: 14, key: 'france', n: 'Franta', sc: 'red', st: 'Caz Confirmat', dt: 'Cetatenie franceza confirmata PCR pozitiva pe 11 mai; stare in deteriorare. 5 francezi evacuati pe 10 mai. Click pentru detalii.' },
+        { lat: 40.4, lng: -3.7, c: '#ef4444', s: 13, key: 'spain', n: 'Spania', sc: 'red', st: 'Caz Confirmat', dt: 'Cetatean spaniol confirmat PCR pozitiv pe 12 mai; spitalizat cu simptome. MV Hondius a sosit la Tenerife pe 10 mai; 94 de pasageri debarcati. Click pentru detalii.' },
+        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapore', sc: 'gray', st: 'Test Negativ', dt: '2 rezidenti testati — ambii negativi pentru virusul Andes. Sursa: Wikipedia.' },
+        { lat: 39.8, lng: -98.6, c: '#ef4444', s: 13, key: null, n: 'SUA', sc: 'red', st: 'Caz Confirmat', dt: 'Pasager american asimptomatic confirmat PCR pozitiv pe 11 mai. 17 americani repatriati la UNMC din Nebraska.' },
+        { lat: -37.1, lng: -12.3, c: '#f97316', s: 13, key: null, n: 'Tristan da Cunha', sc: 'orange', st: 'Caz Suspect', dt: 'Un locuitor al insulei (fost pasager MV Hondius, 13–15 apr.) este suspect de infectare. Parautisti britanici din Brigada 16 Aeroasalt au livrat 3.300 kg de medicamente pe 10 mai.' }
+      ]
+    };
+  </script>
+  <script src="/js/app.js"></script>
+
+</body>
+
+</html>

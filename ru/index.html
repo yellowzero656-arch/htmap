@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>Карта Хантавируса - Живой Трекер 2026 | Случаи и Смерти</title>
+  <meta name="description"
+    content="Карта хантавируса в реальном времени 2026. Отслеживайте подтверждённые случаи, смерти и поражённые страны. Данные о вспышке на круизном судне MV Hondius от ВОЗ и CDC." />
+  <link rel="canonical" href="https://hantavirusmap.net/ru/" />
+  <link rel="alternate" hreflang="en" href="https://hantavirusmap.net/" />
+  <link rel="alternate" hreflang="uk" href="https://hantavirusmap.net/uk/" />
+  <link rel="alternate" hreflang="es" href="https://hantavirusmap.net/es/" />
+  <link rel="alternate" hreflang="ru" href="https://hantavirusmap.net/ru/" />
+  <link rel="alternate" hreflang="it" href="https://hantavirusmap.net/it/" />
+  <link rel="alternate" hreflang="de" href="https://hantavirusmap.net/de/" />
+  <link rel="alternate" hreflang="ro" href="https://hantavirusmap.net/ro/" />
+  <link rel="alternate" hreflang="x-default" href="https://hantavirusmap.net/" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <meta property="og:title" content="Карта Хантавируса 2026 – Живой Трекер" />
+  <meta property="og:description"
+    content="Отслеживайте вспышку хантавируса 2026 с живой глобальной картой. Случаи, смерти и данные по странам от ВОЗ и CDC." />
+  <meta property="og:url" content="https://hantavirusmap.net/ru/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Hantavirus Map" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Карта Хантавируса 2026 – Живой Трекер" />
+  <meta name="twitter:description"
+    content="Отслеживайте вспышку хантавируса 2026 в реальном времени. Живые данные ВОЗ и CDC." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://hantavirusmap.net/ru/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK3TV3VV2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HK3TV3VV2D');
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-live-dot"></div>
+        HANTAVIRUS MAP
+      </div>
+      <ul class="nav-links">
+        <li><a href="#map-section">Карта</a></li>
+        <li><a href="#news-section">Новости</a></li>
+        <li><a href="#timeline-section">Хронология</a></li>
+        <li><a href="#faq-section">FAQ</a></li>
+        <li><a href="/blog/" class="nav-tg">Блог</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <div class="lang-switch">
+          <a href="/">🇬🇧 EN</a>
+          <a href="/uk/">🇺🇦 UA</a>
+          <a href="/es/">🇪🇸 ES</a>
+          <a href="/ru/" class="lang-active">🇷🇺 RU</a>
+          <a href="/it/">🇮🇹 IT</a>
+          <a href="/de/">🇩🇪 DE</a>
+          <a href="/ro/">🇷🇴 RO</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#map-section" onclick="closeNav()">Карта</a>
+      <a href="#news-section" onclick="closeNav()">Новости</a>
+      <a href="#timeline-section" onclick="closeNav()">Хронология</a>
+      <a href="#faq-section" onclick="closeNav()">FAQ</a>
+      <a href="/blog/" onclick="closeNav()">Блог</a>
+      <a href="/" onclick="closeNav()">🇬🇧 English</a>
+      <a href="/uk/" onclick="closeNav()">🇺🇦 Українська</a>
+      <a href="/es/" onclick="closeNav()">🇪🇸 Español</a>
+      <a href="/ru/" onclick="closeNav()">🇷🇺 Русский</a>
+      <a href="/it/" onclick="closeNav()">🇮🇹 Italiano</a>
+      <a href="/de/" onclick="closeNav()">🇩🇪 Deutsch</a>
+      <a href="/ro/" onclick="closeNav()">🇷🇴 Română</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-eyebrow">Живой Трекер · Риск ВОЗ: НИЗКИЙ</div>
+
+      <h1 class="hero-title">Карта Хантавируса<br><span class="accent">в Реальном Времени 2026</span></h1>
+
+      <div class="countdown-block">
+        <div class="countdown-label">С момента первых симптомов — 6 апр. 2026</div>
+        <div class="countdown-display">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Дней</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Часов</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Мин</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s"><span>0</span><span>0</span></span>
+            <span class="cd-sub">Сек</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num" id="confirmed-cases">11</div>
+          <div class="stat-label">Всего Случаев</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="deaths">3</div>
+          <div class="stat-label">Смерти</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="countries-affected">7</div>
+          <div class="stat-label">Поражённые Страны</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num orange" id="suspected-cases">2</div>
+          <div class="stat-label">Вероятные Случаи</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-top">Advertisement</div>
+  </div>
+
+  <!-- MAP -->
+  <section class="section" id="map-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Интерактивная Карта</div>
+        <h2 class="section-title">Карта Случаев 2026</h2>
+        <p class="section-sub">Карта стран с подтверждёнными или подозрительными случаями. Нажмите на маркер для получения информации о стране.</p>
+      </div>
+
+      <div class="map-unified">
+        <div id="map"></div>
+        <div class="map-panel">
+          <div class="map-panel-header">Информация о Стране</div>
+          <div class="map-panel-body" id="mapPanel">
+            <div class="panel-placeholder">
+              <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Нажмите на маркер для просмотра данных</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div> Подтверждённый Случай
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#f97316;box-shadow:0 0 4px #f97316;"></div> Подозрительный / Неподтверждённый
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#71717a;"></div> Мониторинг / Лечение
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:#3f3f46;"></div> Случаев в 2026 нет
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NEWS -->
+  <section class="section" id="news-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Сначала Новейшие</div>
+        <h2 class="section-title">Последние Новости о Вспышке</h2>
+        <p class="section-sub">Освещение в реальном времени от ВОЗ, CDC, UKHSA и международных СМИ.</p>
+      </div>
+
+      <div class="news-grid" id="newsGrid"></div>
+
+      <div class="load-more-wrap">
+        <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreNews()">Загрузить ещё новости</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TIMELINE -->
+  <section class="section" id="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Связано с Круизом · Сначала Новейшие</div>
+        <h2 class="section-title">Хронология 2026</h2>
+        <p class="section-sub">Хронологическая запись по данным ВОЗ и официальных органов здравоохранения.</p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-12</div>
+            <div class="tl-title">Испанский случай подтверждён в больнице; 12 сотрудников в Неймегене на карантине — 9 подтверждённых, 11 всего</div>
+            <div class="tl-desc">Испанский пассажир, давший положительный тест 11 мая, подтверждён с симптомами и госпитализирован 12 мая. 12 медицинских работников Radboud UMC в Неймегене (Нидерланды) помещены в изоляцию после несоблюдения протоколов инфекционного контроля. Репатриация всех пассажиров завершена 11 мая. Итого: 9 подтверждённых и 2 вероятных (11 всего), 3 смерти (ECDC).</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-11</div>
+            <div class="tl-title">Французский пациент в крайне тяжёлом состоянии; MV Hondius отплыл из Тенерифе; испанский случай подтверждён — 7 подтверждённых, 9 всего</div>
+            <div class="tl-desc">ВОЗ подтвердила, что французский пациент находится в «крайне тяжёлом состоянии». MV Hondius отплыл из Тенерифе около 20:00 WET с 25 членами экипажа и 2 врачами RIVM на борту, курсом на Роттердам (ожидаемое прибытие: 17 мая). Испанские органы здравоохранения сообщили о 1 положительном результате из 14 протестированных испанцев. Бессимптомный американец также дал положительный результат. Второй американец с лёгкими симптомами остаётся вероятным случаем. ECDC подтвердил 7 подтверждённых и 2 вероятных (9 всего), 3 смерти.</div>
+            <span class="tl-source">ECDC · Wikipedia · OMS</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-10</div>
+            <div class="tl-title">MV Hondius прибыл в Тенерифе; 7 рейсов эвакуации; десантники достигли Тристан-да-Кунья</div>
+            <div class="tl-desc">MV Hondius прибыл в порт Гранадилья около 05:30. Пассажиры доставлены на скоростных лодках прямо в аэропорт без контакта с местными жителями. К концу 10 мая семь рейсов доставили 94 пассажира в шесть европейских стран и Канаду. Британские десантники 16-й воздушно-штурмовой бригады сбросили 3300 кг медикаментов на Тристан-да-Кунья, где один житель подозревается в заражении.</div>
+            <span class="tl-source">OMS · Wikipedia · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-09</div>
+            <div class="tl-title">США организуют чартерный рейс; ВОЗ призывает к спокойствию</div>
+            <div class="tl-desc">США организовали чартерный рейс для репатриации американских пассажиров. Испания подготовила процедуры эвакуации. ВОЗ заявила: «Это не новый COVID» и оценила глобальный риск как НИЗКИЙ. Трамп сказал, что вспышка «под контролем».</div>
+            <span class="tl-source">BBC · AP News · OMS · NBC News</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-08</div>
+            <div class="tl-title">Обновление ВОЗ: 5 подтверждённых случаев вируса Андес и 8 подозрительных</div>
+            <div class="tl-desc">ВОЗ обновила данные до 13 случаев (5 подтверждённых, 8 подозрительных). Общественный риск остаётся низким. UKHSA сообщила о третьем британском гражданине с подозрением на заражение. CDC повысил уровень реагирования до 3.</div>
+            <span class="tl-source">OMS · UKHSA · CDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-07</div>
+            <div class="tl-title">Эвакуация трёх пациентов; судно направляется в Испанию</div>
+            <div class="tl-desc">Три больных пассажира эвакуированы для лечения. Судно продолжило движение на север к Канарским островам, пока контактное расследование расширялось на 13 стран.</div>
+            <span class="tl-source">AP News · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-06</div>
+            <div class="tl-title">Международная эвакуация и мониторинг пассажиров</div>
+            <div class="tl-desc">Информационные агентства сообщили о продолжающихся эвакуациях и мониторинге симптомов у вернувшихся пассажиров. США отправили персонал CDC самолётом для оказания помощи.</div>
+            <span class="tl-source">Reuters · ECDC</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-04</div>
+            <div class="tl-title">Публичное обновление ВОЗ — риск оценён как НИЗКИЙ</div>
+            <div class="tl-desc">ВОЗ сообщила о 7 случаях: 2 подтверждённых, 5 подозрительных, 3 смерти, 1 критически больной и 3 лёгких случая, пока судно стояло у Кабо-Верде.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-05-02</div>
+            <div class="tl-title">Третья смерть на борту; Великобритания уведомила ВОЗ</div>
+            <div class="tl-desc">Немецкая пассажирка скончалась на борту MV Hondius — третья смерть, связанная со вспышкой. Британский координационный центр уведомил ВОЗ о кластере тяжёлых острых респираторных заболеваний на борту круизного судна.</div>
+            <span class="tl-source">OMS DON#99 · Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-30</div>
+            <div class="tl-title">Пациент из реанимации эвакуирован в Южную Африку</div>
+            <div class="tl-desc">Случай 3 медицински эвакуирован с острова Вознесения в Южную Африку и впоследствии подтверждён ПЦР-положительным на хантавирус.</div>
+            <span class="tl-source">OMS DON#99</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-25</div>
+            <div class="tl-title">Подтверждённый смертельный случай достиг Южной Африки и скончался</div>
+            <div class="tl-desc">Критически больная пассажирка (вдова первой жертвы) снята с рейса KL592 и медицински эвакуирована в Южную Африку, где скончалась в тот же день. ВОЗ подтвердила ПЦР-положительный результат на вирус Андес.</div>
+            <span class="tl-source">OMS DON#99 · Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-24</div>
+            <div class="tl-title">Экскурсия на остров Святой Елены — возможное воздействие</div>
+            <div class="tl-desc">Пассажиры высадились для наблюдения за птицами. Контакт с заражёнными грызунами является вероятным событием заражения для всего кластера.</div>
+            <span class="tl-source">OMS DON#99 · Reuters</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-11</div>
+            <div class="tl-title">Первая смерть на борту — Лео Схилпероорд</div>
+            <div class="tl-desc">Нидерландский пассажир Лео Схилпероорд (80 лет) стал первым человеком, умершим на борту MV Hondius от хантавируса Андес.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">2026-04-06</div>
+            <div class="tl-title">Первые симптомы на борту MV Hondius</div>
+            <div class="tl-desc">Первый человек на борту экспедиционного круизного судна MV Hondius начал проявлять симптомы хантавируса Андес. Судно курсировало в антарктических и южноатлантических водах.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLIC HEALTH FACTS -->
+  <section class="section" id="facts-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Медицинская Справка</div>
+        <h2 class="section-title">Факты Общественного Здравоохранения</h2>
+        <p class="section-sub">Доказательная информация о хантавирусе: передача, симптомы и профилактика.</p>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">🦠</div>
+          <div class="fact-title">Что Такое Хантавирусы</div>
+          <div class="fact-text">Хантавирусы — зоонозные вирусы, переносимые грызунами. Лишь некоторые виды вызывают заболевание у людей. Вирус Андес — обнаруженный в Южной Америке — является вероятным штаммом во вспышке MV Hondius 2026.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌬️</div>
+          <div class="fact-title">Основной Путь Заражения</div>
+          <div class="fact-text">Люди заражаются главным образом при вдыхании аэрозолей экскрементов, мочи или слюны инфицированных грызунов. Прикосновение к заражённым поверхностям с последующим касанием глаз, носа или рта также может передать вирус.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">👥</div>
+          <div class="fact-title">Передача От Человека К Человеку</div>
+          <div class="fact-text">ВОЗ и CDC указывают, что задокументированная передача от человека к человеку ограничена вирусом Андес в Америке. Это основная причина, по которой ВОЗ оценила глобальный риск как НИЗКИЙ.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🫁</div>
+          <div class="fact-title">Клинические Синдромы</div>
+          <div class="fact-text">В Америке: хантавирусный кардиопульмональный синдром (ХКПС). В Европе и Азии: геморрагическая лихорадка с почечным синдромом (ГЛПС). Оба могут быть смертельными без лечения в реанимации.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">⏱️</div>
+          <div class="fact-title">Инкубационный Период</div>
+          <div class="fact-text">Симптомы появляются через одну-восемь недель после воздействия. Симптомы ХКПС проявляются через две-четыре недели. Широкий период затрудняет раннее выявление в кластерах.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">💊</div>
+          <div class="fact-title">Лечение</div>
+          <div class="fact-text">Одобренного противовирусного препарата от хантавируса не существует. Ранняя поддерживающая терапия и ведение на уровне реанимации значительно улучшают выживаемость. Немедленно обращайтесь за медицинской помощью при симптомах.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🏠</div>
+          <div class="fact-title">Профилактика</div>
+          <div class="fact-text">Герметизируйте здания от грызунов. Всегда очищайте с водой — никогда не сухой уборкой. Проветривайте 30 минут перед входом в зоны с грызунами. Используйте перчатки и маску N95 при очистке экскрементов.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🌍</div>
+          <div class="fact-title">Глобальная Нагрузка</div>
+          <div class="fact-text">ВОЗ оценивает от 10 000 до более 100 000 заражений хантавирусом в год. Наибольшая нагрузка в Азии и Европе (ГЛПС). В Америке ежегодно регистрируются случаи ХКПС. В Южной Америке самый высокий показатель смертности.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-middle">Advertisement</div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Часто Задаваемые Вопросы</div>
+        <h2 class="section-title">Часто Задаваемые Вопросы</h2>
+        <p class="section-sub">Общие вопросы о передаче хантавируса, симптомах и вспышке на MV Hondius 2026.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item" id="fq1">
+          <button class="faq-btn" onclick="toggleFaq('fq1')">
+            <span>Передаётся ли хантавирус воздушно-капельным путём между людьми?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Большинство штаммов хантавируса не передаются между людьми. Вирус Андес — вероятный возбудитель вспышки 2026 года — единственный хантавирус с задокументированной ограниченной передачей от человека к человеку. ВОЗ оценила глобальный риск как НИЗКИЙ. Риск передачи для широкой публики остаётся минимальным.</div>
+        </div>
+        <div class="faq-item" id="fq2">
+          <button class="faq-btn" onclick="toggleFaq('fq2')">
+            <span>Каковы первые симптомы хантавируса?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Ранние симптомы: лихорадка (выше 38,5 °C), сильные боли в мышцах бёдер и спины, сильная усталость и головная боль. Также могут появиться тошнота, рвота и диарея. Они продолжаются 4–10 дней до возможного перехода к затруднению дыхания. Если вы были на MV Hondius и у вас симптомы, немедленно обратитесь за медицинской помощью.</div>
+        </div>
+        <div class="faq-item" id="fq3">
+          <button class="faq-btn" onclick="toggleFaq('fq3')">
+            <span>Когда появляется затруднение дыхания?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Затруднение дыхания — характерный признак ХКПС — обычно начинается через 4–10 дней после начальной гриппоподобной фазы. Начало может быть быстрым и опасным для жизни. Если вы испытываете одышку после возможного воздействия, немедленно вызывайте скорую помощь.</div>
+        </div>
+        <div class="faq-item" id="fq4">
+          <button class="faq-btn" onclick="toggleFaq('fq4')">
+            <span>Насколько смертелен хантавирус?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">ХКПС имеет летальность ~36% в США. Вспышка 2026 года: 3 смерти из 9 подтверждённых случаев (33,3%), выше исторических средних. Раннее выявление и агрессивная терапия в реанимации значительно улучшают результаты.</div>
+        </div>
+        <div class="faq-item" id="fq5">
+          <button class="faq-btn" onclick="toggleFaq('fq5')">
+            <span>Существует ли вакцина или лечение?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Одобренной вакцины от хантавируса в западных странах по состоянию на 2026 год не существует. Лечение поддерживающее: интенсивная терапия, дополнительный кислород, в тяжёлых случаях механическая вентиляция или ЭКМО. Профилактика остаётся наиболее важной стратегией.</div>
+        </div>
+        <div class="faq-item" id="fq6">
+          <button class="faq-btn" onclick="toggleFaq('fq6')">
+            <span>Как безопасно очистить зону, загрязнённую грызунами?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">CDC рекомендует: (1) проветривать 30 мин перед входом; (2) надевать резиновые перчатки и маску N95; (3) опрыскать экскременты 10% раствором хлорки, подождать 5 мин; (4) вытирать тряпкой — никогда не подметать и не пылесосить; (5) двойной пакет для всех отходов; (6) продезинфицировать перчатки, затем вымыть руки.</div>
+        </div>
+        <div class="faq-item" id="fq7">
+          <button class="faq-btn" onclick="toggleFaq('fq7')">
+            <span>Должны ли путешественники беспокоиться?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">ВОЗ оценила глобальный риск как НИЗКИЙ. Вспышка ограничена пассажирами MV Hondius и их близкими контактами. Те, кто занимался активным отдыхом в сельских районах Южной Америки, должны следить за симптомами.</div>
+        </div>
+        <div class="faq-item" id="fq8">
+          <button class="faq-btn" onclick="toggleFaq('fq8')">
+            <span>Почему данные на карте различаются по странам?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-body">Страны применяют различные определения случаев — некоторые сообщают только о ПЦР-подтверждённых случаях, другие включают подозрительные. Эта карта различает подтверждённый (красный), подозрительный (оранжевый) и мониторинговый (серый) статусы по данным ВОЗ, ECDC, CDC по состоянию на 12 мая 2026 года.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT (SEO) -->
+  <section class="section" id="about-section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <div class="section-tag">Медицинская Справка</div>
+        <h2 class="section-title">Что Такое Хантавирус?</h2>
+        <p class="section-sub">Симптомы, передача и профилактика — важная информация для путешественников и пассажиров MV Hondius.</p>
+      </div>
+
+      <div class="about-card">
+        <h3 class="about-h3">Как Передаётся Хантавирус?</h3>
+        <p class="about-p">Хантавирус передаётся главным образом через контакт с инфицированными грызунами или их экскрементами, мочой или слюной. Наиболее распространённый путь — вдыхание загрязнённой пыли. Вирус не передаётся при обычном контакте между людьми. Однако вирус Андес — вероятный возбудитель вспышки MV Hondius 2026 года — единственный известный хантавирус с доказательствами ограниченной передачи от человека к человеку.</p>
+
+        <h3 class="about-h3">Симптомы Хантавируса</h3>
+        <p class="about-p">Ранние симптомы появляются через 1–8 недель после воздействия: лихорадка, сильные боли в мышцах, усталость и головная боль. Некоторые случаи прогрессируют до хантавирусного кардиопульмонального синдрома (ХКПС), характеризующегося одышкой, жидкостью в лёгких и быстрой дыхательной недостаточностью. Вспышка 2026 года: 3 смерти из 9 подтверждённых случаев (летальность 33,3%), 2 дополнительных вероятных случая под наблюдением.</p>
+
+        <h3 class="about-h3">Как Защитить Себя</h3>
+        <p class="about-p">Минимизируйте контакт с грызунами и их экскрементами. Проветривайте загрязнённые зоны не менее 30 минут перед входом. Увлажняйте загрязнённый материал дезинфицирующим средством перед протиранием — никогда не подметайте сухим способом. Надевайте резиновые перчатки и маску N95. Если вы были пассажиром MV Hondius, немедленно обратитесь в местные органы здравоохранения и следуйте протоколу мониторинга на 45 дней.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- OFFICIAL SOURCES -->
+  <section class="section" id="sources-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Источники</div>
+        <h2 class="section-title">Официальные Источники</h2>
+        <p class="section-sub">Все данные собраны из официальных органов общественного здравоохранения и проверенных международных СМИ.</p>
+      </div>
+
+      <div class="sources-pills">
+        <span class="source-pill">ВОЗ — Информационный Бюллетень о Хантавирусе</span>
+        <span class="source-pill">ВОЗ DON#99 Кластер Хантавируса</span>
+        <span class="source-pill">ВОЗ Чрезвычайное Событие 2026-eSOG227</span>
+        <span class="source-pill">CDC — О Хантавирусе</span>
+        <span class="source-pill">CDC — Зарегистрированные Случаи в США</span>
+        <span class="source-pill">ECDC Hantavirus AIR 2023</span>
+        <span class="source-pill">CDC — Техническая Информация Orthohantavirus</span>
+        <span class="source-pill">PAHO — Эпидемиологическое Предупреждение Дек. 2025</span>
+        <span class="source-pill">China CDC Weekly HFRS 2014–2023</span>
+        <span class="source-pill">CDC MMWR Юго-запад США 1993</span>
+        <span class="source-pill">ВОЗ Хантавирус Аргентина 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-slot" id="ad-bottom">Advertisement</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">HANTAVIRUS MAP</div>
+      <div class="footer-links">
+        <a href="/blog/">Блог</a>
+        <a href="/about">О нас</a>
+        <a href="/privacy-policy">Политика Конфиденциальности</a>
+        <a href="/terms-of-service">Условия Обслуживания</a>
+      </div>
+      <div class="footer-disclaimer">
+        Трекер Хантавируса — Обновлено <span id="last-updated">2026-05-12</span><br>
+        Источник: ВОЗ · Последнее обновление: май 2026<br>
+        © 2026 HantavirusMap. Все права защищены.<br>
+        Этот трекер обобщает публичные источники и не является диагностическим инструментом. При медицинских чрезвычайных ситуациях обращайтесь к специалистам.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script>
+    /* Language config — Russian */
+    window.APP_CONFIG = {
+      locale: 'ru-RU',
+      labels: { confirmed: 'Подтверждённые', suspected: 'Вероятные', deaths: 'Смерти', source: 'Источник' },
+      countryData: {
+        'south-africa': { name: 'Южная Африка', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО · 2 СЛУЧАЯ · 1 СМЕРТЬ', confirmed: 2, suspected: 0, deaths: 1, desc: 'Подтверждённые случаи вируса Андес в больнице Йоханнесбурга. Один пассажир MV Hondius скончался по прибытии (ПЦР-подтверждённо). Второй пациент медицински эвакуирован с острова Вознесения и подтверждён ПЦР-положительным в реанимации.', updates: ['Случай 2 ухудшился в пути в Йоханнесбург и скончался по прибытии — вирус Андес подтверждён ПЦР.', 'Случай 3 эвакуирован с острова Вознесения, подтверждён ПЦР-положительным в реанимации Йоханнесбурга.'], source: 'WHO DON#99' },
+        'switzerland': { name: 'Швейцария', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО', confirmed: 1, suspected: 0, deaths: 0, desc: 'Вернувшийся пассажир MV Hondius подтверждён с вирусом Андес и находится под медицинским наблюдением.', updates: ['Подтверждённый случай вируса Андес у вернувшегося пассажира MV Hondius.', 'Протокол клинического мониторинга на 45 дней.'], source: 'WHO, Wikipedia' },
+        'netherlands': { name: 'Нидерланды', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО · 2 НИДЕРЛАНДСКИЕ СМЕРТИ', confirmed: 1, suspected: 0, deaths: 2, desc: 'Подтверждённый случай вируса Андес у нидерландца, эвакуированного с MV Hondius 6 мая, госпитализированного в Radboud UMC (Неймеген) и подтверждённого ПЦР-положительным 7 мая. Двое нидерландцев погибли: Лео Схилпероорд (умер на борту, 11 апреля) и его жена (умерла в Йоханнесбурге, 26 апреля). 12 мая 12 медицинских работников помещены в изоляцию из-за нарушения протоколов.', updates: ['7 мая: нидерландский эвакуированный подтверждён ПЦР-положительным в Radboud UMC.', 'Двое нидерландцев погибли: первый на борту 11 апр., второй в Йоханнесбурге 26 апр.', '12 мая: 12 сотрудников Radboud UMC Неймеген в изоляции из-за нарушения протоколов.'], source: 'Wikipedia, WHO' },
+        'uk': { name: 'Великобритания', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО + ПОДОЗРИТЕЛЬНО', confirmed: 2, suspected: 1, deaths: 0, desc: 'Великобритания подтвердила 2 случая вируса Андес и 1 дополнительный подозрительный. Один подтверждённый эвакуирован в Нидерланды (Leiden UMC); другой — в Южную Африку. Третий британец подозревается в заражении на Тристан-да-Кунья (13–15 апр.) и госпитализирован на острове. UKHSA координирует 45-дневный надзор.', updates: ['Двое британцев подтверждены — один в Нидерландах, другой в Южной Африке.', 'Подозрительный случай на Тристан-да-Кунья: британские десантники доставили медикаменты 10 мая.'], source: 'UKHSA, Wikipedia' },
+        'france': { name: 'Франция', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО', confirmed: 1, suspected: 0, deaths: 0, desc: 'Французская гражданка, эвакуированная с MV Hondius 10 мая, дала положительный результат на вирус Андес 11 мая, её состояние ухудшается. Пятеро французских граждан были эвакуированы в Париж 10 мая. Франция повысила уровень готовности общественного здравоохранения и выявила 22 контакта высокого риска.', updates: ['11 мая: французская гражданка подтверждена ПЦР-положительной; состояние ухудшается.', 'Франция повысила уровень готовности; выявлено 22 контакта высокого риска.'], source: 'Wikipedia' },
+        'saint-helena': { name: 'Остров Святой Елены', severity: 'medium', severityLabel: 'ВЕРОЯТНЫЙ СЛУЧАЙ · ТОЧКА ВОЗДЕЙСТВИЯ', confirmed: 0, suspected: 1, deaths: 0, desc: 'Пассажиры высадились 24 апреля для береговой экскурсии. Контакт с заражёнными грызунами определён как вероятное событие заражения для всего кластера. Вероятный случай связан с островом. Все 30 высадившихся пассажиров отслежены UKHSA.', updates: ['24 апреля: береговая экскурсия — вероятное место заражения.', 'Все 30 пассажиров отслежены. Вероятный случай связан здесь.'], source: 'WHO DON#99, Wikipedia' },
+        'spain': { name: 'Испания', severity: 'high', severityLabel: 'ПОДТВЕРЖДЕНО', confirmed: 1, suspected: 0, deaths: 0, desc: 'Испанский гражданин, пассажир MV Hondius, дал положительный результат на вирус Андес и подтверждён симптоматическим и госпитализированным 12 мая. Из 14 протестированных испанцев положительный результат — у 1. MV Hondius прибыл в Тенерифе (порт Гранадилья) 10 мая для высадки пассажиров.', updates: ['11 мая: 1 из 14 испанцев дал положительный результат на вирус Андес.', '12 мая: испанский случай подтверждён симптоматическим; госпитализирован.'], source: 'Wikipedia' }
+      },
+      pts: [
+        { lat: -54.8, lng: -68.3, c: '#71717a', s: 12, key: null, n: 'Аргентина (Ушуая)', sc: 'gray', st: 'Порт Отправления', dt: 'MV Hondius отплыл из Ушуаи. Береговая экскурсия на острове Святой Елены 24 апр. — вероятная точка заражения.' },
+        { lat: -15.9, lng: -5.7, c: '#f97316', s: 17, key: 'saint-helena', n: 'Остров Святой Елены', sc: 'orange', st: 'Вероятный Случай · Точка Воздействия', dt: 'Экскурсия 24 апр. — вероятное событие заражения. Вероятный случай связан здесь. Нажмите для деталей.' },
+        { lat: -26.2, lng: 28.0, c: '#ef4444', s: 18, key: 'south-africa', n: 'Южная Африка', sc: 'red', st: 'Подтверждено · 2 Случая · 1 Смерть', dt: 'Вирус Андес подтверждён в больнице Йоханнесбурга. Один смертельный случай подтверждён ПЦР. Нажмите для деталей.' },
+        { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Швейцария', sc: 'red', st: 'Подтверждённый Случай', dt: 'Вирус Андес подтверждён у вернувшегося пассажира MV Hondius. Нажмите для деталей.' },
+        { lat: 52.4, lng: 4.9, c: '#ef4444', s: 15, key: 'netherlands', n: 'Нидерланды', sc: 'red', st: 'Подтверждено · 2 Нидерландские Смерти', dt: 'Нидерландский эвакуированный подтверждён ПЦР 7 мая в Radboud UMC. Двое нидерландцев погибли. Нажмите для деталей.' },
+        { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Великобритания', sc: 'red', st: '2 Подтверждено · 1 Подозрительный', dt: 'Великобритания подтвердила 2 случая + 1 подозрительный на Тристан-да-Кунья. Нажмите для деталей.' },
+        { lat: 51.2, lng: 10.5, c: '#71717a', s: 11, key: null, n: 'Германия', sc: 'gray', st: 'Тест Отрицательный', dt: 'Эвакуированный немец протестирован 6 мая; результат — отрицательный на вирус Андес. Источник: Wikipedia.' },
+        { lat: 46.2, lng: 2.2, c: '#ef4444', s: 14, key: 'france', n: 'Франция', sc: 'red', st: 'Подтверждённый Случай', dt: 'Французская гражданка подтверждена ПЦР-положительной 11 мая; состояние ухудшается. 5 французов эвакуированы 10 мая. Нажмите для деталей.' },
+        { lat: 40.4, lng: -3.7, c: '#ef4444', s: 13, key: 'spain', n: 'Испания', sc: 'red', st: 'Подтверждённый Случай', dt: 'Испанский гражданин подтверждён ПЦР-положительным 12 мая; госпитализирован с симптомами. MV Hondius прибыл в Тенерифе 10 мая; высажены 94 пассажира. Нажмите для деталей.' },
+        { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Сингапур', sc: 'gray', st: 'Тест Отрицательный', dt: '2 жителя протестированы — оба отрицательные на вирус Андес. Источник: Wikipedia.' },
+        { lat: 39.8, lng: -98.6, c: '#ef4444', s: 13, key: null, n: 'США', sc: 'red', st: 'Подтверждённый Случай', dt: 'Бессимптомный американский пассажир подтверждён ПЦР-положительным 11 мая. 17 американцев репатриированы в UNMC в Небраске.' },
+        { lat: -37.1, lng: -12.3, c: '#f97316', s: 13, key: null, n: 'Тристан-да-Кунья', sc: 'orange', st: 'Подозрительный Случай', dt: 'Один житель острова (бывший пассажир MV Hondius, 13–15 апр.) подозревается в заражении. Британские десантники 16-й воздушно-штурмовой бригады доставили 3300 кг медикаментов 10 мая.' }
+      ]
+    };
+  </script>
+  <script src="/js/app.js"></script>
+
+</body>
+
+</html>
