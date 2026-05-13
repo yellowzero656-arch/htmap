@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-05-12",
+  "last_updated": "2026-05-14",
   "confirmed_cases": 9,
   "suspected_cases": 2,
   "deaths": 3,
-  "countries_affected": 7,
+  "countries_affected": 8,
   "outbreak_source": "MV Hondius cruise ship",
   "virus_strain": "Andes virus",
   "source": "ECDC",

@@ -252,6 +252,15 @@
         <div class="tl-item">
           <div class="tl-dot active"></div>
           <div class="tl-card">
+            <div class="tl-date">2026-05-13</div>
+            <div class="tl-title">Pacienta franceza pe suport vital; Germania confirmata post-mortem</div>
+            <div class="tl-desc">Autoritatile franceze au confirmat ca pasagera franceza evacuata de pe MV Hondius se afla pe suport vital, descriind starea sa ca "etapa finala a ingrijirii de suport." Pasagera germana decedata pe 2 mai a fost confirmata PCR-pozitiva pentru virusul Andes post-mortem, ridicand numarul tarilor confirmate la 8. Total la 13 mai: 8 confirmate, 1 neconcludent, 2 probabile (11 total), 3 decese.</div>
+            <span class="tl-source">Wikipedia</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot active"></div>
+          <div class="tl-card">
             <div class="tl-date">2026-05-12</div>
             <div class="tl-title">Cazul spaniol confirmat în spital; 12 lucrători din Nijmegen în carantină — 9 confirmate, 11 total</div>
             <div class="tl-desc">Pasagerul spaniol testat pozitiv pe 11 mai este confirmat simptomatic și spitalizat pe 12 mai. 12 lucrători medicali de la Radboud UMC din Nijmegen (Olanda) sunt izolați după nerespectarea protocoalelor de control al infecțiilor. Repatrierea tuturor pasagerilor finalizată pe 11 mai. Total: 9 confirmate și 2 probabile (11 total), 3 decese (ECDC).</div>
@@ -621,6 +630,7 @@
         'uk': { name: 'Marea Britanie', severity: 'high', severityLabel: 'CONFIRMAT + SUSPECT', confirmed: 2, suspected: 1, deaths: 0, desc: 'Marea Britanie a confirmat 2 cazuri de virus Andes si 1 caz suspect suplimentar. Un confirmat evacuat in Olanda (Leiden UMC); altul in Africa de Sud. Al treilea britanic este suspect de infectare la Tristan da Cunha (13–15 apr.) si spitalizat pe insula. UKHSA coordoneaza supravegherea de 45 de zile.', updates: ['Doi britanici confirmati — unul in Olanda, altul in Africa de Sud.', 'Caz suspect la Tristan da Cunha: parautisti britanici au livrat medicamente pe 10 mai.'], source: 'UKHSA, Wikipedia' },
         'france': { name: 'Franta', severity: 'high', severityLabel: 'CONFIRMAT', confirmed: 1, suspected: 0, deaths: 0, desc: 'O cetatenie franceza evacuata de pe MV Hondius pe 10 mai a testat pozitiv pentru virusul Andes pe 11 mai, starea sa deteriorandu-se. Cinci cetateni francezi au fost evacuati la Paris pe 10 mai. Franta a ridicat nivelul de pregatire pentru sanatate publica si a identificat 22 de contacte cu risc ridicat.', updates: ['11 mai: cetatenie franceza confirmata PCR pozitiva; stare in deteriorare.', 'Franta a ridicat nivelul de pregatire; 22 de contacte cu risc ridicat identificate.'], source: 'Wikipedia' },
         'saint-helena': { name: 'Insula Sfanta Elena', severity: 'medium', severityLabel: 'CAZ PROBABIL · PUNCT DE EXPUNERE', confirmed: 0, suspected: 1, deaths: 0, desc: 'Pasagerii au debarcat pe 24 aprilie pentru o excursie pe tarm. Contactul cu rozatoarele infectate a fost identificat ca evenimentul probabil de infectare pentru intregul cluster. Un caz probabil este legat de insula. Toti cei 30 de pasageri care au debarcat au fost urmariti de UKHSA.', updates: ['24 aprilie: excursie pe tarm — locul probabil de infectare.', 'Toti cei 30 de pasageri urmariti. Caz probabil legat de acest loc.'], source: 'WHO DON#99, Wikipedia' },
+        'germany': { name: 'Germania', severity: 'high', severityLabel: 'CONFIRMAT · 1 CAZ · 1 DECES', confirmed: 1, suspected: 0, deaths: 1, desc: 'O pasagera germana a decedat la bordul MV Hondius pe 2 mai si a fost ulterior confirmata PCR-pozitiva pentru virusul Andes post-mortem. Un al doilea cetatean german evacuat pe 6 mai a testat negativ.', updates: ['2 mai: Pasagera germana decedata la bord — confirmata pozitiva pentru virusul Andes post-mortem.', '6 mai: Al doilea cetatean german evacuat in Germania; rezultat negativ.'], source: 'Wikipedia' },
         'spain': { name: 'Spania', severity: 'high', severityLabel: 'CONFIRMAT', confirmed: 1, suspected: 0, deaths: 0, desc: 'Un cetatean spaniol, pasager MV Hondius, a testat pozitiv pentru virusul Andes si a fost confirmat simptomatic si spitalizat pe 12 mai. Din 14 spanioli testati, 1 a iesit pozitiv. MV Hondius a sosit la Tenerife (portul Granadilla) pe 10 mai pentru debarcarea pasagerilor.', updates: ['11 mai: 1 din 14 spanioli a testat pozitiv pentru virusul Andes.', '12 mai: cazul spaniol confirmat simptomatic; spitalizat.'], source: 'Wikipedia' }
       },
       pts: [
@@ -630,7 +640,7 @@
         { lat: 46.8, lng: 8.2, c: '#ef4444', s: 14, key: 'switzerland', n: 'Elvetia', sc: 'red', st: 'Caz Confirmat', dt: 'Virus Andes confirmat la pasager MV Hondius revenit. Click pentru detalii.' },
         { lat: 52.4, lng: 4.9, c: '#ef4444', s: 15, key: 'netherlands', n: 'Olanda', sc: 'red', st: 'Confirmat · 2 Decese Olandeze', dt: 'Olandez evacuat confirmat PCR pe 7 mai la Radboud UMC. Doi olandezi au decedat. Click pentru detalii.' },
         { lat: 51.5, lng: -0.1, c: '#ef4444', s: 15, key: 'uk', n: 'Marea Britanie', sc: 'red', st: '2 Confirmate · 1 Suspect', dt: 'Marea Britanie a confirmat 2 cazuri + 1 suspect la Tristan da Cunha. Click pentru detalii.' },
-        { lat: 51.2, lng: 10.5, c: '#71717a', s: 11, key: null, n: 'Germania', sc: 'gray', st: 'Test Negativ', dt: 'Germanul evacuat testat pe 6 mai; rezultat negativ pentru virusul Andes. Sursa: Wikipedia.' },
+        { lat: 51.2, lng: 10.5, c: '#ef4444', s: 14, key: 'germany', n: 'Germania', sc: 'red', st: 'Confirmat · 1 Deces', dt: 'Pasagera germana decedata pe 2 mai — confirmata PCR-pozitiva post-mortem. Click pentru detalii.' },
         { lat: 46.2, lng: 2.2, c: '#ef4444', s: 14, key: 'france', n: 'Franta', sc: 'red', st: 'Caz Confirmat', dt: 'Cetatenie franceza confirmata PCR pozitiva pe 11 mai; stare in deteriorare. 5 francezi evacuati pe 10 mai. Click pentru detalii.' },
         { lat: 40.4, lng: -3.7, c: '#ef4444', s: 13, key: 'spain', n: 'Spania', sc: 'red', st: 'Caz Confirmat', dt: 'Cetatean spaniol confirmat PCR pozitiv pe 12 mai; spitalizat cu simptome. MV Hondius a sosit la Tenerife pe 10 mai; 94 de pasageri debarcati. Click pentru detalii.' },
         { lat: 1.35, lng: 103.8, c: '#71717a', s: 11, key: null, n: 'Singapore', sc: 'gray', st: 'Test Negativ', dt: '2 rezidenti testati — ambii negativi pentru virusul Andes. Sursa: Wikipedia.' },

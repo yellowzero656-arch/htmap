@@ -7,11 +7,11 @@
     "url": "https://www.nbcnews.com/health/health-news/flight-attendant-tests-negative-hantavirus-new-case-suspected-remote-i-rcna344191"
   },
   {
-    "type": "OFFICIAL",
-    "date": "2026-05-04",
-    "title": "Hantavirus cluster linked to cruise ship travel, Multi-country",
-    "source": "World Health Organization",
-    "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599"
+    "type": "UPDATE",
+    "date": "2026-05-13",
+    "title": "Hantavirus update: Is the cruise ship virus the next COVID? WHO says more cases 'expected'",
+    "source": "Hindustan Times",
+    "url": "hindustantimes.com/world-news/us-news/hantavirus-update-is-the-cruise-ship-virus-the-next-covid-who-says-more-cases-expected-101778694129400.html"
   },
   {
     "type": "UPDATE",
@@ -124,5 +124,19 @@
     "title": "'Plandemic, Covid 2.0': Fact-checking viral conspiracy theories about hantavirus",
     "source": "France 24",
     "url": "https://www.france24.com/en/tv-shows/truth-or-fake/20260511-plandemic-covid-2-0-fact-checking-viral-conspiracy-theories-about-hantavirus"
+  },
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-13",
+    "title": "Cruise passengers are quarantining, but for how long? Latest on hantavirus",
+    "source": "USA Today",
+    "url": "https://www.usatoday.com/story/news/health/2026/05/13/hantavirus-updates-american-tests-negative/90057777007/"
+  },
+  {
+    "type": "OFFICIAL",
+    "date": "2026-05-13",
+    "title": "Operator of hantavirus-hit ship will say by week's end when the vessel will resume cruises",
+    "source": "PBS",
+    "url": "https://www.pbs.org/newshour/health/operator-of-hantavirus-hit-ship-will-say-by-weeks-end-when-the-vessel-will-resume-cruises"
   }
 ]
